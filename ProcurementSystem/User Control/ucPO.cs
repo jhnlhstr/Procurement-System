@@ -29,6 +29,8 @@ namespace ProcurementSystem
                 for (int i = 0; i <= Dt.Rows.Count - 1; i++)
                 {
                     cmbVendor.Items.Add(Dt.Rows[i]["VendorName"].ToString());
+
+                    //asdasd
                 }
             }
         }
