@@ -20,8 +20,17 @@ namespace ProcurementSystem
         {
             InitializeComponent();
 
+            DataTable Dt = new DataTable();
 
-
+            Dt = DBMethods.GetSupplierMasterList();
+            
+            if (Dt.Rows.Count > 0)
+            {
+                for (int i = 0; i <= Dt.Rows.Count - 1; i++)
+                {
+                    cmbVendor.Items.Add(Dt.Rows[i]["VendorName"].ToString());
+                }
+            }
         }
 
         private void btnExtract_Click(object sender, EventArgs e)
