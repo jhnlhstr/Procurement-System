@@ -286,7 +286,7 @@
             this.btnAdd.Image = ((System.Drawing.Image)(resources.GetObject("btnAdd.Image")));
             this.btnAdd.ImageSize = new System.Drawing.Size(20, 20);
             this.btnAdd.LineColor = System.Drawing.Color.FromArgb(((int)(((byte)(83)))), ((int)(((byte)(180)))), ((int)(((byte)(151)))));
-            this.btnAdd.Location = new System.Drawing.Point(933, 252);
+            this.btnAdd.Location = new System.Drawing.Point(1021, 252);
             this.btnAdd.Name = "btnAdd";
             this.btnAdd.OnHoverBaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(83)))), ((int)(((byte)(180)))), ((int)(((byte)(151)))));
             this.btnAdd.OnHoverBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(83)))), ((int)(((byte)(180)))), ((int)(((byte)(151)))));
@@ -599,7 +599,7 @@
             dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
             this.adgvMasterList.DefaultCellStyle = dataGridViewCellStyle3;
             this.adgvMasterList.EnableHeadersVisualStyles = false;
-            this.adgvMasterList.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(79)))), ((int)(((byte)(111)))));
+            this.adgvMasterList.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(212)))), ((int)(((byte)(236)))), ((int)(((byte)(229)))));
             this.adgvMasterList.Location = new System.Drawing.Point(5, 8);
             this.adgvMasterList.Name = "adgvMasterList";
             this.adgvMasterList.RowHeadersVisible = false;
@@ -614,7 +614,7 @@
             this.adgvMasterList.ThemeStyle.AlternatingRowsStyle.SelectionBackColor = System.Drawing.Color.Empty;
             this.adgvMasterList.ThemeStyle.AlternatingRowsStyle.SelectionForeColor = System.Drawing.Color.Empty;
             this.adgvMasterList.ThemeStyle.BackColor = System.Drawing.Color.White;
-            this.adgvMasterList.ThemeStyle.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(79)))), ((int)(((byte)(111)))));
+            this.adgvMasterList.ThemeStyle.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(212)))), ((int)(((byte)(236)))), ((int)(((byte)(229)))));
             this.adgvMasterList.ThemeStyle.HeaderStyle.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(79)))), ((int)(((byte)(111)))));
             this.adgvMasterList.ThemeStyle.HeaderStyle.BorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
             this.adgvMasterList.ThemeStyle.HeaderStyle.Font = new System.Drawing.Font("Montserrat", 9.749999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));

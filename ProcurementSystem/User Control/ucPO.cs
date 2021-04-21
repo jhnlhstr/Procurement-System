@@ -10,6 +10,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using iTextSharp.text;
 using iTextSharp.text.pdf;
+using ProcurementSystem.Class.DBMethods;
 
 namespace ProcurementSystem
 {
@@ -18,6 +19,9 @@ namespace ProcurementSystem
         public ucPO()
         {
             InitializeComponent();
+
+
+
         }
 
         private void btnExtract_Click(object sender, EventArgs e)
