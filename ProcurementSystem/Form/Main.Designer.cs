@@ -30,22 +30,25 @@
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Main));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
             this.bunifuElipse1 = new Bunifu.Framework.UI.BunifuElipse(this.components);
             this.gunaDragControl1 = new Guna.UI.WinForms.GunaDragControl(this.components);
             this.gunaPanel1 = new Guna.UI.WinForms.GunaPanel();
-            this.pictureBox2 = new System.Windows.Forms.PictureBox();
+            this.iconButton1 = new FontAwesome.Sharp.IconButton();
             this.gunaLabel1 = new Guna.UI.WinForms.GunaLabel();
             this.gunaLabel4 = new Guna.UI.WinForms.GunaLabel();
             this.icnExit = new FontAwesome.Sharp.IconButton();
             this.gunaPanel2 = new Guna.UI.WinForms.GunaPanel();
+            this.btnStatus = new FontAwesome.Sharp.IconButton();
             this.icnUser = new FontAwesome.Sharp.IconButton();
             this.lblUsername = new Guna.UI.WinForms.GunaLabel();
             this.btnPO = new FontAwesome.Sharp.IconButton();
             this.btnMaster = new FontAwesome.Sharp.IconButton();
             this.pnlMaster = new Guna.UI.WinForms.GunaPanel();
+            this.btnBatchUpload = new Guna.UI.WinForms.GunaAdvenceButton();
+            this.lblID = new Guna.UI.WinForms.GunaLabel();
             this.btnAdd = new Guna.UI.WinForms.GunaAdvenceButton();
             this.gunaLabel9 = new Guna.UI.WinForms.GunaLabel();
             this.txtContactNumber = new Guna.UI.WinForms.GunaTextBox();
@@ -65,6 +68,7 @@
             this.gunaPanel3 = new Guna.UI.WinForms.GunaPanel();
             this.gunaShadowPanel1 = new Guna.UI.WinForms.GunaShadowPanel();
             this.adgvMasterList = new Guna.UI.WinForms.GunaDataGridView();
+            this.Column8 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -72,17 +76,21 @@
             this.Column7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.btnDelete = new Guna.UI.WinForms.GunaAdvenceButton();
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
             this.buniDGV = new Bunifu.Framework.UI.BunifuElipse(this.components);
             this.bunifuElipse2 = new Bunifu.Framework.UI.BunifuElipse(this.components);
             this.bunifuElipse3 = new Bunifu.Framework.UI.BunifuElipse(this.components);
             this.tmClock = new System.Windows.Forms.Timer(this.components);
+            this.cmList = new Guna.UI.WinForms.GunaContextMenuStrip();
+            this.tsSelect = new System.Windows.Forms.ToolStripMenuItem();
+            this.openFile = new System.Windows.Forms.OpenFileDialog();
             this.gunaPanel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.gunaPanel2.SuspendLayout();
             this.pnlMaster.SuspendLayout();
             this.gunaShadowPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.adgvMasterList)).BeginInit();
+            this.cmList.SuspendLayout();
             this.SuspendLayout();
             // 
             // bunifuElipse1
@@ -96,7 +104,7 @@
             // 
             // gunaPanel1
             // 
-            this.gunaPanel1.Controls.Add(this.pictureBox2);
+            this.gunaPanel1.Controls.Add(this.iconButton1);
             this.gunaPanel1.Controls.Add(this.gunaLabel1);
             this.gunaPanel1.Controls.Add(this.gunaLabel4);
             this.gunaPanel1.Location = new System.Drawing.Point(0, -6);
@@ -104,22 +112,30 @@
             this.gunaPanel1.Size = new System.Drawing.Size(1143, 57);
             this.gunaPanel1.TabIndex = 37;
             // 
-            // pictureBox2
+            // iconButton1
             // 
-            this.pictureBox2.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox2.Image")));
-            this.pictureBox2.Location = new System.Drawing.Point(22, 19);
-            this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(32, 27);
-            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox2.TabIndex = 44;
-            this.pictureBox2.TabStop = false;
+            this.iconButton1.BackColor = System.Drawing.Color.White;
+            this.iconButton1.FlatAppearance.BorderSize = 0;
+            this.iconButton1.FlatAppearance.MouseDownBackColor = System.Drawing.Color.White;
+            this.iconButton1.FlatAppearance.MouseOverBackColor = System.Drawing.Color.White;
+            this.iconButton1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.iconButton1.ForeColor = System.Drawing.SystemColors.ActiveCaption;
+            this.iconButton1.IconChar = FontAwesome.Sharp.IconChar.ClipboardList;
+            this.iconButton1.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(79)))), ((int)(((byte)(111)))));
+            this.iconButton1.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.iconButton1.IconSize = 20;
+            this.iconButton1.Location = new System.Drawing.Point(16, 19);
+            this.iconButton1.Name = "iconButton1";
+            this.iconButton1.Size = new System.Drawing.Size(32, 27);
+            this.iconButton1.TabIndex = 58;
+            this.iconButton1.UseVisualStyleBackColor = false;
             // 
             // gunaLabel1
             // 
             this.gunaLabel1.AutoSize = true;
             this.gunaLabel1.Font = new System.Drawing.Font("Montserrat", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.gunaLabel1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(79)))), ((int)(((byte)(111)))));
-            this.gunaLabel1.Location = new System.Drawing.Point(60, 17);
+            this.gunaLabel1.Location = new System.Drawing.Point(45, 17);
             this.gunaLabel1.Name = "gunaLabel1";
             this.gunaLabel1.Size = new System.Drawing.Size(271, 29);
             this.gunaLabel1.TabIndex = 0;
@@ -146,8 +162,8 @@
             this.icnExit.IconChar = FontAwesome.Sharp.IconChar.SignOutAlt;
             this.icnExit.IconColor = System.Drawing.Color.White;
             this.icnExit.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.icnExit.IconSize = 30;
-            this.icnExit.Location = new System.Drawing.Point(24, 12);
+            this.icnExit.IconSize = 20;
+            this.icnExit.Location = new System.Drawing.Point(24, 8);
             this.icnExit.Name = "icnExit";
             this.icnExit.Size = new System.Drawing.Size(35, 37);
             this.icnExit.TabIndex = 38;
@@ -158,6 +174,7 @@
             // gunaPanel2
             // 
             this.gunaPanel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(79)))), ((int)(((byte)(111)))));
+            this.gunaPanel2.Controls.Add(this.btnStatus);
             this.gunaPanel2.Controls.Add(this.icnUser);
             this.gunaPanel2.Controls.Add(this.lblUsername);
             this.gunaPanel2.Controls.Add(this.icnExit);
@@ -168,6 +185,29 @@
             this.gunaPanel2.Name = "gunaPanel2";
             this.gunaPanel2.Size = new System.Drawing.Size(86, 751);
             this.gunaPanel2.TabIndex = 1;
+            // 
+            // btnStatus
+            // 
+            this.btnStatus.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(79)))), ((int)(((byte)(111)))));
+            this.btnStatus.FlatAppearance.BorderSize = 0;
+            this.btnStatus.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(83)))), ((int)(((byte)(180)))), ((int)(((byte)(151)))));
+            this.btnStatus.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(83)))), ((int)(((byte)(180)))), ((int)(((byte)(151)))));
+            this.btnStatus.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnStatus.ForeColor = System.Drawing.Color.White;
+            this.btnStatus.IconChar = FontAwesome.Sharp.IconChar.Tools;
+            this.btnStatus.IconColor = System.Drawing.Color.White;
+            this.btnStatus.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.btnStatus.IconSize = 20;
+            this.btnStatus.Location = new System.Drawing.Point(0, 260);
+            this.btnStatus.Name = "btnStatus";
+            this.btnStatus.Size = new System.Drawing.Size(86, 54);
+            this.btnStatus.TabIndex = 58;
+            this.btnStatus.Tag = "";
+            this.btnStatus.Text = "Status";
+            this.btnStatus.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.toolTip1.SetToolTip(this.btnStatus, "Status of Purchase");
+            this.btnStatus.UseVisualStyleBackColor = false;
+            this.btnStatus.Click += new System.EventHandler(this.btnStatus_Click);
             // 
             // icnUser
             // 
@@ -180,10 +220,10 @@
             this.icnUser.IconChar = FontAwesome.Sharp.IconChar.User;
             this.icnUser.IconColor = System.Drawing.Color.White;
             this.icnUser.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.icnUser.IconSize = 30;
-            this.icnUser.Location = new System.Drawing.Point(24, 693);
+            this.icnUser.IconSize = 20;
+            this.icnUser.Location = new System.Drawing.Point(24, 699);
             this.icnUser.Name = "icnUser";
-            this.icnUser.Size = new System.Drawing.Size(35, 32);
+            this.icnUser.Size = new System.Drawing.Size(35, 29);
             this.icnUser.TabIndex = 57;
             this.toolTip1.SetToolTip(this.icnUser, "Username");
             this.icnUser.UseVisualStyleBackColor = false;
@@ -206,16 +246,18 @@
             this.btnPO.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(83)))), ((int)(((byte)(180)))), ((int)(((byte)(151)))));
             this.btnPO.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(83)))), ((int)(((byte)(180)))), ((int)(((byte)(151)))));
             this.btnPO.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnPO.ForeColor = System.Drawing.Color.White;
             this.btnPO.IconChar = FontAwesome.Sharp.IconChar.ShoppingCart;
             this.btnPO.IconColor = System.Drawing.Color.White;
             this.btnPO.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.btnPO.IconSize = 28;
-            this.btnPO.Location = new System.Drawing.Point(0, 194);
+            this.btnPO.IconSize = 20;
+            this.btnPO.Location = new System.Drawing.Point(0, 203);
             this.btnPO.Name = "btnPO";
-            this.btnPO.Size = new System.Drawing.Size(86, 42);
+            this.btnPO.Size = new System.Drawing.Size(86, 54);
             this.btnPO.TabIndex = 1;
             this.btnPO.Tag = "";
-            this.btnPO.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage;
+            this.btnPO.Text = "Purchasing";
+            this.btnPO.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             this.btnPO.UseVisualStyleBackColor = false;
             this.btnPO.Click += new System.EventHandler(this.btnPO_Click);
             // 
@@ -226,22 +268,29 @@
             this.btnMaster.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(83)))), ((int)(((byte)(180)))), ((int)(((byte)(151)))));
             this.btnMaster.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(83)))), ((int)(((byte)(180)))), ((int)(((byte)(151)))));
             this.btnMaster.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnMaster.IconChar = FontAwesome.Sharp.IconChar.List;
+            this.btnMaster.Font = new System.Drawing.Font("Montserrat", 8.249999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnMaster.ForeColor = System.Drawing.Color.White;
+            this.btnMaster.IconChar = FontAwesome.Sharp.IconChar.ClipboardList;
             this.btnMaster.IconColor = System.Drawing.Color.White;
             this.btnMaster.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.btnMaster.IconSize = 28;
+            this.btnMaster.IconSize = 20;
+            this.btnMaster.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
             this.btnMaster.Location = new System.Drawing.Point(0, 146);
             this.btnMaster.Name = "btnMaster";
-            this.btnMaster.Size = new System.Drawing.Size(86, 42);
+            this.btnMaster.Size = new System.Drawing.Size(86, 54);
             this.btnMaster.TabIndex = 0;
             this.btnMaster.Tag = "";
-            this.btnMaster.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage;
+            this.btnMaster.Text = "Supplier List";
+            this.btnMaster.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.btnMaster.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             this.btnMaster.UseVisualStyleBackColor = false;
             this.btnMaster.Click += new System.EventHandler(this.btnMaster_Click);
             // 
             // pnlMaster
             // 
             this.pnlMaster.BackColor = System.Drawing.Color.White;
+            this.pnlMaster.Controls.Add(this.btnBatchUpload);
+            this.pnlMaster.Controls.Add(this.lblID);
             this.pnlMaster.Controls.Add(this.btnAdd);
             this.pnlMaster.Controls.Add(this.gunaLabel9);
             this.pnlMaster.Controls.Add(this.txtContactNumber);
@@ -261,17 +310,65 @@
             this.pnlMaster.Controls.Add(this.gunaPanel3);
             this.pnlMaster.Controls.Add(this.gunaPanel1);
             this.pnlMaster.Controls.Add(this.gunaShadowPanel1);
+            this.pnlMaster.Controls.Add(this.btnDelete);
             this.pnlMaster.Location = new System.Drawing.Point(85, 9);
             this.pnlMaster.Name = "pnlMaster";
             this.pnlMaster.Size = new System.Drawing.Size(1145, 733);
             this.pnlMaster.TabIndex = 2;
+            // 
+            // btnBatchUpload
+            // 
+            this.btnBatchUpload.AnimationHoverSpeed = 0.07F;
+            this.btnBatchUpload.AnimationSpeed = 0.03F;
+            this.btnBatchUpload.BackColor = System.Drawing.Color.Transparent;
+            this.btnBatchUpload.BaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(246)))), ((int)(((byte)(240)))));
+            this.btnBatchUpload.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(83)))), ((int)(((byte)(180)))), ((int)(((byte)(151)))));
+            this.btnBatchUpload.BorderSize = 1;
+            this.btnBatchUpload.CheckedBaseColor = System.Drawing.Color.White;
+            this.btnBatchUpload.CheckedBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(83)))), ((int)(((byte)(180)))), ((int)(((byte)(151)))));
+            this.btnBatchUpload.CheckedForeColor = System.Drawing.Color.White;
+            this.btnBatchUpload.CheckedImage = ((System.Drawing.Image)(resources.GetObject("btnBatchUpload.CheckedImage")));
+            this.btnBatchUpload.CheckedLineColor = System.Drawing.Color.FromArgb(((int)(((byte)(83)))), ((int)(((byte)(180)))), ((int)(((byte)(151)))));
+            this.btnBatchUpload.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnBatchUpload.FocusedColor = System.Drawing.Color.Empty;
+            this.btnBatchUpload.Font = new System.Drawing.Font("Montserrat", 8.249999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnBatchUpload.ForeColor = System.Drawing.Color.Black;
+            this.btnBatchUpload.Image = ((System.Drawing.Image)(resources.GetObject("btnBatchUpload.Image")));
+            this.btnBatchUpload.ImageSize = new System.Drawing.Size(12, 12);
+            this.btnBatchUpload.LineColor = System.Drawing.Color.FromArgb(((int)(((byte)(83)))), ((int)(((byte)(180)))), ((int)(((byte)(151)))));
+            this.btnBatchUpload.Location = new System.Drawing.Point(47, 258);
+            this.btnBatchUpload.Name = "btnBatchUpload";
+            this.btnBatchUpload.OnHoverBaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(246)))), ((int)(((byte)(240)))));
+            this.btnBatchUpload.OnHoverBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(83)))), ((int)(((byte)(180)))), ((int)(((byte)(151)))));
+            this.btnBatchUpload.OnHoverForeColor = System.Drawing.Color.Black;
+            this.btnBatchUpload.OnHoverImage = null;
+            this.btnBatchUpload.OnHoverLineColor = System.Drawing.Color.FromArgb(((int)(((byte)(83)))), ((int)(((byte)(180)))), ((int)(((byte)(151)))));
+            this.btnBatchUpload.OnPressedColor = System.Drawing.Color.Black;
+            this.btnBatchUpload.Radius = 4;
+            this.btnBatchUpload.Size = new System.Drawing.Size(72, 31);
+            this.btnBatchUpload.TabIndex = 58;
+            this.btnBatchUpload.Text = "Excel";
+            this.toolTip1.SetToolTip(this.btnBatchUpload, "BATCH UPLOAD");
+            this.btnBatchUpload.Click += new System.EventHandler(this.btnBatchUpload_Click);
+            // 
+            // lblID
+            // 
+            this.lblID.AutoSize = true;
+            this.lblID.Font = new System.Drawing.Font("Montserrat", 9.749999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblID.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(79)))), ((int)(((byte)(111)))));
+            this.lblID.Location = new System.Drawing.Point(7, 56);
+            this.lblID.Name = "lblID";
+            this.lblID.Size = new System.Drawing.Size(17, 18);
+            this.lblID.TabIndex = 57;
+            this.lblID.Text = "0";
+            this.lblID.Visible = false;
             // 
             // btnAdd
             // 
             this.btnAdd.AnimationHoverSpeed = 0.07F;
             this.btnAdd.AnimationSpeed = 0.03F;
             this.btnAdd.BackColor = System.Drawing.Color.Transparent;
-            this.btnAdd.BaseColor = System.Drawing.Color.White;
+            this.btnAdd.BaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(246)))), ((int)(((byte)(240)))));
             this.btnAdd.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(83)))), ((int)(((byte)(180)))), ((int)(((byte)(151)))));
             this.btnAdd.BorderSize = 1;
             this.btnAdd.CheckedBaseColor = System.Drawing.Color.Gray;
@@ -282,22 +379,23 @@
             this.btnAdd.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnAdd.FocusedColor = System.Drawing.Color.Empty;
             this.btnAdd.Font = new System.Drawing.Font("Montserrat", 8.249999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnAdd.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(79)))), ((int)(((byte)(111)))));
+            this.btnAdd.ForeColor = System.Drawing.Color.Black;
             this.btnAdd.Image = ((System.Drawing.Image)(resources.GetObject("btnAdd.Image")));
-            this.btnAdd.ImageSize = new System.Drawing.Size(20, 20);
+            this.btnAdd.ImageSize = new System.Drawing.Size(12, 12);
             this.btnAdd.LineColor = System.Drawing.Color.FromArgb(((int)(((byte)(83)))), ((int)(((byte)(180)))), ((int)(((byte)(151)))));
-            this.btnAdd.Location = new System.Drawing.Point(1021, 252);
+            this.btnAdd.Location = new System.Drawing.Point(1035, 258);
             this.btnAdd.Name = "btnAdd";
-            this.btnAdd.OnHoverBaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(83)))), ((int)(((byte)(180)))), ((int)(((byte)(151)))));
+            this.btnAdd.OnHoverBaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(246)))), ((int)(((byte)(240)))));
             this.btnAdd.OnHoverBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(83)))), ((int)(((byte)(180)))), ((int)(((byte)(151)))));
-            this.btnAdd.OnHoverForeColor = System.Drawing.Color.White;
+            this.btnAdd.OnHoverForeColor = System.Drawing.Color.Black;
             this.btnAdd.OnHoverImage = null;
             this.btnAdd.OnHoverLineColor = System.Drawing.Color.FromArgb(((int)(((byte)(83)))), ((int)(((byte)(180)))), ((int)(((byte)(151)))));
             this.btnAdd.OnPressedColor = System.Drawing.Color.Black;
             this.btnAdd.Radius = 4;
-            this.btnAdd.Size = new System.Drawing.Size(82, 37);
+            this.btnAdd.Size = new System.Drawing.Size(68, 31);
             this.btnAdd.TabIndex = 55;
-            this.btnAdd.Text = "ADD";
+            this.btnAdd.Text = "Save";
+            this.toolTip1.SetToolTip(this.btnAdd, "SAVE");
             this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click);
             // 
             // gunaLabel9
@@ -334,7 +432,7 @@
             this.btnEdit.AnimationHoverSpeed = 0.07F;
             this.btnEdit.AnimationSpeed = 0.03F;
             this.btnEdit.BackColor = System.Drawing.Color.Transparent;
-            this.btnEdit.BaseColor = System.Drawing.Color.White;
+            this.btnEdit.BaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(246)))), ((int)(((byte)(240)))));
             this.btnEdit.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(83)))), ((int)(((byte)(180)))), ((int)(((byte)(151)))));
             this.btnEdit.BorderSize = 1;
             this.btnEdit.CheckedBaseColor = System.Drawing.Color.Gray;
@@ -345,22 +443,25 @@
             this.btnEdit.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnEdit.FocusedColor = System.Drawing.Color.Empty;
             this.btnEdit.Font = new System.Drawing.Font("Montserrat", 8.249999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnEdit.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(79)))), ((int)(((byte)(111)))));
+            this.btnEdit.ForeColor = System.Drawing.Color.Black;
             this.btnEdit.Image = ((System.Drawing.Image)(resources.GetObject("btnEdit.Image")));
-            this.btnEdit.ImageSize = new System.Drawing.Size(20, 20);
+            this.btnEdit.ImageSize = new System.Drawing.Size(12, 12);
             this.btnEdit.LineColor = System.Drawing.Color.FromArgb(((int)(((byte)(83)))), ((int)(((byte)(180)))), ((int)(((byte)(151)))));
-            this.btnEdit.Location = new System.Drawing.Point(1021, 252);
+            this.btnEdit.Location = new System.Drawing.Point(950, 258);
             this.btnEdit.Name = "btnEdit";
-            this.btnEdit.OnHoverBaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(83)))), ((int)(((byte)(180)))), ((int)(((byte)(151)))));
+            this.btnEdit.OnHoverBaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(246)))), ((int)(((byte)(240)))));
             this.btnEdit.OnHoverBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(83)))), ((int)(((byte)(180)))), ((int)(((byte)(151)))));
-            this.btnEdit.OnHoverForeColor = System.Drawing.Color.White;
+            this.btnEdit.OnHoverForeColor = System.Drawing.Color.Black;
             this.btnEdit.OnHoverImage = null;
             this.btnEdit.OnHoverLineColor = System.Drawing.Color.FromArgb(((int)(((byte)(83)))), ((int)(((byte)(180)))), ((int)(((byte)(151)))));
             this.btnEdit.OnPressedColor = System.Drawing.Color.Black;
             this.btnEdit.Radius = 4;
-            this.btnEdit.Size = new System.Drawing.Size(82, 37);
+            this.btnEdit.Size = new System.Drawing.Size(68, 31);
             this.btnEdit.TabIndex = 51;
-            this.btnEdit.Text = "EDIT";
+            this.btnEdit.Text = "Edit";
+            this.toolTip1.SetToolTip(this.btnEdit, "EDIT");
+            this.btnEdit.Visible = false;
+            this.btnEdit.Click += new System.EventHandler(this.btnEdit_Click);
             // 
             // gunaLabel8
             // 
@@ -551,20 +652,21 @@
             this.gunaShadowPanel1.BackColor = System.Drawing.Color.Transparent;
             this.gunaShadowPanel1.BaseColor = System.Drawing.Color.Transparent;
             this.gunaShadowPanel1.Controls.Add(this.adgvMasterList);
-            this.gunaShadowPanel1.Location = new System.Drawing.Point(37, 300);
+            this.gunaShadowPanel1.Location = new System.Drawing.Point(37, 295);
             this.gunaShadowPanel1.Name = "gunaShadowPanel1";
             this.gunaShadowPanel1.Padding = new System.Windows.Forms.Padding(6, 5, 10, 10);
             this.gunaShadowPanel1.ShadowColor = System.Drawing.Color.Black;
             this.gunaShadowPanel1.ShadowShift = 8;
-            this.gunaShadowPanel1.Size = new System.Drawing.Size(1073, 375);
+            this.gunaShadowPanel1.Size = new System.Drawing.Size(1073, 380);
             this.gunaShadowPanel1.TabIndex = 36;
             // 
             // adgvMasterList
             // 
             this.adgvMasterList.AllowUserToAddRows = false;
+            this.adgvMasterList.AllowUserToDeleteRows = false;
             this.adgvMasterList.AllowUserToResizeRows = false;
-            dataGridViewCellStyle1.BackColor = System.Drawing.Color.White;
-            this.adgvMasterList.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle7.BackColor = System.Drawing.Color.White;
+            this.adgvMasterList.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle7;
             this.adgvMasterList.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
@@ -573,16 +675,17 @@
             this.adgvMasterList.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.adgvMasterList.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal;
             this.adgvMasterList.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(79)))), ((int)(((byte)(111)))));
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Montserrat", 9.749999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(79)))), ((int)(((byte)(111)))));
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.adgvMasterList.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle8.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(79)))), ((int)(((byte)(111)))));
+            dataGridViewCellStyle8.Font = new System.Drawing.Font("Montserrat", 9.749999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle8.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle8.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(79)))), ((int)(((byte)(111)))));
+            dataGridViewCellStyle8.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle8.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.adgvMasterList.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle8;
             this.adgvMasterList.ColumnHeadersHeight = 40;
             this.adgvMasterList.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.Column8,
             this.Column1,
             this.Column2,
             this.Column3,
@@ -590,22 +693,23 @@
             this.Column7,
             this.Column5,
             this.Column6});
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle3.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Montserrat", 9.749999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(79)))), ((int)(((byte)(111)))));
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(246)))), ((int)(((byte)(240)))));
-            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(79)))), ((int)(((byte)(111)))));
-            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.adgvMasterList.DefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle9.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle9.Font = new System.Drawing.Font("Montserrat", 9.749999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle9.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(79)))), ((int)(((byte)(111)))));
+            dataGridViewCellStyle9.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(246)))), ((int)(((byte)(240)))));
+            dataGridViewCellStyle9.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(79)))), ((int)(((byte)(111)))));
+            dataGridViewCellStyle9.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.adgvMasterList.DefaultCellStyle = dataGridViewCellStyle9;
             this.adgvMasterList.EnableHeadersVisualStyles = false;
             this.adgvMasterList.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(212)))), ((int)(((byte)(236)))), ((int)(((byte)(229)))));
             this.adgvMasterList.Location = new System.Drawing.Point(5, 8);
             this.adgvMasterList.Name = "adgvMasterList";
+            this.adgvMasterList.ReadOnly = true;
             this.adgvMasterList.RowHeadersVisible = false;
             this.adgvMasterList.RowTemplate.Height = 40;
             this.adgvMasterList.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.adgvMasterList.Size = new System.Drawing.Size(1061, 361);
+            this.adgvMasterList.Size = new System.Drawing.Size(1061, 366);
             this.adgvMasterList.TabIndex = 0;
             this.adgvMasterList.Theme = Guna.UI.WinForms.GunaDataGridViewPresetThemes.Guna;
             this.adgvMasterList.ThemeStyle.AlternatingRowsStyle.BackColor = System.Drawing.Color.White;
@@ -621,7 +725,7 @@
             this.adgvMasterList.ThemeStyle.HeaderStyle.ForeColor = System.Drawing.Color.White;
             this.adgvMasterList.ThemeStyle.HeaderStyle.HeaightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.EnableResizing;
             this.adgvMasterList.ThemeStyle.HeaderStyle.Height = 40;
-            this.adgvMasterList.ThemeStyle.ReadOnly = false;
+            this.adgvMasterList.ThemeStyle.ReadOnly = true;
             this.adgvMasterList.ThemeStyle.RowsStyle.BackColor = System.Drawing.Color.White;
             this.adgvMasterList.ThemeStyle.RowsStyle.BorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal;
             this.adgvMasterList.ThemeStyle.RowsStyle.Font = new System.Drawing.Font("Montserrat", 9.749999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -629,47 +733,98 @@
             this.adgvMasterList.ThemeStyle.RowsStyle.Height = 40;
             this.adgvMasterList.ThemeStyle.RowsStyle.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(246)))), ((int)(((byte)(240)))));
             this.adgvMasterList.ThemeStyle.RowsStyle.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(79)))), ((int)(((byte)(111)))));
+            this.adgvMasterList.CellMouseDown += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.adgvMasterList_CellMouseDown);
+            // 
+            // Column8
+            // 
+            this.Column8.HeaderText = "ID";
+            this.Column8.Name = "Column8";
+            this.Column8.ReadOnly = true;
+            this.Column8.Visible = false;
             // 
             // Column1
             // 
             this.Column1.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
             this.Column1.HeaderText = "Item Name";
             this.Column1.Name = "Column1";
+            this.Column1.ReadOnly = true;
             // 
             // Column2
             // 
             this.Column2.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
             this.Column2.HeaderText = "Vendor Name";
             this.Column2.Name = "Column2";
+            this.Column2.ReadOnly = true;
             // 
             // Column3
             // 
             this.Column3.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
             this.Column3.HeaderText = "Address";
             this.Column3.Name = "Column3";
+            this.Column3.ReadOnly = true;
             // 
             // Column4
             // 
             this.Column4.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
             this.Column4.HeaderText = "Contact Person";
             this.Column4.Name = "Column4";
+            this.Column4.ReadOnly = true;
             // 
             // Column7
             // 
             this.Column7.HeaderText = "Contact Number";
             this.Column7.Name = "Column7";
+            this.Column7.ReadOnly = true;
             // 
             // Column5
             // 
             this.Column5.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
             this.Column5.HeaderText = "Email";
             this.Column5.Name = "Column5";
+            this.Column5.ReadOnly = true;
             // 
             // Column6
             // 
             this.Column6.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
             this.Column6.HeaderText = "Terms";
             this.Column6.Name = "Column6";
+            this.Column6.ReadOnly = true;
+            // 
+            // btnDelete
+            // 
+            this.btnDelete.AnimationHoverSpeed = 0.07F;
+            this.btnDelete.AnimationSpeed = 0.03F;
+            this.btnDelete.BackColor = System.Drawing.Color.Transparent;
+            this.btnDelete.BaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(182)))), ((int)(((byte)(182)))));
+            this.btnDelete.BorderColor = System.Drawing.Color.Red;
+            this.btnDelete.BorderSize = 1;
+            this.btnDelete.CheckedBaseColor = System.Drawing.Color.Gray;
+            this.btnDelete.CheckedBorderColor = System.Drawing.Color.Black;
+            this.btnDelete.CheckedForeColor = System.Drawing.Color.White;
+            this.btnDelete.CheckedImage = ((System.Drawing.Image)(resources.GetObject("btnDelete.CheckedImage")));
+            this.btnDelete.CheckedLineColor = System.Drawing.Color.DimGray;
+            this.btnDelete.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnDelete.FocusedColor = System.Drawing.Color.Empty;
+            this.btnDelete.Font = new System.Drawing.Font("Montserrat", 8.249999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnDelete.ForeColor = System.Drawing.Color.Black;
+            this.btnDelete.Image = ((System.Drawing.Image)(resources.GetObject("btnDelete.Image")));
+            this.btnDelete.ImageSize = new System.Drawing.Size(12, 12);
+            this.btnDelete.LineColor = System.Drawing.Color.Red;
+            this.btnDelete.Location = new System.Drawing.Point(1024, 258);
+            this.btnDelete.Name = "btnDelete";
+            this.btnDelete.OnHoverBaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(182)))), ((int)(((byte)(182)))));
+            this.btnDelete.OnHoverBorderColor = System.Drawing.Color.Red;
+            this.btnDelete.OnHoverForeColor = System.Drawing.Color.Black;
+            this.btnDelete.OnHoverImage = null;
+            this.btnDelete.OnHoverLineColor = System.Drawing.Color.Red;
+            this.btnDelete.OnPressedColor = System.Drawing.Color.Black;
+            this.btnDelete.Radius = 4;
+            this.btnDelete.Size = new System.Drawing.Size(79, 31);
+            this.btnDelete.TabIndex = 56;
+            this.btnDelete.Text = "Delete";
+            this.toolTip1.SetToolTip(this.btnDelete, "DELETE");
+            this.btnDelete.Visible = false;
+            this.btnDelete.Click += new System.EventHandler(this.btnDelete_Click);
             // 
             // toolTip1
             // 
@@ -679,7 +834,7 @@
             // 
             // buniDGV
             // 
-            this.buniDGV.ElipseRadius = 15;
+            this.buniDGV.ElipseRadius = 5;
             this.buniDGV.TargetControl = this.adgvMasterList;
             // 
             // bunifuElipse2
@@ -697,6 +852,37 @@
             this.tmClock.Interval = 1000;
             this.tmClock.Tick += new System.EventHandler(this.tmClock_Tick);
             // 
+            // cmList
+            // 
+            this.cmList.Font = new System.Drawing.Font("Century Gothic", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cmList.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.tsSelect});
+            this.cmList.Name = "cmModify";
+            this.cmList.RenderStyle.ArrowColor = System.Drawing.Color.FromArgb(((int)(((byte)(83)))), ((int)(((byte)(180)))), ((int)(((byte)(151)))));
+            this.cmList.RenderStyle.BorderColor = System.Drawing.Color.Gainsboro;
+            this.cmList.RenderStyle.ColorTable = null;
+            this.cmList.RenderStyle.RoundedEdges = true;
+            this.cmList.RenderStyle.SelectionArrowColor = System.Drawing.Color.White;
+            this.cmList.RenderStyle.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(83)))), ((int)(((byte)(180)))), ((int)(((byte)(151)))));
+            this.cmList.RenderStyle.SelectionForeColor = System.Drawing.Color.White;
+            this.cmList.RenderStyle.SeparatorColor = System.Drawing.Color.Gainsboro;
+            this.cmList.RenderStyle.TextRenderingHint = Guna.UI.WinForms.DrawingTextRenderingHint.SystemDefault;
+            this.cmList.Size = new System.Drawing.Size(117, 26);
+            // 
+            // tsSelect
+            // 
+            this.tsSelect.BackColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.tsSelect.Font = new System.Drawing.Font("Montserrat", 8.249999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tsSelect.Image = ((System.Drawing.Image)(resources.GetObject("tsSelect.Image")));
+            this.tsSelect.Name = "tsSelect";
+            this.tsSelect.Size = new System.Drawing.Size(116, 22);
+            this.tsSelect.Text = "SELECT";
+            this.tsSelect.Click += new System.EventHandler(this.tsSelect_Click);
+            // 
+            // openFile
+            // 
+            this.openFile.FileName = "openFileDialog1";
+            // 
             // Main
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -709,15 +895,16 @@
             this.Name = "Main";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Form1";
+            this.Load += new System.EventHandler(this.Main_Load);
             this.gunaPanel1.ResumeLayout(false);
             this.gunaPanel1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             this.gunaPanel2.ResumeLayout(false);
             this.gunaPanel2.PerformLayout();
             this.pnlMaster.ResumeLayout(false);
             this.pnlMaster.PerformLayout();
             this.gunaShadowPanel1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.adgvMasterList)).EndInit();
+            this.cmList.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -755,6 +942,11 @@
         private Guna.UI.WinForms.GunaAdvenceButton btnEdit;
         private Guna.UI.WinForms.GunaLabel gunaLabel9;
         internal Guna.UI.WinForms.GunaTextBox txtContactNumber;
+        private Guna.UI.WinForms.GunaAdvenceButton btnAdd;
+        private Guna.UI.WinForms.GunaLabel lblUsername;
+        private FontAwesome.Sharp.IconButton icnUser;
+        private System.Windows.Forms.Timer tmClock;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column8;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column3;
@@ -762,11 +954,14 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Column7;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column5;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column6;
-        private Guna.UI.WinForms.GunaAdvenceButton btnAdd;
-        private System.Windows.Forms.PictureBox pictureBox2;
-        private Guna.UI.WinForms.GunaLabel lblUsername;
-        private FontAwesome.Sharp.IconButton icnUser;
-        private System.Windows.Forms.Timer tmClock;
+        private Guna.UI.WinForms.GunaContextMenuStrip cmList;
+        private System.Windows.Forms.ToolStripMenuItem tsSelect;
+        private Guna.UI.WinForms.GunaAdvenceButton btnDelete;
+        private Guna.UI.WinForms.GunaLabel lblID;
+        private FontAwesome.Sharp.IconButton iconButton1;
+        private FontAwesome.Sharp.IconButton btnStatus;
+        private Guna.UI.WinForms.GunaAdvenceButton btnBatchUpload;
+        private System.Windows.Forms.OpenFileDialog openFile;
     }
 }
 
