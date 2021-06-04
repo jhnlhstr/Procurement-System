@@ -19,31 +19,31 @@ namespace ProcurementSystem
             InitializeComponent();
         }
 
-        private void frmLogin_Load(object sender, EventArgs e)
-        {
-
-        }
-
-        private void icnExit_Click(object sender, EventArgs e)
+        private void icnLogout_Click(object sender, EventArgs e)
         {
             this.Close();
         }
 
         private void btnLogin_Click(object sender, EventArgs e)
         {
-            if (txtUsername.Text == string.Empty || txtUsername.Text == string.Empty)
+            string user_rights = string.Empty;
+
+            if (txtUsername.Text == string.Empty || txtPassword.Text == string.Empty)
             {
-                MessageBox.Show("Please input all details needed!", "", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show("Kindly input all fields for your credentials", "", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
 
-            if (DBMethods.GetUserLogin(txtUsername.Text, txtPassword.Text))
+            if (DBMethods.GetUserLogin(txtUsername.Text, txtPassword.Text, ref user_rights))
             {
                 InformationDetails.Username = txtUsername.Text;
-                Main frmMain = new Main();
+                InformationDetails.Credentials = user_rights;
+
+                frmMain frmMain = new frmMain();
                 this.Hide();
                 frmMain.ShowDialog();
                 this.Close();
+
             }
             else
             {
@@ -51,8 +51,6 @@ namespace ProcurementSystem
             }
 
         }
-
-
 
 
 

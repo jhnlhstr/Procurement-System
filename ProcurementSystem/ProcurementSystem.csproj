@@ -36,9 +36,31 @@
     <Reference Include="BouncyCastle.Crypto, Version=1.8.6.0, Culture=neutral, PublicKeyToken=0e99375e54769942">
       <HintPath>..\packages\BouncyCastle.1.8.6.1\lib\BouncyCastle.Crypto.dll</HintPath>
     </Reference>
-    <Reference Include="Bunifu_UI_v1.4, Version=1.3.0.0, Culture=neutral, processorArchitecture=MSIL">
+    <Reference Include="Bunifu.Core, Version=1.11.5.1, Culture=neutral, PublicKeyToken=e8e24ccd28363fe9" />
+    <Reference Include="Bunifu.Reports, Version=1.0.4.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Bunifu.Reports.1.0.5\lib\net45\Bunifu.Reports.dll</HintPath>
+    </Reference>
+    <Reference Include="Bunifu.UI.WinForms.BunifuButton">
+      <HintPath>..\..\..\Downloads\Bunifu\Bunifu_UI_WinForms_1.11.5.1\Bunifu_UI_WinForms_1.11.5.1\Bunifu_UI_WinForms_1.11.5.1\Bunifu.UI.WinForms.BunifuButton.dll</HintPath>
+    </Reference>
+    <Reference Include="Bunifu.UI.WinForms.BunifuDropdown">
+      <HintPath>..\..\..\Downloads\Bunifu\Bunifu_UI_WinForms_1.11.5.1\Bunifu_UI_WinForms_1.11.5.1\Bunifu_UI_WinForms_1.11.5.1\Bunifu.UI.WinForms.BunifuDropdown.dll</HintPath>
+    </Reference>
+    <Reference Include="Bunifu.UI.WinForms.BunifuLabel">
+      <HintPath>..\..\..\Downloads\Bunifu\Bunifu_UI_WinForms_1.11.5.1\Bunifu_UI_WinForms_1.11.5.1\Bunifu_UI_WinForms_1.11.5.1\Bunifu.UI.WinForms.BunifuLabel.dll</HintPath>
+    </Reference>
+    <Reference Include="Bunifu.UI.WinForms.BunifuRadioButton">
+      <HintPath>..\..\..\Downloads\Bunifu\Bunifu_UI_WinForms_1.11.5.1\Bunifu_UI_WinForms_1.11.5.1\Bunifu_UI_WinForms_1.11.5.1\Bunifu.UI.WinForms.BunifuRadioButton.dll</HintPath>
+    </Reference>
+    <Reference Include="Bunifu.UI.WinForms.BunifuScrollBar">
+      <HintPath>..\..\..\Downloads\Bunifu\Bunifu_UI_WinForms_1.11.5.1\Bunifu_UI_WinForms_1.11.5.1\Bunifu_UI_WinForms_1.11.5.1\Bunifu.UI.WinForms.BunifuScrollBar.dll</HintPath>
+    </Reference>
+    <Reference Include="Bunifu.UI.WinForms.BunifuTextbox">
+      <HintPath>..\..\..\Downloads\Bunifu\Bunifu_UI_WinForms_1.11.5.1\Bunifu_UI_WinForms_1.11.5.1\Bunifu_UI_WinForms_1.11.5.1\Bunifu.UI.WinForms.BunifuTextbox.dll</HintPath>
+    </Reference>
+    <Reference Include="Bunifu_UI_v1.5.3, Version=1.5.3.0, Culture=neutral, PublicKeyToken=e8e24ccd28363fe9, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>bin\Debug\Bunifu_UI_v1.4.dll</HintPath>
+      <HintPath>bin\Debug\Bunifu_UI_v1.5.3.dll</HintPath>
     </Reference>
     <Reference Include="FontAwesome.Sharp, Version=5.15.3.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\FontAwesome.Sharp.5.15.3\lib\net472\FontAwesome.Sharp.dll</HintPath>
@@ -54,8 +76,19 @@
       <HintPath>..\packages\Microsoft.Office.Interop.Excel.15.0.4795.1000\lib\net20\Microsoft.Office.Interop.Excel.dll</HintPath>
       <EmbedInteropTypes>True</EmbedInteropTypes>
     </Reference>
+    <Reference Include="Microsoft.Office.Interop.Outlook, Version=15.0.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Office.Interop.Outlook.15.0.4797.1003\lib\net20\Microsoft.Office.Interop.Outlook.dll</HintPath>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </Reference>
+    <Reference Include="OpenHtmlToPdf, Version=1.12.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\OpenHtmlToPdf.1.12.0.0\lib\net45\OpenHtmlToPdf.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Design" />
+    <Reference Include="System.Drawing.Design" />
+    <Reference Include="System.Management" />
+    <Reference Include="System.Security" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -69,11 +102,42 @@
   <ItemGroup>
     <Compile Include="Class\DatabaseAccessLayer.cs" />
     <Compile Include="Class\DBMethods.cs" />
-    <Compile Include="Form\Main.cs">
+    <Compile Include="Class\Information.cs" />
+    <Compile Include="Form\frmDashboard.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Form\Main.Designer.cs">
-      <DependentUpon>Main.cs</DependentUpon>
+    <Compile Include="Form\frmDashboard.Designer.cs">
+      <DependentUpon>frmDashboard.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Form\frmMain.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form\frmMain.Designer.cs">
+      <DependentUpon>frmMain.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Form\frmPurchasing.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form\frmPurchasing.Designer.cs">
+      <DependentUpon>frmPurchasing.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Form\frmRequest.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form\frmRequest.Designer.cs">
+      <DependentUpon>frmRequest.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Form\frmStatus.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form\frmStatus.Designer.cs">
+      <DependentUpon>frmStatus.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Form\frmSupplierList.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form\frmSupplierList.Designer.cs">
+      <DependentUpon>frmSupplierList.cs</DependentUpon>
     </Compile>
     <Compile Include="Form\frmLogin.cs">
       <SubType>Form</SubType>
@@ -81,35 +145,37 @@
     <Compile Include="Form\frmLogin.Designer.cs">
       <DependentUpon>frmLogin.cs</DependentUpon>
     </Compile>
-    <Compile Include="Class\Information.cs" />
-    <Compile Include="User Control\ucStatus.cs">
-      <SubType>UserControl</SubType>
+    <Compile Include="Form\frmUsers.cs">
+      <SubType>Form</SubType>
     </Compile>
-    <Compile Include="User Control\ucStatus.Designer.cs">
-      <DependentUpon>ucStatus.cs</DependentUpon>
-    </Compile>
-    <Compile Include="User Control\POEdit.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="User Control\POEdit.Designer.cs">
-      <DependentUpon>POEdit.cs</DependentUpon>
+    <Compile Include="Form\frmUsers.Designer.cs">
+      <DependentUpon>frmUsers.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="User Control\ucPO.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="User Control\ucPO.Designer.cs">
-      <DependentUpon>ucPO.cs</DependentUpon>
-    </Compile>
-    <EmbeddedResource Include="Form\Main.resx">
-      <DependentUpon>Main.cs</DependentUpon>
+    <EmbeddedResource Include="Form\frmDashboard.resx">
+      <DependentUpon>frmDashboard.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form\frmMain.resx">
+      <DependentUpon>frmMain.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form\frmPurchasing.resx">
+      <DependentUpon>frmPurchasing.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form\frmRequest.resx">
+      <DependentUpon>frmRequest.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form\frmStatus.resx">
+      <DependentUpon>frmStatus.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form\frmSupplierList.resx">
+      <DependentUpon>frmSupplierList.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Form\frmLogin.resx">
       <DependentUpon>frmLogin.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="User Control\POEdit.resx">
-      <DependentUpon>POEdit.cs</DependentUpon>
+    <EmbeddedResource Include="Form\frmUsers.resx">
+      <DependentUpon>frmUsers.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -120,12 +186,6 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="User Control\ucPO.resx">
-      <DependentUpon>ucPO.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="User Control\ucStatus.resx">
-      <DependentUpon>ucStatus.cs</DependentUpon>
-    </EmbeddedResource>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>

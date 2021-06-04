@@ -9,5 +9,8 @@ namespace ProcurementSystem.Class.Information
     class InformationDetails
     {
         public static string Username { get; set; }
+
+        public static string Credentials { get; set; }
+
     }
 }

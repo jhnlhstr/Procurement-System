@@ -12,7 +12,7 @@ namespace ProcurementSystem.Class.AccessLayer
 {
     class DatabaseAccessLayer
     {
-        static SqlConnection myConnection = new SqlConnection("Data Source=192.168.1.13; Initial Catalog=PROCUREMENT; Integrated Security=false; User Instance=False; User ID=billing; Password=@Newuserlogs");
+        static SqlConnection myConnection = new SqlConnection("Data Source=192.168.1.2; Initial Catalog=PROCUREMENT; Integrated Security=false; User Instance=False; User ID=billing; Password=@Newuserlogs");
 
         public static DataTable RetrieveDataTableInfo(string query)
         {
@@ -117,7 +117,7 @@ namespace ProcurementSystem.Class.AccessLayer
             }
         }
 
-        public   static Boolean UpdateInfomation(string query, params SqlParameter[] _Params)
+        public static Boolean UpdateInfomation(string query, params SqlParameter[] _Params)
         {
             SqlCommand myCommand = null;
 
@@ -189,6 +189,51 @@ namespace ProcurementSystem.Class.AccessLayer
             catch (Exception ex)
             {
                 throw new Exception("Error in inserting records" + Environment.NewLine + ex.Message.ToString(), ex);
+            }
+            finally
+            {
+                if (myConnection.State == ConnectionState.Open)
+                {
+                    myConnection.Close();
+                    myCommand.Dispose();
+                }
+            }
+        }
+
+
+        public static int UpdateInfomationProcPRID(string query, params SqlParameter[] _Params)
+        {
+            SqlCommand myCommand = null;
+            int sId = 0;
+
+            try
+            {
+                myConnection.Open();
+                myCommand = new SqlCommand(query, myConnection);
+
+                myCommand.Parameters.Clear();
+                myCommand.CommandType = CommandType.StoredProcedure;
+                myCommand.CommandTimeout = 0;
+
+                if (!(_Params == null))
+                {
+                    foreach (SqlParameter param in _Params)
+                    {
+                        myCommand.Parameters.Add(param);
+                    }
+
+                    myCommand.Parameters["@pId"].Direction = ParameterDirection.Output;
+                }
+
+                myCommand.ExecuteNonQuery();
+
+                sId = Convert.ToInt32(myCommand.Parameters["@pId"].Value);
+
+                return sId;
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("Error in inserting pr number" + Environment.NewLine + ex.Message.ToString(), ex);
             }
             finally
             {
