@@ -663,6 +663,43 @@ namespace ProcurementSystem.Class.DBMethods
             }
         }
 
+        public static DataTable DashboardGraphRequest(string year)
+        {
+            try
+            {
+                return DatabaseAccessLayer.RetrieveDataTableInfo("SELECT COUNT(DISTINCT RPRNum) [Jan]," +
+                                                               " (SELECT COUNT(DISTINCT RPRNum) FROM PS.PurchaseRequest WHERE MONTH(RDate) = 02" +
+                                                                  " AND YEAR(RDate) = @year) [Feb]," +
+                                                               " (SELECT COUNT(DISTINCT RPRNum) FROM PS.PurchaseRequest WHERE MONTH(RDate) = 03" +
+                                                                  " AND YEAR(RDate) = @year) [Mar]," +
+                                                               " (SELECT COUNT(DISTINCT RPRNum) FROM PS.PurchaseRequest WHERE MONTH(RDate) = 04" +
+                                                                  " AND YEAR(RDate) = @year) [Apr]," +
+                                                               " (SELECT COUNT(DISTINCT RPRNum) FROM PS.PurchaseRequest WHERE MONTH(RDate) = 05" +
+                                                                  " AND YEAR(RDate) = @year) [May]," +
+                                                               " (SELECT COUNT(DISTINCT RPRNum) FROM PS.PurchaseRequest WHERE MONTH(RDate) = 06" +
+                                                                  " AND YEAR(RDate) = @year) [June]," +
+                                                               " (SELECT COUNT(DISTINCT RPRNum) FROM PS.PurchaseRequest WHERE MONTH(RDate) = 07" +
+                                                                  " AND YEAR(RDate) = @year) [July]," +
+                                                               " (SELECT COUNT(DISTINCT RPRNum) FROM PS.PurchaseRequest WHERE MONTH(RDate) = 08" +
+                                                                  " AND YEAR(RDate) = @year) [Aug]," +
+                                                               " (SELECT COUNT(DISTINCT RPRNum) FROM PS.PurchaseRequest WHERE MONTH(RDate) = 09" +
+                                                                  " AND YEAR(RDate) = @year) [Sep]," +
+                                                               " (SELECT COUNT(DISTINCT RPRNum) FROM PS.PurchaseRequest WHERE MONTH(RDate) = 10" +
+                                                                  " AND YEAR(RDate) = @year) [Oct]," +
+                                                               " (SELECT COUNT(DISTINCT RPRNum) FROM PS.PurchaseRequest WHERE MONTH(RDate) = 11" +
+                                                                  " AND YEAR(RDate) = @year) [Nov]," +
+                                                               " (SELECT COUNT(DISTINCT RPRNum) FROM PS.PurchaseRequest WHERE MONTH(RDate) = 12" +
+                                                                  " AND YEAR(RDate) = @year) [Dec]" +
+                                                               " FROM PS.PurchaseRequest WHERE MONTH(RDate) = 01 AND YEAR(RDate) = @year",
+                                                               new SqlParameter("@year", year));
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("Error in getting graph request" + Environment.NewLine + ex.Message.ToString(), ex);
+            }
+
+        }
+
 
 
 

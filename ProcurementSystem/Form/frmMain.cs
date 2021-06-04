@@ -17,50 +17,52 @@ namespace ProcurementSystem
         {
             InitializeComponent();
 
-            //lblUsername.Text = InformationDetails.Username;
+            lblUsername.Text = InformationDetails.Username;
 
-            //switch (InformationDetails.Credentials.ToLower())
-            //{
-            //    case "user":
+            switch (InformationDetails.Credentials.ToLower())
+            {
+                case "user":
 
-            //        lblTitle.Text = "";
+                    lblTitle.Text = "";
 
-            //        btnDashboard.Visible = false;
-            //        btnSupplier.Visible = false;
-            //        btnPurchasing.Visible = false;
-            //        btnStatus.Visible = false;
+                    btnDashboard.Visible = false;
+                    btnSupplier.Visible = false;
+                    btnPurchasing.Visible = false;
+                    btnStatus.Visible = false;
+                    btnUsers.Visible = false;
 
-            //        break;
+                    break;
 
-            //    case "admin":
+                case "admin":
 
-            //        btnDashboard.Visible = false;
-            //        //btnSupplier.Visible = false;
-            //        btnRequest.Visible = false;
-            //        btnPurchasing.Visible = false;
-            //        //btnStatus.Visible = false;
+                    btnDashboard.Visible = false;
+                    //btnSupplier.Visible = false;
+                    btnRequest.Visible = false;
+                    btnPurchasing.Visible = false;
+                    //btnStatus.Visible = false;
+                    btnUsers.Visible = false;
 
-            //        break;
+                    break;
 
-            //    default:
+                default:
 
-            //        lblTitle.Text = "Dashboard";
+                    lblTitle.Text = "Dashboard";
 
-            //        this.pnlFormLoader.Controls.Clear();
-            //        frmDashboard frmDashboard_vrb = new frmDashboard() { Dock = DockStyle.Fill, TopLevel = false, TopMost = true };
-            //        frmDashboard_vrb.FormBorderStyle = FormBorderStyle.None;
-            //        this.pnlFormLoader.Controls.Add(frmDashboard_vrb);
-            //        frmDashboard_vrb.Show();
+                    this.pnlFormLoader.Controls.Clear();
+                    frmDashboard frmDashboard_vrb = new frmDashboard() { Dock = DockStyle.Fill, TopLevel = false, TopMost = true };
+                    frmDashboard_vrb.FormBorderStyle = FormBorderStyle.None;
+                    this.pnlFormLoader.Controls.Add(frmDashboard_vrb);
+                    frmDashboard_vrb.Show();
 
-            //        break;
-            //}
+                    break;
+            }
 
-            lblTitle.Text = "Dashboard";
-            this.pnlFormLoader.Controls.Clear();
-            frmDashboard frmDashboard_vrb = new frmDashboard() { Dock = DockStyle.Fill, TopLevel = false, TopMost = true };
-            frmDashboard_vrb.FormBorderStyle = FormBorderStyle.None;
-            this.pnlFormLoader.Controls.Add(frmDashboard_vrb);
-            frmDashboard_vrb.Show();
+            //lblTitle.Text = "Dashboard";
+            //this.pnlFormLoader.Controls.Clear();
+            //frmDashboard frmDashboard_vrb = new frmDashboard() { Dock = DockStyle.Fill, TopLevel = false, TopMost = true };
+            //frmDashboard_vrb.FormBorderStyle = FormBorderStyle.None;
+            //this.pnlFormLoader.Controls.Add(frmDashboard_vrb);
+            //frmDashboard_vrb.Show();
 
         }
 

@@ -15,6 +15,7 @@ namespace ProcurementSystem
     {
 
         int datexx = 0;
+        string yr = string.Empty;
 
         public frmDashboard()
         {
@@ -29,7 +30,13 @@ namespace ProcurementSystem
             //for list request
             DashboardListRequest();
 
+            //for request graph
+            DashboardGraph(DateTime.Now.ToString("yyyy"));
+            yr = DateTime.Now.ToString("yyyy");
+            chartRequest.ChartAreas[0].AxisX.Title = "Year ( " + DateTime.Now.ToString("yyyy") + " )";
+
             lblDate.Text = DateTime.Now.ToString("MMMM yyyy");
+
         }
 
         void DashboardRequest(string month, string year)
@@ -78,6 +85,42 @@ namespace ProcurementSystem
                     progressPO.MaxValue = Convert.ToInt32(DtPO.Rows[0]["TotalPO"]);
                     progressPO.Value = Convert.ToInt32(DtPO.Rows[0]["TotalDelivered"]);
                 }
+            }
+        }
+
+        void DashboardListRequest()
+        {
+            DataTable Dtlist = new DataTable();
+            Dtlist = DBMethods.DashboardListRequest();
+            dgvListRequest.Rows.Clear();
+
+            if (Dtlist.Rows.Count > 0)
+            {
+                for (int i = 0; i <= Dtlist.Rows.Count - 1; i++)
+                {
+                    dgvListRequest.Rows.Add(new object[] { Dtlist.Rows[i]["RPRID"].ToString(), Dtlist.Rows[i]["RPRNum"].ToString(),
+                                                           Convert.ToDateTime(Dtlist.Rows[i]["RDate"]).ToString("MMM dd, yyyy"),
+                                                            Dtlist.Rows[i]["RStatus"].ToString(), Dtlist.Rows[i]["RStatus"].ToString() == "" ? dashImage.Images[1] : dashImage.Images[0] });
+
+                    Application.DoEvents();
+                }
+            }
+        }
+
+        void DashboardGraph(string year)
+        {
+            DataTable DtGraph = new DataTable();
+            DtGraph = DBMethods.DashboardGraphRequest(year);
+
+            if (DtGraph.Rows.Count > 0)
+            {
+                for (int i = 0; i <= 11; i++)
+                {
+                    chartRequest.Series[0].Points.AddXY(DtGraph.Columns[i].ColumnName, DtGraph.Rows[0][i].ToString());
+
+                    Application.DoEvents();
+                }
+                
             }
         }
 
@@ -130,25 +173,6 @@ namespace ProcurementSystem
             }
         }
 
-        void DashboardListRequest()
-        {
-            DataTable Dtlist = new DataTable();
-            Dtlist = DBMethods.DashboardListRequest();
-            dgvListRequest.Rows.Clear();
-
-            if (Dtlist.Rows.Count > 0)
-            {
-                for (int i = 0; i <= Dtlist.Rows.Count - 1; i++)
-                {
-                    dgvListRequest.Rows.Add(new object[] { Dtlist.Rows[i]["RPRID"].ToString(), Dtlist.Rows[i]["RPRNum"].ToString(),
-                                                           Convert.ToDateTime(Dtlist.Rows[i]["RDate"]).ToString("MMM dd, yyyy"),
-                                                            Dtlist.Rows[i]["RStatus"].ToString(), Dtlist.Rows[i]["RStatus"].ToString() == "" ? dashImage.Images[1] : dashImage.Images[0] });
-
-                    Application.DoEvents();
-                }
-            }
-        }
-
         private void icnNext_Click(object sender, EventArgs e)
         {
             datexx += 1;
@@ -157,6 +181,16 @@ namespace ProcurementSystem
             DashboardRequest(DateTime.Now.AddMonths(datexx).ToString("MM"), DateTime.Now.AddMonths(datexx).ToString("yyyy"));
             //for total PO Created
             DashboardPO(DateTime.Now.AddMonths(datexx).ToString("MM"), DateTime.Now.AddMonths(datexx).ToString("yyyy"));
+
+            if (yr != DateTime.Now.AddMonths(datexx).ToString("yyyy"))
+            {
+                yr = DateTime.Now.AddMonths(datexx).ToString("yyyy");
+                chartRequest.Series[0].Points.Clear();
+                chartRequest.ChartAreas[0].AxisX.Title = "Year ( " + DateTime.Now.AddMonths(datexx).ToString("yyyy") + " )";
+                //for graph
+                DashboardGraph(DateTime.Now.AddMonths(datexx).ToString("yyyy"));
+            }
+
         }
 
         private void icnPrevious_Click(object sender, EventArgs e)
@@ -167,6 +201,15 @@ namespace ProcurementSystem
             DashboardRequest(DateTime.Now.AddMonths(datexx).ToString("MM"), DateTime.Now.AddMonths(datexx).ToString("yyyy"));
             //for total PO Created
             DashboardPO(DateTime.Now.AddMonths(datexx).ToString("MM"), DateTime.Now.AddMonths(datexx).ToString("yyyy"));
+
+            if (yr != DateTime.Now.AddMonths(datexx).ToString("yyyy"))
+            {
+                yr = DateTime.Now.AddMonths(datexx).ToString("yyyy");
+                chartRequest.Series[0].Points.Clear();
+                chartRequest.ChartAreas[0].AxisX.Title = "Year ( " + DateTime.Now.AddMonths(datexx).ToString("yyyy") + " )";
+                //for graph
+                DashboardGraph(DateTime.Now.AddMonths(datexx).ToString("yyyy"));
+            }
         }
 
 

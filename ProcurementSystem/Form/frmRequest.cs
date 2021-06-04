@@ -26,11 +26,11 @@ namespace ProcurementSystem
         {
             InitializeComponent();
 
-            //if (InformationDetails.Credentials.ToLower() == "user")
-            //{
-            //    btnProposal.Visible = false;
-            //    btnStatsProp.Visible = false;
-            //}
+            if (InformationDetails.Credentials.ToLower() == "user")
+            {
+                btnProposal.Visible = false;
+                btnStatsProp.Visible = false;
+            }
         }
 
         private void btnReq_Click(object sender, EventArgs e)
@@ -96,6 +96,7 @@ namespace ProcurementSystem
                         Outlook = new Email.Application();
                         Mail = Outlook.CreateItem(Microsoft.Office.Interop.Outlook.OlItemType.olMailItem);
 
+                        //mcasero@isupportworldwide.com
                         Mail.To = "jbelicano@isupportworldwide.com";
                         Mail.CC = txtEmail.Text;
                         //Mail.BCC = emailBCC;
@@ -117,8 +118,8 @@ namespace ProcurementSystem
                                               "</tr>" +
                                               rwD +
                                            "</table>";
-                        Mail.Display();
-                        //Mail.Send();
+                        //Mail.Display();
+                        Mail.Send();
 
                         MessageBox.Show("Send Request Success?", "", MessageBoxButtons.OK, MessageBoxIcon.Information);
                         Clearxx();
@@ -292,6 +293,7 @@ namespace ProcurementSystem
 
                         Mail.To = rEmail;
                         Mail.CC = "jbelicano@isupportworldwide.com";
+                        //mcasero@isupportworldwide.com
 
                         Mail.Subject = "Purchase Request ( " + cmbPRFNum.Text + " ) For ( Name : " + rName + " )";
 
@@ -308,7 +310,6 @@ namespace ProcurementSystem
                                               rwP +
                                            "</table>";
                         Mail.Display();
-                        //Mail.Send();
 
                         MessageBox.Show("Draft Email Proposal Success", "", MessageBoxButtons.OK, MessageBoxIcon.Information);
                         ClearxxProp();
