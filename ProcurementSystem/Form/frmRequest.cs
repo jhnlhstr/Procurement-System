@@ -112,14 +112,14 @@ namespace ProcurementSystem
                                            "<b>Priority :</b>" + " " + " " + " " + "" + cmbPriority.Text + "" + "" + "<br><br>" +
                                            "<table style = 'width: 100%'>" +
                                               "<tr>" +
-                                                 "<th style='border: 1px solid black; border-collapse: collapse; background: rgb(255,255,0)'>Item #</th>" +
-                                                 "<th style='border: 1px solid black; border-collapse: collapse; background: rgb(255,255,0)'>Qty</th>" +
-                                                 "<th style='border: 1px solid black; border-collapse: collapse; background: rgb(255,255,0)'>Description</th>" +
+                                                 "<th style='border: 1px solid black; border-collapse: collapse; background: rgb(24, 30, 54); font-color: white'>Item #</th>" +
+                                                 "<th style='border: 1px solid black; border-collapse: collapse; background: rgb(24, 30, 54); font-color: white'>Qty</th>" +
+                                                 "<th style='border: 1px solid black; border-collapse: collapse; background: rgb(24, 30, 54); font-color: white'>Description</th>" +
                                               "</tr>" +
                                               rwD +
                                            "</table>";
-                        //Mail.Display();
-                        Mail.Send();
+                        Mail.Display();
+                        //Mail.Send();
 
                         MessageBox.Show("Send Request Success?", "", MessageBoxButtons.OK, MessageBoxIcon.Information);
                         Clearxx();
@@ -236,6 +236,7 @@ namespace ProcurementSystem
             DataTable Dtpr = new DataTable();
             Dtpr = DBMethods.GetRequestNumber("info", cmbPRFNum.Text);
             dgvRequestInfo.Rows.Clear();
+            cmbItemProposal.Items.Clear();
 
             if (Dtpr.Rows.Count > 0)
             {
@@ -245,6 +246,7 @@ namespace ProcurementSystem
 
                 for (int i = 0; i <= Dtpr.Rows.Count - 1; i++)
                 {
+                    cmbItemProposal.Items.Add(Dtpr.Rows[i]["RItem"].ToString());
                     dgvRequestInfo.Rows.Add(new object[] { imageList1.Images[2], Dtpr.Rows[i]["RItem"].ToString(), Dtpr.Rows[i]["RQty"].ToString(),
                                             Dtpr.Rows[i]["RDesc"].ToString() });
 
@@ -255,7 +257,7 @@ namespace ProcurementSystem
 
         private void btnAddList_Click(object sender, EventArgs e)
         {
-            dgvProposal.Rows.Add(new object[] { imageList1.Images[2], txtVendorName.Text, txtItemProp.Text, txtQtyProp.Text, txtCostProp.Text, imageList1.Images[1] });
+            dgvProposal.Rows.Add(new object[] { imageList1.Images[2], cmbItemProposal.Text, txtVendorName.Text, txtItemProp.Text, txtQtyProp.Text, txtCostProp.Text, imageList1.Images[1] });
             txtVendorName.Text = string.Empty;
             txtItemProp.Text = string.Empty;
             txtQtyProp.Text = string.Empty;
@@ -274,14 +276,16 @@ namespace ProcurementSystem
                     {
                         for (int i = 0; i <= dgvProposal.Rows.Count - 1; i++)
                         {
-                            DBMethods.InsertPurchaseProposal(_prID, dgvProposal.Rows[i].Cells[1].Value.ToString(), dgvProposal.Rows[i].Cells[2].Value.ToString(),
-                                                                 dgvProposal.Rows[i].Cells[3].Value.ToString(), dgvProposal.Rows[i].Cells[4].Value.ToString());
+                            DBMethods.InsertPurchaseProposal(_prID, dgvProposal.Rows[i].Cells[2].Value.ToString(), dgvProposal.Rows[i].Cells[3].Value.ToString(),
+                                                                 dgvProposal.Rows[i].Cells[4].Value.ToString(), dgvProposal.Rows[i].Cells[5].Value.ToString(),
+                                                                 dgvProposal.Rows[i].Cells[1].Value.ToString());
 
                             rwP += "<tr>" +
                                      "<td style='border: 1px solid black; border-collapse: collapse'>" + dgvProposal.Rows[i].Cells[1].Value.ToString() + "</td>" +
                                      "<td style='border: 1px solid black; border-collapse: collapse'>" + dgvProposal.Rows[i].Cells[2].Value.ToString() + "</td>" +
-                                     "<td style='border: 1px solid black; border-collapse: collapse; text-align: center'>" + dgvProposal.Rows[i].Cells[3].Value.ToString() + "</td>" +
-                                     "<td style='border: 1px solid black; border-collapse: collapse; text-align: center'>" + string.Format("{0:#,#}", Convert.ToDecimal(dgvProposal.Rows[i].Cells[4].Value)) + "</td>" +
+                                     "<td style='border: 1px solid black; border-collapse: collapse'>" + dgvProposal.Rows[i].Cells[3].Value.ToString() + "</td>" +
+                                     "<td style='border: 1px solid black; border-collapse: collapse; text-align: center'>" + dgvProposal.Rows[i].Cells[4].Value.ToString() + "</td>" +
+                                     "<td style='border: 1px solid black; border-collapse: collapse; text-align: center'>" + string.Format("{0:#,#}", Convert.ToDecimal(dgvProposal.Rows[i].Cells[5].Value)) + "</td>" +
                                   "</tr>";
                         }
 
@@ -292,7 +296,7 @@ namespace ProcurementSystem
                         Mail = Outlook.CreateItem(Microsoft.Office.Interop.Outlook.OlItemType.olMailItem);
 
                         Mail.To = rEmail;
-                        Mail.CC = "jbelicano@isupportworldwide.com";
+                        Mail.CC = "mcasero@isupportworldwide.com";
                         //mcasero@isupportworldwide.com
 
                         Mail.Subject = "Purchase Request ( " + cmbPRFNum.Text + " ) For ( Name : " + rName + " )";
@@ -302,10 +306,11 @@ namespace ProcurementSystem
                                            "<i>*******(This is auto email from procurement system)</i><br><br>" +
                                            "<table style = 'width: 100%'>" +
                                               "<tr>" +
-                                                 "<th style='border: 1px solid black; border-collapse: collapse; background: rgb(255,255,0)'>Vendor Name #</th>" +
-                                                 "<th style='border: 1px solid black; border-collapse: collapse; background: rgb(255,255,0)'>Item</th>" +
-                                                 "<th style='border: 1px solid black; border-collapse: collapse; background: rgb(255,255,0)'>Quantiy</th>" +
-                                                 "<th style='border: 1px solid black; border-collapse: collapse; background: rgb(255,255,0)'>Cost</th>" +
+                                                 "<th style='border: 1px solid black; border-collapse: collapse; background: rgb(24, 30, 54); font-color: white'>Request Item</th>" +
+                                                 "<th style='border: 1px solid black; border-collapse: collapse; background: rgb(24, 30, 54); font-color: white'>Vendor Name</th>" +
+                                                 "<th style='border: 1px solid black; border-collapse: collapse; background: rgb(24, 30, 54); font-color: white'>Item</th>" +
+                                                 "<th style='border: 1px solid black; border-collapse: collapse; background: rgb(24, 30, 54); font-color: white'>Quantiy</th>" +
+                                                 "<th style='border: 1px solid black; border-collapse: collapse; background: rgb(24, 30, 54); font-color: white'>Cost</th>" +
                                               "</tr>" +
                                               rwP +
                                            "</table>";
@@ -331,7 +336,7 @@ namespace ProcurementSystem
         {
             if (e.RowIndex != -1)
             {
-                if (dgvProposal.CurrentCell.ColumnIndex == 5)
+                if (dgvProposal.CurrentCell.ColumnIndex == 6)
                 {
                     dgvProposal.Rows.RemoveAt(dgvProposal.CurrentCell.RowIndex);
                 }
@@ -423,6 +428,9 @@ namespace ProcurementSystem
         }
 
 
+
+
+
         //---------------------------------------------------------Proposal Status---------------------------------------------------------------------------
 
         private void btnStatsProp_Click(object sender, EventArgs e)
@@ -440,7 +448,7 @@ namespace ProcurementSystem
             {
                 for (int ss = 0; ss <= DtStats.Rows.Count - 1; ss++)
                 {
-                    dgvProposalStatus.Rows.Add(new object[] { imageList1.Images[2], DtStats.Rows[ss]["pID"].ToString(), DtStats.Rows[ss]["RPRNum"].ToString(),
+                    dgvProposalStatus.Rows.Add(new object[] { imageList1.Images[2], DtStats.Rows[ss]["pID"].ToString(), DtStats.Rows[ss]["RPRNum"].ToString(), DtStats.Rows[ss]["PProp"].ToString(),
                                                               DtStats.Rows[ss]["PVendorName"].ToString(), DtStats.Rows[ss]["PItem"].ToString(), DtStats.Rows[ss]["PQty"].ToString(),
                                                               DtStats.Rows[ss]["PStatus"].ToString(),
                                                               DtStats.Rows[ss]["PStatus"].ToString() == "" ? imageList1.Images[4] : imageList1.Images[3],
@@ -461,7 +469,7 @@ namespace ProcurementSystem
             {
                 for (int ss = 0; ss <= DtStats.Rows.Count - 1; ss++)
                 {
-                    dgvProposalStatus.Rows.Add(new object[] { imageList1.Images[2], DtStats.Rows[ss]["pID"].ToString(), DtStats.Rows[ss]["RPRNum"].ToString(),
+                    dgvProposalStatus.Rows.Add(new object[] { imageList1.Images[2], DtStats.Rows[ss]["pID"].ToString(), DtStats.Rows[ss]["RPRNum"].ToString(), DtStats.Rows[ss]["PProp"].ToString(),
                                                               DtStats.Rows[ss]["PVendorName"].ToString(), DtStats.Rows[ss]["PItem"].ToString(), DtStats.Rows[ss]["PQty"].ToString(),
                                                               DtStats.Rows[ss]["PStatus"].ToString(),
                                                               DtStats.Rows[ss]["PStatus"].ToString() == "" ? imageList1.Images[4] : imageList1.Images[3],
@@ -479,11 +487,11 @@ namespace ProcurementSystem
         {
             if (e.RowIndex != -1)
             {
-                if (dgvProposalStatus.CurrentCell.ColumnIndex == 7)
+                if (dgvProposalStatus.CurrentCell.ColumnIndex == 8)
                 {
                     DataTable DtStats = new DataTable();
 
-                    switch (dgvProposalStatus.Rows[dgvProposalStatus.CurrentCell.RowIndex].Cells[6].Value.ToString().ToLower())
+                    switch (dgvProposalStatus.Rows[dgvProposalStatus.CurrentCell.RowIndex].Cells[7].Value.ToString().ToLower())
                     {
 
                         case "":
@@ -502,7 +510,7 @@ namespace ProcurementSystem
                                     {
                                         for (int ss = 0; ss <= DtStats.Rows.Count - 1; ss++)
                                         {
-                                            dgvProposalStatus.Rows.Add(new object[] { imageList1.Images[2], DtStats.Rows[ss]["pID"].ToString(), DtStats.Rows[ss]["RPRNum"].ToString(),
+                                            dgvProposalStatus.Rows.Add(new object[] { imageList1.Images[2], DtStats.Rows[ss]["pID"].ToString(), DtStats.Rows[ss]["RPRNum"].ToString(), DtStats.Rows[ss]["PProp"].ToString(),
                                                               DtStats.Rows[ss]["PVendorName"].ToString(), DtStats.Rows[ss]["PItem"].ToString(), DtStats.Rows[ss]["PQty"].ToString(),
                                                               DtStats.Rows[ss]["PStatus"].ToString(),
                                                               DtStats.Rows[ss]["PStatus"].ToString() == "" ? imageList1.Images[4] : imageList1.Images[3],
@@ -535,7 +543,7 @@ namespace ProcurementSystem
                                     {
                                         for (int ss = 0; ss <= DtStats.Rows.Count - 1; ss++)
                                         {
-                                            dgvProposalStatus.Rows.Add(new object[] { imageList1.Images[2], DtStats.Rows[ss]["pID"].ToString(), DtStats.Rows[ss]["RPRNum"].ToString(),
+                                            dgvProposalStatus.Rows.Add(new object[] { imageList1.Images[2], DtStats.Rows[ss]["pID"].ToString(), DtStats.Rows[ss]["RPRNum"].ToString(), DtStats.Rows[ss]["PProp"].ToString(),
                                                               DtStats.Rows[ss]["PVendorName"].ToString(), DtStats.Rows[ss]["PItem"].ToString(), DtStats.Rows[ss]["PQty"].ToString(),
                                                               DtStats.Rows[ss]["PStatus"].ToString(),
                                                               DtStats.Rows[ss]["PStatus"].ToString() == "" ? imageList1.Images[4] : imageList1.Images[3],

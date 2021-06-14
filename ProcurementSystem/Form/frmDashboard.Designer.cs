@@ -30,13 +30,17 @@
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmDashboard));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle13 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle14 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle15 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle16 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea4 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend4 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series4 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle17 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle18 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle19 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle20 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle21 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle22 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle23 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle24 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea3 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend3 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series3 = new System.Windows.Forms.DataVisualization.Charting.Series();
             this.panel1 = new System.Windows.Forms.Panel();
             this.lblTotalApproveReq = new System.Windows.Forms.Label();
             this.progressRequest = new Bunifu.Framework.UI.BunifuCircleProgressbar();
@@ -45,7 +49,6 @@
             this.label9 = new System.Windows.Forms.Label();
             this.lblTotalRequest = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.panel2 = new System.Windows.Forms.Panel();
             this.lblCancelPO = new System.Windows.Forms.Label();
             this.lblDeliveredPO = new System.Windows.Forms.Label();
@@ -68,22 +71,27 @@
             this.Column5 = new System.Windows.Forms.DataGridViewImageColumn();
             this.label4 = new System.Windows.Forms.Label();
             this.panel4 = new System.Windows.Forms.Panel();
+            this.lblAmountPO = new System.Windows.Forms.Label();
+            this.ScrollAmountPO = new Bunifu.UI.WinForms.BunifuVScrollBar();
+            this.dgvTotalPO = new System.Windows.Forms.DataGridView();
+            this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.label8 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
             this.lblDate = new System.Windows.Forms.Label();
             this.panel5 = new System.Windows.Forms.Panel();
+            this.lblPOYear = new System.Windows.Forms.Label();
             this.chartRequest = new System.Windows.Forms.DataVisualization.Charting.Chart();
             this.label7 = new System.Windows.Forms.Label();
             this.dashImage = new System.Windows.Forms.ImageList(this.components);
             this.icnPrevious = new FontAwesome.Sharp.IconButton();
             this.icnNext = new FontAwesome.Sharp.IconButton();
             this.panel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.panel2.SuspendLayout();
             this.panel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvListRequest)).BeginInit();
             this.panel4.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvTotalPO)).BeginInit();
             this.panel5.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.chartRequest)).BeginInit();
             this.SuspendLayout();
@@ -98,16 +106,16 @@
             this.panel1.Controls.Add(this.label9);
             this.panel1.Controls.Add(this.lblTotalRequest);
             this.panel1.Controls.Add(this.label1);
-            this.panel1.Location = new System.Drawing.Point(39, 88);
+            this.panel1.Location = new System.Drawing.Point(39, 61);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(399, 185);
+            this.panel1.Size = new System.Drawing.Size(399, 212);
             this.panel1.TabIndex = 49;
             // 
             // lblTotalApproveReq
             // 
             this.lblTotalApproveReq.Font = new System.Drawing.Font("Montserrat", 9.749999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblTotalApproveReq.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(83)))), ((int)(((byte)(180)))), ((int)(((byte)(151)))));
-            this.lblTotalApproveReq.Location = new System.Drawing.Point(138, 146);
+            this.lblTotalApproveReq.Location = new System.Drawing.Point(138, 158);
             this.lblTotalApproveReq.Name = "lblTotalApproveReq";
             this.lblTotalApproveReq.Size = new System.Drawing.Size(91, 21);
             this.lblTotalApproveReq.TabIndex = 55;
@@ -126,7 +134,7 @@
             this.progressRequest.LabelVisible = true;
             this.progressRequest.LineProgressThickness = 8;
             this.progressRequest.LineThickness = 5;
-            this.progressRequest.Location = new System.Drawing.Point(235, 21);
+            this.progressRequest.Location = new System.Drawing.Point(235, 35);
             this.progressRequest.Margin = new System.Windows.Forms.Padding(9, 9, 9, 9);
             this.progressRequest.MaxValue = 100;
             this.progressRequest.Name = "progressRequest";
@@ -140,7 +148,7 @@
             // 
             this.lblTotalCancelledReq.Font = new System.Drawing.Font("Montserrat", 9.749999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblTotalCancelledReq.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(83)))), ((int)(((byte)(180)))), ((int)(((byte)(151)))));
-            this.lblTotalCancelledReq.Location = new System.Drawing.Point(138, 121);
+            this.lblTotalCancelledReq.Location = new System.Drawing.Point(138, 128);
             this.lblTotalCancelledReq.Name = "lblTotalCancelledReq";
             this.lblTotalCancelledReq.Size = new System.Drawing.Size(91, 21);
             this.lblTotalCancelledReq.TabIndex = 54;
@@ -151,7 +159,7 @@
             // 
             this.label10.Font = new System.Drawing.Font("Montserrat", 9.749999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label10.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(158)))), ((int)(((byte)(161)))), ((int)(((byte)(176)))));
-            this.label10.Location = new System.Drawing.Point(29, 146);
+            this.label10.Location = new System.Drawing.Point(29, 158);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(115, 21);
             this.label10.TabIndex = 53;
@@ -162,7 +170,7 @@
             // 
             this.label9.Font = new System.Drawing.Font("Montserrat", 9.749999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label9.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(158)))), ((int)(((byte)(161)))), ((int)(((byte)(176)))));
-            this.label9.Location = new System.Drawing.Point(24, 121);
+            this.label9.Location = new System.Drawing.Point(24, 128);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(115, 21);
             this.label9.TabIndex = 52;
@@ -190,16 +198,6 @@
             this.label1.TabIndex = 50;
             this.label1.Text = "Total Request";
             // 
-            // pictureBox1
-            // 
-            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
-            this.pictureBox1.Location = new System.Drawing.Point(113, 21);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(135, 143);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox1.TabIndex = 52;
-            this.pictureBox1.TabStop = false;
-            // 
             // panel2
             // 
             this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(37)))), ((int)(((byte)(42)))), ((int)(((byte)(64)))));
@@ -212,16 +210,16 @@
             this.panel2.Controls.Add(this.progressPO);
             this.panel2.Controls.Add(this.lblTotalPO);
             this.panel2.Controls.Add(this.label2);
-            this.panel2.Location = new System.Drawing.Point(461, 88);
+            this.panel2.Location = new System.Drawing.Point(461, 61);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(399, 185);
+            this.panel2.Size = new System.Drawing.Size(399, 212);
             this.panel2.TabIndex = 50;
             // 
             // lblCancelPO
             // 
             this.lblCancelPO.Font = new System.Drawing.Font("Montserrat", 9.749999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblCancelPO.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(83)))), ((int)(((byte)(180)))), ((int)(((byte)(151)))));
-            this.lblCancelPO.Location = new System.Drawing.Point(135, 154);
+            this.lblCancelPO.Location = new System.Drawing.Point(135, 174);
             this.lblCancelPO.Name = "lblCancelPO";
             this.lblCancelPO.Size = new System.Drawing.Size(91, 21);
             this.lblCancelPO.TabIndex = 61;
@@ -232,7 +230,7 @@
             // 
             this.lblDeliveredPO.Font = new System.Drawing.Font("Montserrat", 9.749999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblDeliveredPO.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(83)))), ((int)(((byte)(180)))), ((int)(((byte)(151)))));
-            this.lblDeliveredPO.Location = new System.Drawing.Point(135, 133);
+            this.lblDeliveredPO.Location = new System.Drawing.Point(135, 147);
             this.lblDeliveredPO.Name = "lblDeliveredPO";
             this.lblDeliveredPO.Size = new System.Drawing.Size(91, 21);
             this.lblDeliveredPO.TabIndex = 59;
@@ -243,7 +241,7 @@
             // 
             this.label15.Font = new System.Drawing.Font("Montserrat", 9.749999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label15.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(158)))), ((int)(((byte)(161)))), ((int)(((byte)(176)))));
-            this.label15.Location = new System.Drawing.Point(17, 154);
+            this.label15.Location = new System.Drawing.Point(17, 174);
             this.label15.Name = "label15";
             this.label15.Size = new System.Drawing.Size(115, 21);
             this.label15.TabIndex = 60;
@@ -254,7 +252,7 @@
             // 
             this.lblOngoingPO.Font = new System.Drawing.Font("Montserrat", 9.749999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblOngoingPO.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(83)))), ((int)(((byte)(180)))), ((int)(((byte)(151)))));
-            this.lblOngoingPO.Location = new System.Drawing.Point(135, 112);
+            this.lblOngoingPO.Location = new System.Drawing.Point(135, 120);
             this.lblOngoingPO.Name = "lblOngoingPO";
             this.lblOngoingPO.Size = new System.Drawing.Size(91, 21);
             this.lblOngoingPO.TabIndex = 58;
@@ -265,7 +263,7 @@
             // 
             this.label12.Font = new System.Drawing.Font("Montserrat", 9.749999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label12.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(158)))), ((int)(((byte)(161)))), ((int)(((byte)(176)))));
-            this.label12.Location = new System.Drawing.Point(17, 133);
+            this.label12.Location = new System.Drawing.Point(17, 147);
             this.label12.Name = "label12";
             this.label12.Size = new System.Drawing.Size(115, 21);
             this.label12.TabIndex = 57;
@@ -276,7 +274,7 @@
             // 
             this.label13.Font = new System.Drawing.Font("Montserrat", 9.749999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label13.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(158)))), ((int)(((byte)(161)))), ((int)(((byte)(176)))));
-            this.label13.Location = new System.Drawing.Point(19, 112);
+            this.label13.Location = new System.Drawing.Point(19, 120);
             this.label13.Name = "label13";
             this.label13.Size = new System.Drawing.Size(115, 21);
             this.label13.TabIndex = 56;
@@ -295,7 +293,7 @@
             this.progressPO.LabelVisible = true;
             this.progressPO.LineProgressThickness = 8;
             this.progressPO.LineThickness = 5;
-            this.progressPO.Location = new System.Drawing.Point(235, 21);
+            this.progressPO.Location = new System.Drawing.Point(238, 35);
             this.progressPO.Margin = new System.Windows.Forms.Padding(9, 9, 9, 9);
             this.progressPO.MaxValue = 100;
             this.progressPO.Name = "progressPO";
@@ -309,7 +307,7 @@
             // 
             this.lblTotalPO.Font = new System.Drawing.Font("Montserrat", 36F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblTotalPO.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(83)))), ((int)(((byte)(180)))), ((int)(((byte)(151)))));
-            this.lblTotalPO.Location = new System.Drawing.Point(17, 42);
+            this.lblTotalPO.Location = new System.Drawing.Point(17, 47);
             this.lblTotalPO.Name = "lblTotalPO";
             this.lblTotalPO.Size = new System.Drawing.Size(209, 66);
             this.lblTotalPO.TabIndex = 54;
@@ -405,26 +403,26 @@
             this.dgvListRequest.AllowUserToAddRows = false;
             this.dgvListRequest.AllowUserToDeleteRows = false;
             this.dgvListRequest.AllowUserToResizeRows = false;
-            dataGridViewCellStyle13.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle13.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(37)))), ((int)(((byte)(42)))), ((int)(((byte)(64)))));
-            dataGridViewCellStyle13.Font = new System.Drawing.Font("Montserrat", 8.249999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle13.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(244)))), ((int)(((byte)(244)))), ((int)(((byte)(244)))));
-            dataGridViewCellStyle13.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(37)))), ((int)(((byte)(42)))), ((int)(((byte)(64)))));
-            dataGridViewCellStyle13.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(244)))), ((int)(((byte)(244)))), ((int)(((byte)(244)))));
-            this.dgvListRequest.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle13;
+            dataGridViewCellStyle17.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle17.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(37)))), ((int)(((byte)(42)))), ((int)(((byte)(64)))));
+            dataGridViewCellStyle17.Font = new System.Drawing.Font("Montserrat", 8.249999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle17.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(244)))), ((int)(((byte)(244)))), ((int)(((byte)(244)))));
+            dataGridViewCellStyle17.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(37)))), ((int)(((byte)(42)))), ((int)(((byte)(64)))));
+            dataGridViewCellStyle17.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(244)))), ((int)(((byte)(244)))), ((int)(((byte)(244)))));
+            this.dgvListRequest.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle17;
             this.dgvListRequest.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgvListRequest.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(37)))), ((int)(((byte)(42)))), ((int)(((byte)(64)))));
             this.dgvListRequest.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.dgvListRequest.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None;
             this.dgvListRequest.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle14.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle14.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(37)))), ((int)(((byte)(42)))), ((int)(((byte)(64)))));
-            dataGridViewCellStyle14.Font = new System.Drawing.Font("Montserrat", 8.999999F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle14.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            dataGridViewCellStyle14.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(37)))), ((int)(((byte)(42)))), ((int)(((byte)(64)))));
-            dataGridViewCellStyle14.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            dataGridViewCellStyle14.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvListRequest.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle14;
+            dataGridViewCellStyle18.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle18.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(37)))), ((int)(((byte)(42)))), ((int)(((byte)(64)))));
+            dataGridViewCellStyle18.Font = new System.Drawing.Font("Montserrat", 8.999999F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle18.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            dataGridViewCellStyle18.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(37)))), ((int)(((byte)(42)))), ((int)(((byte)(64)))));
+            dataGridViewCellStyle18.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            dataGridViewCellStyle18.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvListRequest.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle18;
             this.dgvListRequest.ColumnHeadersHeight = 40;
             this.dgvListRequest.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
             this.dgvListRequest.ColumnHeadersVisible = false;
@@ -434,27 +432,27 @@
             this.Column2,
             this.Column4,
             this.Column5});
-            dataGridViewCellStyle15.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle15.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(37)))), ((int)(((byte)(42)))), ((int)(((byte)(64)))));
-            dataGridViewCellStyle15.Font = new System.Drawing.Font("Montserrat", 8.249999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle15.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            dataGridViewCellStyle15.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(37)))), ((int)(((byte)(42)))), ((int)(((byte)(64)))));
-            dataGridViewCellStyle15.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            dataGridViewCellStyle15.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgvListRequest.DefaultCellStyle = dataGridViewCellStyle15;
+            dataGridViewCellStyle19.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle19.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(37)))), ((int)(((byte)(42)))), ((int)(((byte)(64)))));
+            dataGridViewCellStyle19.Font = new System.Drawing.Font("Montserrat", 8.249999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle19.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            dataGridViewCellStyle19.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(37)))), ((int)(((byte)(42)))), ((int)(((byte)(64)))));
+            dataGridViewCellStyle19.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            dataGridViewCellStyle19.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvListRequest.DefaultCellStyle = dataGridViewCellStyle19;
             this.dgvListRequest.EnableHeadersVisualStyles = false;
             this.dgvListRequest.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(51)))), ((int)(((byte)(73)))));
             this.dgvListRequest.Location = new System.Drawing.Point(19, 54);
             this.dgvListRequest.Name = "dgvListRequest";
             this.dgvListRequest.ReadOnly = true;
-            dataGridViewCellStyle16.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle16.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            dataGridViewCellStyle16.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle16.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle16.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle16.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle16.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvListRequest.RowHeadersDefaultCellStyle = dataGridViewCellStyle16;
+            dataGridViewCellStyle20.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle20.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            dataGridViewCellStyle20.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle20.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle20.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle20.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle20.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvListRequest.RowHeadersDefaultCellStyle = dataGridViewCellStyle20;
             this.dgvListRequest.RowHeadersVisible = false;
             this.dgvListRequest.RowTemplate.DefaultCellStyle.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
             this.dgvListRequest.RowTemplate.DefaultCellStyle.Font = new System.Drawing.Font("Montserrat", 8.249999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -517,44 +515,161 @@
             // panel4
             // 
             this.panel4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(37)))), ((int)(((byte)(42)))), ((int)(((byte)(64)))));
+            this.panel4.Controls.Add(this.lblAmountPO);
+            this.panel4.Controls.Add(this.ScrollAmountPO);
+            this.panel4.Controls.Add(this.dgvTotalPO);
             this.panel4.Controls.Add(this.label8);
-            this.panel4.Controls.Add(this.pictureBox1);
-            this.panel4.Controls.Add(this.label3);
-            this.panel4.Location = new System.Drawing.Point(882, 88);
+            this.panel4.Location = new System.Drawing.Point(882, 61);
             this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(263, 185);
+            this.panel4.Size = new System.Drawing.Size(263, 212);
             this.panel4.TabIndex = 52;
+            // 
+            // lblAmountPO
+            // 
+            this.lblAmountPO.Font = new System.Drawing.Font("Montserrat", 9.749999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblAmountPO.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(83)))), ((int)(((byte)(180)))), ((int)(((byte)(151)))));
+            this.lblAmountPO.Location = new System.Drawing.Point(86, 179);
+            this.lblAmountPO.Name = "lblAmountPO";
+            this.lblAmountPO.Size = new System.Drawing.Size(146, 23);
+            this.lblAmountPO.TabIndex = 62;
+            this.lblAmountPO.Text = "0";
+            this.lblAmountPO.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // ScrollAmountPO
+            // 
+            this.ScrollAmountPO.AllowCursorChanges = true;
+            this.ScrollAmountPO.AllowHomeEndKeysDetection = false;
+            this.ScrollAmountPO.AllowIncrementalClickMoves = true;
+            this.ScrollAmountPO.AllowMouseDownEffects = true;
+            this.ScrollAmountPO.AllowMouseHoverEffects = true;
+            this.ScrollAmountPO.AllowScrollingAnimations = true;
+            this.ScrollAmountPO.AllowScrollKeysDetection = true;
+            this.ScrollAmountPO.AllowScrollOptionsMenu = true;
+            this.ScrollAmountPO.AllowShrinkingOnFocusLost = false;
+            this.ScrollAmountPO.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(37)))), ((int)(((byte)(42)))), ((int)(((byte)(64)))));
+            this.ScrollAmountPO.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("ScrollAmountPO.BackgroundImage")));
+            this.ScrollAmountPO.BindingContainer = null;
+            this.ScrollAmountPO.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(37)))), ((int)(((byte)(42)))), ((int)(((byte)(64)))));
+            this.ScrollAmountPO.BorderRadius = 10;
+            this.ScrollAmountPO.BorderThickness = 1;
+            this.ScrollAmountPO.DurationBeforeShrink = 2000;
+            this.ScrollAmountPO.LargeChange = 30;
+            this.ScrollAmountPO.Location = new System.Drawing.Point(238, 15);
+            this.ScrollAmountPO.Maximum = 100;
+            this.ScrollAmountPO.Minimum = 0;
+            this.ScrollAmountPO.MinimumThumbLength = 18;
+            this.ScrollAmountPO.Name = "ScrollAmountPO";
+            this.ScrollAmountPO.OnDisable.ScrollBarBorderColor = System.Drawing.Color.Silver;
+            this.ScrollAmountPO.OnDisable.ScrollBarColor = System.Drawing.Color.Transparent;
+            this.ScrollAmountPO.OnDisable.ThumbColor = System.Drawing.Color.Silver;
+            this.ScrollAmountPO.ScrollBarBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(37)))), ((int)(((byte)(42)))), ((int)(((byte)(64)))));
+            this.ScrollAmountPO.ScrollBarColor = System.Drawing.Color.FromArgb(((int)(((byte)(37)))), ((int)(((byte)(42)))), ((int)(((byte)(64)))));
+            this.ScrollAmountPO.ShrinkSizeLimit = 3;
+            this.ScrollAmountPO.Size = new System.Drawing.Size(12, 158);
+            this.ScrollAmountPO.SmallChange = 1;
+            this.ScrollAmountPO.TabIndex = 290;
+            this.ScrollAmountPO.ThumbColor = System.Drawing.Color.Gray;
+            this.ScrollAmountPO.ThumbLength = 46;
+            this.ScrollAmountPO.ThumbMargin = 1;
+            this.ScrollAmountPO.ThumbStyle = Bunifu.UI.WinForms.BunifuVScrollBar.ThumbStyles.Inset;
+            this.ScrollAmountPO.Value = 0;
+            this.ScrollAmountPO.Scroll += new System.EventHandler<Bunifu.UI.WinForms.BunifuVScrollBar.ScrollEventArgs>(this.ScrollAmountPO_Scroll);
+            // 
+            // dgvTotalPO
+            // 
+            this.dgvTotalPO.AllowUserToAddRows = false;
+            this.dgvTotalPO.AllowUserToDeleteRows = false;
+            this.dgvTotalPO.AllowUserToResizeRows = false;
+            dataGridViewCellStyle21.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle21.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(37)))), ((int)(((byte)(42)))), ((int)(((byte)(64)))));
+            dataGridViewCellStyle21.Font = new System.Drawing.Font("Montserrat", 8.249999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle21.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(244)))), ((int)(((byte)(244)))), ((int)(((byte)(244)))));
+            dataGridViewCellStyle21.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(37)))), ((int)(((byte)(42)))), ((int)(((byte)(64)))));
+            dataGridViewCellStyle21.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(244)))), ((int)(((byte)(244)))), ((int)(((byte)(244)))));
+            this.dgvTotalPO.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle21;
+            this.dgvTotalPO.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dgvTotalPO.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(37)))), ((int)(((byte)(42)))), ((int)(((byte)(64)))));
+            this.dgvTotalPO.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.dgvTotalPO.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None;
+            this.dgvTotalPO.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
+            dataGridViewCellStyle22.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle22.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(37)))), ((int)(((byte)(42)))), ((int)(((byte)(64)))));
+            dataGridViewCellStyle22.Font = new System.Drawing.Font("Montserrat", 8.999999F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle22.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            dataGridViewCellStyle22.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(37)))), ((int)(((byte)(42)))), ((int)(((byte)(64)))));
+            dataGridViewCellStyle22.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            dataGridViewCellStyle22.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvTotalPO.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle22;
+            this.dgvTotalPO.ColumnHeadersHeight = 40;
+            this.dgvTotalPO.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
+            this.dgvTotalPO.ColumnHeadersVisible = false;
+            this.dgvTotalPO.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.dataGridViewTextBoxColumn2,
+            this.dataGridViewTextBoxColumn3});
+            dataGridViewCellStyle23.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle23.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(37)))), ((int)(((byte)(42)))), ((int)(((byte)(64)))));
+            dataGridViewCellStyle23.Font = new System.Drawing.Font("Montserrat", 8.249999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle23.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            dataGridViewCellStyle23.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(37)))), ((int)(((byte)(42)))), ((int)(((byte)(64)))));
+            dataGridViewCellStyle23.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            dataGridViewCellStyle23.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvTotalPO.DefaultCellStyle = dataGridViewCellStyle23;
+            this.dgvTotalPO.EnableHeadersVisualStyles = false;
+            this.dgvTotalPO.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(51)))), ((int)(((byte)(73)))));
+            this.dgvTotalPO.Location = new System.Drawing.Point(11, 15);
+            this.dgvTotalPO.Name = "dgvTotalPO";
+            this.dgvTotalPO.ReadOnly = true;
+            dataGridViewCellStyle24.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle24.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            dataGridViewCellStyle24.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle24.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle24.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle24.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle24.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvTotalPO.RowHeadersDefaultCellStyle = dataGridViewCellStyle24;
+            this.dgvTotalPO.RowHeadersVisible = false;
+            this.dgvTotalPO.RowTemplate.DefaultCellStyle.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.dgvTotalPO.RowTemplate.DefaultCellStyle.Font = new System.Drawing.Font("Montserrat", 8.249999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dgvTotalPO.RowTemplate.Height = 50;
+            this.dgvTotalPO.ScrollBars = System.Windows.Forms.ScrollBars.None;
+            this.dgvTotalPO.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dgvTotalPO.Size = new System.Drawing.Size(221, 158);
+            this.dgvTotalPO.TabIndex = 289;
+            this.dgvTotalPO.RowsAdded += new System.Windows.Forms.DataGridViewRowsAddedEventHandler(this.dgvTotalPO_RowsAdded);
+            this.dgvTotalPO.RowsRemoved += new System.Windows.Forms.DataGridViewRowsRemovedEventHandler(this.dgvTotalPO_RowsRemoved);
+            // 
+            // dataGridViewTextBoxColumn2
+            // 
+            this.dataGridViewTextBoxColumn2.FillWeight = 80F;
+            this.dataGridViewTextBoxColumn2.HeaderText = "Client";
+            this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
+            this.dataGridViewTextBoxColumn2.ReadOnly = true;
+            // 
+            // dataGridViewTextBoxColumn3
+            // 
+            this.dataGridViewTextBoxColumn3.HeaderText = "Total";
+            this.dataGridViewTextBoxColumn3.Name = "dataGridViewTextBoxColumn3";
+            this.dataGridViewTextBoxColumn3.ReadOnly = true;
             // 
             // label8
             // 
-            this.label8.Font = new System.Drawing.Font("Montserrat", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label8.Font = new System.Drawing.Font("Montserrat", 9.749999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label8.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(158)))), ((int)(((byte)(161)))), ((int)(((byte)(176)))));
-            this.label8.Location = new System.Drawing.Point(9, 14);
+            this.label8.Location = new System.Drawing.Point(20, 179);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(98, 23);
+            this.label8.Size = new System.Drawing.Size(61, 23);
             this.label8.TabIndex = 55;
-            this.label8.Text = "Progress";
+            this.label8.Text = "Total :";
             this.label8.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // label3
-            // 
-            this.label3.Font = new System.Drawing.Font("Montserrat", 9.749999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(158)))), ((int)(((byte)(161)))), ((int)(((byte)(176)))));
-            this.label3.Location = new System.Drawing.Point(8, 56);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(99, 83);
-            this.label3.TabIndex = 51;
-            this.label3.Text = "Details of Progress per Month";
-            this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // lblDate
             // 
             this.lblDate.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.lblDate.Font = new System.Drawing.Font("Montserrat", 21.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblDate.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(83)))), ((int)(((byte)(180)))), ((int)(((byte)(151)))));
-            this.lblDate.Location = new System.Drawing.Point(648, 24);
+            this.lblDate.Location = new System.Drawing.Point(648, 9);
             this.lblDate.Name = "lblDate";
-            this.lblDate.Size = new System.Drawing.Size(497, 40);
+            this.lblDate.Size = new System.Drawing.Size(497, 42);
             this.lblDate.TabIndex = 53;
             this.lblDate.Text = "May 2021";
             this.lblDate.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -562,6 +677,7 @@
             // panel5
             // 
             this.panel5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(37)))), ((int)(((byte)(42)))), ((int)(((byte)(64)))));
+            this.panel5.Controls.Add(this.lblPOYear);
             this.panel5.Controls.Add(this.chartRequest);
             this.panel5.Controls.Add(this.label7);
             this.panel5.Location = new System.Drawing.Point(461, 297);
@@ -569,52 +685,63 @@
             this.panel5.Size = new System.Drawing.Size(684, 388);
             this.panel5.TabIndex = 54;
             // 
+            // lblPOYear
+            // 
+            this.lblPOYear.Font = new System.Drawing.Font("Montserrat", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblPOYear.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(83)))), ((int)(((byte)(180)))), ((int)(((byte)(151)))));
+            this.lblPOYear.Location = new System.Drawing.Point(167, 14);
+            this.lblPOYear.Name = "lblPOYear";
+            this.lblPOYear.Size = new System.Drawing.Size(260, 23);
+            this.lblPOYear.TabIndex = 63;
+            this.lblPOYear.Text = "0";
+            this.lblPOYear.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
             // chartRequest
             // 
             this.chartRequest.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(37)))), ((int)(((byte)(42)))), ((int)(((byte)(64)))));
             this.chartRequest.BorderlineColor = System.Drawing.Color.FromArgb(((int)(((byte)(37)))), ((int)(((byte)(42)))), ((int)(((byte)(64)))));
             this.chartRequest.BorderSkin.PageColor = System.Drawing.Color.FromArgb(((int)(((byte)(37)))), ((int)(((byte)(42)))), ((int)(((byte)(64)))));
-            chartArea4.AxisX.Interval = 1D;
-            chartArea4.AxisX.IsLabelAutoFit = false;
-            chartArea4.AxisX.LabelStyle.Font = new System.Drawing.Font("Montserrat", 8.249999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            chartArea4.AxisX.LabelStyle.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(83)))), ((int)(((byte)(180)))), ((int)(((byte)(151)))));
-            chartArea4.AxisX.LineColor = System.Drawing.Color.FromArgb(((int)(((byte)(83)))), ((int)(((byte)(180)))), ((int)(((byte)(151)))));
-            chartArea4.AxisX.MajorGrid.LineColor = System.Drawing.Color.White;
-            chartArea4.AxisX.MajorGrid.LineDashStyle = System.Windows.Forms.DataVisualization.Charting.ChartDashStyle.NotSet;
-            chartArea4.AxisX.Title = "Year ( 2021 )";
-            chartArea4.AxisX.TitleFont = new System.Drawing.Font("Montserrat", 9.749999F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            chartArea4.AxisX.TitleForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(83)))), ((int)(((byte)(180)))), ((int)(((byte)(151)))));
-            chartArea4.AxisX2.MajorGrid.LineDashStyle = System.Windows.Forms.DataVisualization.Charting.ChartDashStyle.NotSet;
-            chartArea4.AxisY.IsLabelAutoFit = false;
-            chartArea4.AxisY.LabelStyle.Font = new System.Drawing.Font("Montserrat", 8.249999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            chartArea4.AxisY.LabelStyle.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(83)))), ((int)(((byte)(180)))), ((int)(((byte)(151)))));
-            chartArea4.AxisY.LineColor = System.Drawing.Color.FromArgb(((int)(((byte)(83)))), ((int)(((byte)(180)))), ((int)(((byte)(151)))));
-            chartArea4.AxisY.MajorGrid.LineColor = System.Drawing.Color.White;
-            chartArea4.AxisY.MajorGrid.LineDashStyle = System.Windows.Forms.DataVisualization.Charting.ChartDashStyle.NotSet;
-            chartArea4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(37)))), ((int)(((byte)(42)))), ((int)(((byte)(64)))));
-            chartArea4.BorderColor = System.Drawing.Color.Empty;
-            chartArea4.Name = "ChartArea1";
-            this.chartRequest.ChartAreas.Add(chartArea4);
-            legend4.Font = new System.Drawing.Font("Montserrat", 8.249999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            legend4.IsTextAutoFit = false;
-            legend4.Name = "Legend1";
-            legend4.TitleFont = new System.Drawing.Font("Montserrat", 8.249999F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.chartRequest.Legends.Add(legend4);
+            chartArea3.AxisX.Interval = 1D;
+            chartArea3.AxisX.IsLabelAutoFit = false;
+            chartArea3.AxisX.LabelStyle.Font = new System.Drawing.Font("Montserrat", 8.249999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            chartArea3.AxisX.LabelStyle.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(83)))), ((int)(((byte)(180)))), ((int)(((byte)(151)))));
+            chartArea3.AxisX.LineColor = System.Drawing.Color.FromArgb(((int)(((byte)(83)))), ((int)(((byte)(180)))), ((int)(((byte)(151)))));
+            chartArea3.AxisX.MajorGrid.LineColor = System.Drawing.Color.White;
+            chartArea3.AxisX.MajorGrid.LineDashStyle = System.Windows.Forms.DataVisualization.Charting.ChartDashStyle.NotSet;
+            chartArea3.AxisX.Title = "Year ( 2021 )";
+            chartArea3.AxisX.TitleFont = new System.Drawing.Font("Montserrat", 9.749999F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            chartArea3.AxisX.TitleForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(83)))), ((int)(((byte)(180)))), ((int)(((byte)(151)))));
+            chartArea3.AxisX2.MajorGrid.LineDashStyle = System.Windows.Forms.DataVisualization.Charting.ChartDashStyle.NotSet;
+            chartArea3.AxisY.IsLabelAutoFit = false;
+            chartArea3.AxisY.LabelStyle.Font = new System.Drawing.Font("Montserrat", 8.249999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            chartArea3.AxisY.LabelStyle.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(83)))), ((int)(((byte)(180)))), ((int)(((byte)(151)))));
+            chartArea3.AxisY.LineColor = System.Drawing.Color.FromArgb(((int)(((byte)(83)))), ((int)(((byte)(180)))), ((int)(((byte)(151)))));
+            chartArea3.AxisY.MajorGrid.LineColor = System.Drawing.Color.White;
+            chartArea3.AxisY.MajorGrid.LineDashStyle = System.Windows.Forms.DataVisualization.Charting.ChartDashStyle.NotSet;
+            chartArea3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(37)))), ((int)(((byte)(42)))), ((int)(((byte)(64)))));
+            chartArea3.BorderColor = System.Drawing.Color.Empty;
+            chartArea3.Name = "ChartArea1";
+            this.chartRequest.ChartAreas.Add(chartArea3);
+            legend3.Font = new System.Drawing.Font("Montserrat", 8.249999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            legend3.IsTextAutoFit = false;
+            legend3.Name = "Legend1";
+            legend3.TitleFont = new System.Drawing.Font("Montserrat", 8.249999F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.chartRequest.Legends.Add(legend3);
             this.chartRequest.Location = new System.Drawing.Point(5, 54);
             this.chartRequest.Name = "chartRequest";
             this.chartRequest.Palette = System.Windows.Forms.DataVisualization.Charting.ChartColorPalette.None;
             this.chartRequest.PaletteCustomColors = new System.Drawing.Color[] {
         System.Drawing.Color.FromArgb(((int)(((byte)(83)))), ((int)(((byte)(180)))), ((int)(((byte)(151)))))};
-            series4.BorderWidth = 2;
-            series4.ChartArea = "ChartArea1";
-            series4.Font = new System.Drawing.Font("Montserrat", 8.249999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            series4.IsValueShownAsLabel = true;
-            series4.IsVisibleInLegend = false;
-            series4.LabelForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(83)))), ((int)(((byte)(180)))), ((int)(((byte)(151)))));
-            series4.Legend = "Legend1";
-            series4.Name = "Request";
-            series4.YValuesPerPoint = 2;
-            this.chartRequest.Series.Add(series4);
+            series3.BorderWidth = 2;
+            series3.ChartArea = "ChartArea1";
+            series3.Font = new System.Drawing.Font("Montserrat", 8.249999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            series3.IsValueShownAsLabel = true;
+            series3.IsVisibleInLegend = false;
+            series3.LabelForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(83)))), ((int)(((byte)(180)))), ((int)(((byte)(151)))));
+            series3.Legend = "Legend1";
+            series3.Name = "Request";
+            series3.YValuesPerPoint = 2;
+            this.chartRequest.Series.Add(series3);
             this.chartRequest.Size = new System.Drawing.Size(674, 315);
             this.chartRequest.TabIndex = 51;
             this.chartRequest.Text = "chart1";
@@ -649,9 +776,9 @@
             this.icnPrevious.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(83)))), ((int)(((byte)(180)))), ((int)(((byte)(151)))));
             this.icnPrevious.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.icnPrevious.IconSize = 35;
-            this.icnPrevious.Location = new System.Drawing.Point(39, 44);
+            this.icnPrevious.Location = new System.Drawing.Point(39, 22);
             this.icnPrevious.Name = "icnPrevious";
-            this.icnPrevious.Size = new System.Drawing.Size(43, 38);
+            this.icnPrevious.Size = new System.Drawing.Size(43, 33);
             this.icnPrevious.TabIndex = 60;
             this.icnPrevious.UseVisualStyleBackColor = false;
             this.icnPrevious.Click += new System.EventHandler(this.icnPrevious_Click);
@@ -668,9 +795,9 @@
             this.icnNext.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(83)))), ((int)(((byte)(180)))), ((int)(((byte)(151)))));
             this.icnNext.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.icnNext.IconSize = 35;
-            this.icnNext.Location = new System.Drawing.Point(88, 44);
+            this.icnNext.Location = new System.Drawing.Point(88, 22);
             this.icnNext.Name = "icnNext";
-            this.icnNext.Size = new System.Drawing.Size(43, 38);
+            this.icnNext.Size = new System.Drawing.Size(43, 33);
             this.icnNext.TabIndex = 61;
             this.icnNext.UseVisualStyleBackColor = false;
             this.icnNext.Click += new System.EventHandler(this.icnNext_Click);
@@ -694,7 +821,6 @@
             this.Text = "frmDashboard";
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
             this.panel3.ResumeLayout(false);
@@ -702,6 +828,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvListRequest)).EndInit();
             this.panel4.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dgvTotalPO)).EndInit();
             this.panel5.ResumeLayout(false);
             this.panel5.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.chartRequest)).EndInit();
@@ -719,12 +846,10 @@
         private System.Windows.Forms.Panel panel4;
         private System.Windows.Forms.Label lblDate;
         private System.Windows.Forms.Label lblTotalRequest;
-        private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Panel panel5;
         private System.Windows.Forms.Label label7;
         private Bunifu.Framework.UI.BunifuCircleProgressbar progressRequest;
         private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.Label lblTotalApproveReq;
@@ -750,5 +875,11 @@
         private System.Windows.Forms.DataVisualization.Charting.Chart chartRequest;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.PictureBox pictureBox2;
+        private System.Windows.Forms.DataGridView dgvTotalPO;
+        private Bunifu.UI.WinForms.BunifuVScrollBar ScrollAmountPO;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn3;
+        private System.Windows.Forms.Label lblAmountPO;
+        private System.Windows.Forms.Label lblPOYear;
     }
 }

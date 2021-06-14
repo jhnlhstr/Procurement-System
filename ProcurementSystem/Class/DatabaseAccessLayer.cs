@@ -12,7 +12,11 @@ namespace ProcurementSystem.Class.AccessLayer
 {
     class DatabaseAccessLayer
     {
-        static SqlConnection myConnection = new SqlConnection("Data Source=192.168.1.2; Initial Catalog=PROCUREMENT; Integrated Security=false; User Instance=False; User ID=billing; Password=@Newuserlogs");
+        //LIVE DATABASE
+        //static SqlConnection myConnection = new SqlConnection("Data Source=10.3.1.34; Initial Catalog=PROCUREMENT; Integrated Security=false; User Instance=False; User ID=ISbilling; Password=@Newuserlogss");
+
+        //TESTING DATABASE
+        static SqlConnection myConnection = new SqlConnection("Data Source=192.168.1.8; Initial Catalog=PROCUREMENT; Integrated Security=false; User Instance=False; User ID=billing; Password=@Newuserlogs");
 
         public static DataTable RetrieveDataTableInfo(string query)
         {
@@ -306,13 +310,15 @@ namespace ProcurementSystem.Class.AccessLayer
                 {
                     dr = myTable.NewRow();
 
-                    dr[1] = dtExcel.Rows[x][0].ToString();
-                    dr[2] = dtExcel.Rows[x][1].ToString();
-                    dr[3] = dtExcel.Rows[x][2].ToString();
-                    dr[4] = dtExcel.Rows[x][3].ToString();
-                    dr[5] = dtExcel.Rows[x][4].ToString();
-                    dr[6] = dtExcel.Rows[x][5].ToString();
-                    dr[7] = dtExcel.Rows[x][6].ToString();
+                    dr[1] = dtExcel.Rows[x][1].ToString();
+                    dr[2] = dtExcel.Rows[x][2].ToString();
+                    dr[3] = dtExcel.Rows[x][3].ToString();
+                    dr[4] = dtExcel.Rows[x][4].ToString();
+                    dr[5] = dtExcel.Rows[x][5].ToString();
+                    dr[6] = dtExcel.Rows[x][6].ToString();
+                    dr[7] = dtExcel.Rows[x][7].ToString();
+                    dr[8] = dtExcel.Rows[x][0].ToString();
+                    dr[9] = true;
 
                     myTable.Rows.Add(dr);
                     myAdapter.Update(myTable);

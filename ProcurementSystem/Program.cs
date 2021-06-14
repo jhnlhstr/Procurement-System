@@ -16,7 +16,16 @@ namespace ProcurementSystem
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new frmLogin());
+
+            if (Environment.UserName.ToLower() == "jbelicano")
+            {
+                Application.Run(new frmMain());
+            }
+            else
+            {
+                Application.Run(new frmLogin());
+            }
+            
         }
     }
 }

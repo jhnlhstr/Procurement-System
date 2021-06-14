@@ -66,20 +66,22 @@ namespace ProcurementSystem.Class.DBMethods
             }
         }
 
-        public static Boolean InsertSupplierList(string itemname, string vendor, string address, string contactperson, string contactnumber, string email, string terms)
+        public static Boolean InsertSupplierList(string itemname, string vendor, string address, string contactperson, string contactnumber, string email, string terms, string tin)
         {
             Boolean _isInsert = false;
 
             try
             {
-                _isInsert = DatabaseAccessLayer.UpdateInfomation("INSERT INTO PS.MasterList VALUES (@item, @vendor, @address, @contactperson, @contactnumber, @email, @terms)", 
+                _isInsert = DatabaseAccessLayer.UpdateInfomation("INSERT INTO PS.MasterList VALUES (@item, @vendor, @address, @contactperson, @contactnumber, @email, @terms, @tin, @active)", 
                                                                  new SqlParameter("@item", itemname),
                                                                  new SqlParameter("@vendor", vendor),
                                                                  new SqlParameter("@address", address),
                                                                  new SqlParameter("@contactperson", contactperson),
                                                                  new SqlParameter("@contactnumber", contactnumber),
                                                                  new SqlParameter("@email", email),
-                                                                 new SqlParameter("@terms", terms));
+                                                                 new SqlParameter("@terms", terms),
+                                                                 new SqlParameter("@tin", tin),
+                                                                 new SqlParameter("@active", true));
 
                 return _isInsert;
             }
@@ -101,14 +103,14 @@ namespace ProcurementSystem.Class.DBMethods
             }
         }
 
-        public static Boolean EditSupplierList(string Id, string itemname, string vendor, string address, string contactperson, string contactnumber, string email, string terms)
+        public static Boolean EditSupplierList(string Id, string itemname, string vendor, string address, string contactperson, string contactnumber, string email, string terms, string tin)
         {
             Boolean _isUpdate = false;
             
             try
             {
                 _isUpdate = DatabaseAccessLayer.UpdateInfomation("UPDATE PS.MasterList SET ItemName = @item, VendorName = @vendor, Address = @address, ContactPerson = @contactperson," +
-                                                                 " ContactNumber = @contactnumber, Email = @email, Terms = @terms WHERE ID = @Id",
+                                                                 " ContactNumber = @contactnumber, Email = @email, Terms = @terms, TIN = @tin WHERE ID = @Id",
                                                                  new SqlParameter("@Id", Id),
                                                                  new SqlParameter("@item", itemname),
                                                                  new SqlParameter("@vendor", vendor),
@@ -116,7 +118,8 @@ namespace ProcurementSystem.Class.DBMethods
                                                                  new SqlParameter("@contactperson", contactperson),
                                                                  new SqlParameter("@contactnumber", contactnumber),
                                                                  new SqlParameter("@email", email),
-                                                                 new SqlParameter("@terms", terms));
+                                                                 new SqlParameter("@terms", terms),
+                                                                 new SqlParameter("@tin", tin));
 
                 return _isUpdate;
             }
@@ -126,14 +129,15 @@ namespace ProcurementSystem.Class.DBMethods
             }
         }
 
-        public static Boolean DeleteSupplier(string Id)
+        public static Boolean EditStatusSupplier(string Id, string active)
         {
             Boolean _isDelete = false;
 
             try
             {
-                _isDelete = DatabaseAccessLayer.UpdateInfomation("DELETE FROM PS.MasterList WHERE ID = @Id",
-                                                                 new SqlParameter("@Id", Id));
+                _isDelete = DatabaseAccessLayer.UpdateInfomation("UPDATE PS.MasterList SET Active = @active WHERE ID = @Id",
+                                                                 new SqlParameter("@Id", Id),
+                                                                 new SqlParameter("@active", active));
 
                 return _isDelete;
             }
@@ -257,17 +261,18 @@ namespace ProcurementSystem.Class.DBMethods
             }
         }
 
-        public static Boolean InsertPurchaseProposal(string rId, string vendorname, string item, string qty, string cost)
+        public static Boolean InsertPurchaseProposal(string rId, string vendorname, string item, string qty, string cost, string prop)
         {
             try
             {
-                return DatabaseAccessLayer.UpdateInfomation("INSERT INTO PS.PurchaseProposal VALUES (@rid, @vendor, @item, @qty, @cost, @status)",
+                return DatabaseAccessLayer.UpdateInfomation("INSERT INTO PS.PurchaseProposal VALUES (@rid, @vendor, @item, @qty, @cost, @status, @prop)",
                                                             new SqlParameter("@rid", rId),
                                                             new SqlParameter("@vendor", vendorname),
                                                             new SqlParameter("@item", item),
                                                             new SqlParameter("@qty", qty),
                                                             new SqlParameter("@cost", cost),
-                                                            new SqlParameter("@status", ""));
+                                                            new SqlParameter("@status", ""),
+                                                            new SqlParameter("@prop", prop));
             }
             catch (Exception ex)
             {
@@ -299,12 +304,12 @@ namespace ProcurementSystem.Class.DBMethods
             {
                 if (prnum == string.Empty)
                 {
-                    Dt = DatabaseAccessLayer.RetrieveDataTableInfo("SELECT DISTINCT PR.RPRID, PP.ID [pID], PR.RPRNum, PP.PVendorName, PP.PItem, PP.PQty, PP.PCost, PP.PStatus" +
+                    Dt = DatabaseAccessLayer.RetrieveDataTableInfo("SELECT DISTINCT PR.RPRID, PP.ID [pID], PR.RPRNum, PP.PProp, PP.PVendorName, PP.PItem, PP.PQty, PP.PCost, PP.PStatus" +
                                                                    " FROM PS.PurchaseRequest PR INNER JOIN PS.PurchaseProposal PP ON RPRID = PP.RID ORDER BY PR.RPRID DESC");
                 }
                 else
                 {
-                    Dt = DatabaseAccessLayer.RetrieveDataTableInfo("SELECT DISTINCT PR.RPRID, PP.ID [pID], PR.RPRNum, PP.PVendorName, PP.PItem, PP.PQty, PP.PCost, PP.PStatus" +
+                    Dt = DatabaseAccessLayer.RetrieveDataTableInfo("SELECT DISTINCT PR.RPRID, PP.ID [pID], PR.RPRNum, PP.PProp, PP.PVendorName, PP.PItem, PP.PQty, PP.PCost, PP.PStatus" +
                                                                    " FROM PS.PurchaseRequest PR INNER JOIN PS.PurchaseProposal PP ON RPRID = PP.RID WHERE RPRNum = @prnum ORDER BY PR.RPRID DESC",
                                                                     new SqlParameter("@prnum", prnum));
                 }
@@ -530,6 +535,56 @@ namespace ProcurementSystem.Class.DBMethods
 
         }
 
+        public static string GetAccountPOEdit(string Id)
+        {
+            DataTable Dt = new DataTable();
+            string accnt = string.Empty;
+
+            try
+            {
+                Dt = DatabaseAccessLayer.RetrieveDataTableInfo("SELECT DISTINCT RAccount FROM PS.PurchaseRequest WHERE RPRID = @Id",
+                                                                new SqlParameter("@Id", Id));
+
+                if (Dt.Rows.Count > 0)
+                {
+                    accnt = Dt.Rows[0]["RAccount"].ToString();
+                }
+
+                return accnt;
+            }
+            catch(Exception ex)
+            {
+                throw new Exception("Error in getting account PO" + Environment.NewLine + ex.Message.ToString(), ex);
+            }
+            finally
+            {
+                Dt.Dispose();
+            }
+        }
+
+        public static string CheckingTIN(string vendorname)
+        {
+            DataTable DtTIN = new DataTable();
+            string tinxx = string.Empty;
+
+            try
+            {
+                DtTIN = DatabaseAccessLayer.RetrieveDataTableInfo("SELECT * FROM PS.MasterList WHERE VendorName = @vendor",
+                                                                  new SqlParameter("@vendor", vendorname));
+
+                if (DtTIN.Rows.Count > 0)
+                {
+                    tinxx = DtTIN.Rows[0]["TIN"].ToString();
+                }
+
+                return tinxx;
+            }
+            catch(Exception ex)
+            {
+                throw new Exception("Error in checking TIN" + Environment.NewLine + ex.Message.ToString(), ex);
+            }
+        }
+
 
 
 
@@ -556,21 +611,45 @@ namespace ProcurementSystem.Class.DBMethods
         //    }
         //}
 
-        public static DataTable PurchaseStatusBind()
+        public static DataTable PurchaseStatusBind(string stats)
         {
+            DataTable Dt = new DataTable();
+
             try
             {
-                return DatabaseAccessLayer.RetrieveDataTableInfo("SELECT DISTINCT PR.RPRID, PR.RPRNum [Request], PR.RStatus [Request Status], PL.PONumber [PO]," +
-                                                                 " (SELECT PODate FROM PS.AutoPO WHERE ID = PL.MID) [Purchase Date]," +
-                                                                 " (SELECT Stats FROM PS.POStatus WHERE MID = PL.MID) [PO Status]," +
-                                                                 " (SELECT SDate FROM PS.POStatus WHERE MID = PL.MID) [Stats Date]," +
-                                                                 " (SELECT ID FROM PS.POStatus WHERE MID = PL.MID) [StatsID]" +
-                                                                 " FROM PS.PurchaseRequest PR INNER JOIN PS.POList PL ON PR.RPRID = PL.PRFID" +
-                                                                 " ORDER BY RPRID DESC");
+                if (stats == "request")
+                {
+                    Dt = DatabaseAccessLayer.RetrieveDataTableInfo("SELECT DISTINCT PL.PRFID, PR.RPRNum, PR.RName, PR.RAccount, PR.RDesc," +
+                                                                   " PR.RDate, PR.RStatus  FROM PS.PurchaseRequest PR LEFT JOIN PS.POList PL ON PR.RPRID = PL.PRFID" +
+                                                                   " WHERE PL.PRFID IS NULL OR PL.PRFID = ''");
+                }
+                else
+                {
+                    Dt = DatabaseAccessLayer.RetrieveDataTableInfo("SELECT DISTINCT (SELECT ID FROM PS.POStatus WHERE MID = PL.MID) [StatsID], PL.PRFID, PL.PONumber," +
+                                                                   " (SELECT PODate FROM PS.AutoPO WHERE ID = PL.MID) [Purchase Date]," +
+                                                                   " (SELECT Stats FROM PS.POStatus WHERE MID = PL.MID) [PO Status]," +
+                                                                   " (SELECT SDate FROM PS.POStatus WHERE MID = PL.MID) [Stats Date]" +
+                                                                   " FROM PS.PurchaseRequest PR INNER JOIN PS.POList PL ON PR.RPRID = PL.PRFID" + 
+                                                                   " ORDER BY PL.PRFID DESC");
+                }
+
+                return Dt;
+
+                //return DatabaseAccessLayer.RetrieveDataTableInfo("SELECT DISTINCT PR.RPRID, PR.RPRNum [Request], PR.RStatus [Request Status], PL.PONumber [PO]," +
+                //                                                 " (SELECT PODate FROM PS.AutoPO WHERE ID = PL.MID) [Purchase Date]," +
+                //                                                 " (SELECT Stats FROM PS.POStatus WHERE MID = PL.MID) [PO Status]," +
+                //                                                 " (SELECT SDate FROM PS.POStatus WHERE MID = PL.MID) [Stats Date]," +
+                //                                                 " (SELECT ID FROM PS.POStatus WHERE MID = PL.MID) [StatsID]" +
+                //                                                 " FROM PS.PurchaseRequest PR INNER JOIN PS.POList PL ON PR.RPRID = PL.PRFID" +
+                //                                                 " ORDER BY RPRID DESC");
             }
             catch(Exception ex)
             {
                 throw new Exception("Error in getting purchase status" + Environment.NewLine + ex.Message.ToString(), ex);
+            }
+            finally
+            {
+                Dt.Dispose();
             }
         }
 
@@ -698,6 +777,27 @@ namespace ProcurementSystem.Class.DBMethods
                 throw new Exception("Error in getting graph request" + Environment.NewLine + ex.Message.ToString(), ex);
             }
 
+        }
+
+        public static DataTable TotalPOClient(string month, string year)
+        {
+            try
+            {
+                return DatabaseAccessLayer.RetrieveDataTableInfo("SELECT RAccount, SUM(TotalPO) [TotalPO] FROM (" +
+                                                                 " SELECT DISTINCT PR.RPRID, PR.RAccount, PR.RDate, PL.PDescription, PL.PUOM," +
+                                                                 "  CASE WHEN PL.PUOM = 'discount/percent' OR PL.PUOM = 'discount/fixed' THEN - ABS(PTotal)" +
+                                                                 "  ELSE PTotal END [TotalPO] FROM PS.PurchaseRequest PR" +
+                                                                 " INNER JOIN PS.POList PL ON PR.RPRID = PL.PRFID" + 
+                                                                 " WHERE MONTH(PR.RDate) = @month AND YEAR(PR.RDate) = @year) TB1" +
+                                                                 " GROUP BY RAccount ORDER BY RAccount",
+                                                                 new SqlParameter("@month", month),
+                                                                 new SqlParameter("@year", year));
+
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("Error in getting total PO per client" + Environment.NewLine + ex.Message.ToString(), ex);
+            }
         }
 
 

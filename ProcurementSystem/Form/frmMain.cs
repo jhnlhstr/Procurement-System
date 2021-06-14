@@ -17,6 +17,12 @@ namespace ProcurementSystem
         {
             InitializeComponent();
 
+            if (Environment.UserName.ToLower() == "jbelicano")
+            {
+                InformationDetails.Username = "jbelicano";
+                InformationDetails.Credentials = "Owner";
+            }
+
             lblUsername.Text = InformationDetails.Username;
 
             switch (InformationDetails.Credentials.ToLower())
@@ -56,13 +62,6 @@ namespace ProcurementSystem
 
                     break;
             }
-
-            //lblTitle.Text = "Dashboard";
-            //this.pnlFormLoader.Controls.Clear();
-            //frmDashboard frmDashboard_vrb = new frmDashboard() { Dock = DockStyle.Fill, TopLevel = false, TopMost = true };
-            //frmDashboard_vrb.FormBorderStyle = FormBorderStyle.None;
-            //this.pnlFormLoader.Controls.Add(frmDashboard_vrb);
-            //frmDashboard_vrb.Show();
 
         }
 

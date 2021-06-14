@@ -21,6 +21,7 @@ namespace ProcurementSystem
         decimal tphp = 0;
         decimal tphpEdit = 0;
         string prfNumber = string.Empty;
+        string accountxx = string.Empty;
 
         string edit_MID = string.Empty;
         string edit_PRFID = string.Empty;
@@ -194,6 +195,12 @@ namespace ProcurementSystem
                 {
                     MessageBox.Show("Please select vendor name", "", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                     cmbVendorPO.Focus();
+                    return;
+                }
+
+                if (DBMethods.CheckingTIN(cmbVendorPO.Text) == string.Empty)
+                {
+                    MessageBox.Show("Please input TIN ID for this Vendor", "", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                     return;
                 }
 
@@ -896,7 +903,7 @@ namespace ProcurementSystem
                     pdfCell.HorizontalAlignment = 0;
                     pdfTable.AddCell(pdfCell);
 
-                    pdfCell = new PdfPCell(new Phrase(new Chunk(txtRequestor.Text, TotalFont2)));
+                    pdfCell = new PdfPCell(new Phrase(new Chunk(txtRequestor.Text + " / " + cmbDepartmentPO.Text, TotalFont2)));
                     pdfCell.Colspan = 2;
                     pdfCell.BorderWidthBottom = 0.5F;
                     pdfCell.BorderWidthLeft = 0F;
@@ -916,7 +923,7 @@ namespace ProcurementSystem
                     pdfCell.HorizontalAlignment = 0;
                     pdfTable.AddCell(pdfCell);
 
-                    pdfCell = new PdfPCell(new Phrase(new Chunk("Department", fonthead)));
+                    pdfCell = new PdfPCell(new Phrase(new Chunk("Client", fonthead)));
                     pdfCell.Colspan = 1;
                     pdfCell.BorderWidthBottom = 0F;
                     pdfCell.BorderWidthLeft = 0F;
@@ -925,7 +932,7 @@ namespace ProcurementSystem
                     pdfCell.HorizontalAlignment = 0;
                     pdfTable.AddCell(pdfCell);
 
-                    pdfCell = new PdfPCell(new Phrase(new Chunk(cmbDepartmentPO.Text, TotalFont2)));
+                    pdfCell = new PdfPCell(new Phrase(new Chunk(accountxx, TotalFont2)));
                     pdfCell.Colspan = 2;
                     pdfCell.BorderWidthBottom = 0.5F;
                     pdfCell.BorderWidthLeft = 0F;
@@ -1012,9 +1019,11 @@ namespace ProcurementSystem
 
                     if (DtReq.Rows.Count > 0)
                     {
-                        reqDetails = "<b>Name :</b>" + " " + " " + " " + "" + DtReq.Rows[0]["RName"].ToString() + "" + "<br>" +
+                        reqDetails = "<b>PRF Number :</b>" + " " + " " + " " + "" + cmbPRFPO.Text + "" + "<br>" +
+                                     "<b>Name :</b>" + " " + " " + " " + "" + DtReq.Rows[0]["RName"].ToString() + "" + "<br>" +
                                      "<b>Department :</b>" + " " + " " + " " + "" + DtReq.Rows[0]["RDept"].ToString() + "" + "<br>" +
-                                     "<b>Name :</b>" + " " + " " + " " + "" + Convert.ToDateTime(DtReq.Rows[0]["RDate"]).ToString("MMM dd, yyyy") + "" + "<br>";
+                                     "<b>Account :</b>" + " " + " " + " " + "" + accountxx + "" + "<br>" +
+                                     "<b>Date :</b>" + " " + " " + " " + "" + Convert.ToDateTime(DtReq.Rows[0]["RDate"]).ToString("MMM dd, yyyy") + "" + "<br>";
 
                         for (int i = 0; i <= DtReq.Rows.Count - 1; i++)
                         {
@@ -1066,9 +1075,9 @@ namespace ProcurementSystem
                                        "<br><br>" +
                                        "<table style = 'width: 100%'>" +
                                           "<tr>" +
-                                             "<th style='border: 1px solid black; border-collapse: collapse; background: rgb(255,255,0)'>Item #</th>" +
-                                             "<th style='border: 1px solid black; border-collapse: collapse; background: rgb(255,255,0)'>Qty</th>" +
-                                             "<th style='border: 1px solid black; border-collapse: collapse; background: rgb(255,255,0)'>Description</th>" +
+                                             "<th style='border: 1px solid black; border-collapse: collapse; background: rgb(24, 30, 54); font-color: white'>Item #</th>" +
+                                             "<th style='border: 1px solid black; border-collapse: collapse; background: rgb(24, 30, 54); font-color: white'>Qty</th>" +
+                                             "<th style='border: 1px solid black; border-collapse: collapse; background: rgb(24, 30, 54); font-color: white'>Description</th>" +
                                           "</tr>" +
                                           reqText +
                                        "</table><br><br>" +
@@ -1076,10 +1085,10 @@ namespace ProcurementSystem
                                        "<b>PROPOSAL DETAILS</b><br><br>" +
                                        "<table style = 'width: 100%'>" +
                                           "<tr>" +
-                                             "<th style='border: 1px solid black; border-collapse: collapse; background: rgb(255,255,0)'>Vendor Name</th>" +
-                                             "<th style='border: 1px solid black; border-collapse: collapse; background: rgb(255,255,0)'>Item</th>" +
-                                             "<th style='border: 1px solid black; border-collapse: collapse; background: rgb(255,255,0)'>Qty</th>" +
-                                             "<th style='border: 1px solid black; border-collapse: collapse; background: rgb(255,255,0)'>Cost</th>" +
+                                             "<th style='border: 1px solid black; border-collapse: collapse; background: rgb(24, 30, 54); font-color: white'>Vendor Name</th>" +
+                                             "<th style='border: 1px solid black; border-collapse: collapse; background: rgb(24, 30, 54); font-color: white'>Item</th>" +
+                                             "<th style='border: 1px solid black; border-collapse: collapse; background: rgb(24, 30, 54); font-color: white'>Qty</th>" +
+                                             "<th style='border: 1px solid black; border-collapse: collapse; background: rgb(24, 30, 54); font-color: white'>Cost</th>" +
                                           "</tr>" +
                                           propText +
                                        "</table><br><br>";
@@ -1142,6 +1151,7 @@ namespace ProcurementSystem
             if (Dtpr.Rows.Count > 0)
             {
                 prfNumber = Dtpr.Rows[0]["RPRID"].ToString();
+                accountxx = Dtpr.Rows[0]["RAccount"].ToString();
             }
         }
         
@@ -1278,10 +1288,10 @@ namespace ProcurementSystem
                         }
                         else if (DtPOEdit.Rows[i]["PUOM"].ToString().ToLower() == "discount/percent" ||
                                  DtPOEdit.Rows[i]["PUOM"].ToString().ToLower() == "discount/fixed")
-                        {
-                            tphpEdit -= Convert.ToDecimal(DtPOEdit.Rows[i]["PTotal"]);
-
-                        }
+                             {
+                                 tphpEdit -= Convert.ToDecimal(DtPOEdit.Rows[i]["PTotal"]);
+                             
+                             }
                         else
                         {
                             tphpEdit += Convert.ToDecimal(DtPOEdit.Rows[i]["PTotal"]);
@@ -2139,7 +2149,7 @@ namespace ProcurementSystem
                         pdfCell.HorizontalAlignment = 0;
                         pdfTable.AddCell(pdfCell);
 
-                        pdfCell = new PdfPCell(new Phrase(new Chunk(txtRequestorEdit.Text, TotalFont2)));
+                        pdfCell = new PdfPCell(new Phrase(new Chunk(txtRequestorEdit.Text + " / " + cmbDepartmentEdit.Text, TotalFont2)));
                         pdfCell.Colspan = 2;
                         pdfCell.BorderWidthBottom = 0.5F;
                         pdfCell.BorderWidthLeft = 0F;
@@ -2159,7 +2169,7 @@ namespace ProcurementSystem
                         pdfCell.HorizontalAlignment = 0;
                         pdfTable.AddCell(pdfCell);
 
-                        pdfCell = new PdfPCell(new Phrase(new Chunk("Department", fonthead)));
+                        pdfCell = new PdfPCell(new Phrase(new Chunk("Client", fonthead)));
                         pdfCell.Colspan = 1;
                         pdfCell.BorderWidthBottom = 0F;
                         pdfCell.BorderWidthLeft = 0F;
@@ -2168,7 +2178,7 @@ namespace ProcurementSystem
                         pdfCell.HorizontalAlignment = 0;
                         pdfTable.AddCell(pdfCell);
 
-                        pdfCell = new PdfPCell(new Phrase(new Chunk(cmbDepartmentEdit.Text, TotalFont2)));
+                        pdfCell = new PdfPCell(new Phrase(new Chunk(DBMethods.GetAccountPOEdit(edit_PRFID), TotalFont2)));
                         pdfCell.Colspan = 2;
                         pdfCell.BorderWidthBottom = 0.5F;
                         pdfCell.BorderWidthLeft = 0F;
@@ -2248,6 +2258,30 @@ namespace ProcurementSystem
 
         }
 
-        
+        private void bunifuButton1_Click(object sender, EventArgs e)
+        {
+            Email.Application Outlook;
+            Email.MailItem Mail;
+
+            Outlook = new Email.Application();
+            Mail = Outlook.CreateItem(Microsoft.Office.Interop.Outlook.OlItemType.olMailItem);
+
+            Mail.To = "";
+            Mail.CC = "";
+
+            Mail.Subject = "Testing Open Apps";
+
+            Mail.HTMLBody = "<script type='text/javascript' language='javascript'>" +
+                                "function RunFile() {" +
+                                "WshShell = new ActiveXObject('WScript.Shell');" +
+                                "WshShell.Run('C:\\Users\\jbelicano\\Desktop\\Billing System Application\\BillingSystem.exe', 1, false);" +
+                                "}" +
+                            "</script>" +
+                            "<a href='javascript: RunFile()'>Run program</a><br>" +
+                            "<a href='C:\\Users\\jbelicano\\Desktop\\Billing System Application\\BillingSystem.exe'>Open Procurement System</a>";
+            Mail.Display();
+        }
+
+
     }
 }

@@ -27,6 +27,9 @@ namespace ProcurementSystem
             //for total PO Created
             DashboardPO(DateTime.Now.ToString("MM"), DateTime.Now.ToString("yyyy"));
 
+            //for total po per client
+            DashboardTotalPOAmount(DateTime.Now.ToString("MM"), DateTime.Now.ToString("yyyy"));
+
             //for list request
             DashboardListRequest();
 
@@ -109,6 +112,7 @@ namespace ProcurementSystem
 
         void DashboardGraph(string year)
         {
+            decimal yearPO = 0;
             DataTable DtGraph = new DataTable();
             DtGraph = DBMethods.DashboardGraphRequest(year);
 
@@ -118,10 +122,37 @@ namespace ProcurementSystem
                 {
                     chartRequest.Series[0].Points.AddXY(DtGraph.Columns[i].ColumnName, DtGraph.Rows[0][i].ToString());
 
+                    yearPO += Convert.ToDecimal(DtGraph.Rows[0][i]);
+
                     Application.DoEvents();
                 }
-                
             }
+
+            lblPOYear.Text = "( " + string.Format("{0:#,#}", yearPO) + " )";
+        }
+
+        void DashboardTotalPOAmount(string month, string year)
+        {
+            decimal totalPO = 0;
+            DataTable DtPOAmount = new DataTable();
+            DtPOAmount = DBMethods.TotalPOClient(month, year);
+            dgvTotalPO.Rows.Clear();
+            
+
+            if (DtPOAmount.Rows.Count > 0)
+            {
+                for (int i = 0; i <= DtPOAmount.Rows.Count - 1; i++)
+                {
+                    dgvTotalPO.Rows.Add(DtPOAmount.Rows[i]["RAccount"].ToString(), string.Format("{0:#,#}", DtPOAmount.Rows[i]["TotalPO"]));
+                    
+                    //for total computation
+                    totalPO += Convert.ToDecimal(DtPOAmount.Rows[i]["TotalPO"]);
+
+                    Application.DoEvents();
+                }
+            }
+
+            lblAmountPO.Text = string.Format("{0:#,#}", totalPO);
         }
 
         private void dgvListRequest_CellClick(object sender, DataGridViewCellEventArgs e)
@@ -179,8 +210,12 @@ namespace ProcurementSystem
             lblDate.Text = DateTime.Now.AddMonths(datexx).ToString("MMMM yyyy");
 
             DashboardRequest(DateTime.Now.AddMonths(datexx).ToString("MM"), DateTime.Now.AddMonths(datexx).ToString("yyyy"));
+            
             //for total PO Created
             DashboardPO(DateTime.Now.AddMonths(datexx).ToString("MM"), DateTime.Now.AddMonths(datexx).ToString("yyyy"));
+
+            //for total po per client
+            DashboardTotalPOAmount(DateTime.Now.AddMonths(datexx).ToString("MM"), DateTime.Now.AddMonths(datexx).ToString("yyyy"));
 
             if (yr != DateTime.Now.AddMonths(datexx).ToString("yyyy"))
             {
@@ -199,8 +234,12 @@ namespace ProcurementSystem
             lblDate.Text = DateTime.Now.AddMonths(datexx).ToString("MMMM yyyy");
 
             DashboardRequest(DateTime.Now.AddMonths(datexx).ToString("MM"), DateTime.Now.AddMonths(datexx).ToString("yyyy"));
+            
             //for total PO Created
             DashboardPO(DateTime.Now.AddMonths(datexx).ToString("MM"), DateTime.Now.AddMonths(datexx).ToString("yyyy"));
+
+            //for total po per client
+            DashboardTotalPOAmount(DateTime.Now.AddMonths(datexx).ToString("MM"), DateTime.Now.AddMonths(datexx).ToString("yyyy"));
 
             if (yr != DateTime.Now.AddMonths(datexx).ToString("yyyy"))
             {
@@ -255,7 +294,46 @@ namespace ProcurementSystem
             }
         }
 
-        
+
+
+        private void dgvTotalPO_RowsAdded(object sender, DataGridViewRowsAddedEventArgs e)
+        {
+            try
+            {
+
+                ScrollAmountPO.Maximum = dgvTotalPO.RowCount - 1;
+            }
+            catch (Exception)
+            {
+
+            }
+        }
+
+        private void dgvTotalPO_RowsRemoved(object sender, DataGridViewRowsRemovedEventArgs e)
+        {
+            try
+            {
+
+                ScrollAmountPO.Maximum = dgvTotalPO.RowCount - 1;
+            }
+            catch (Exception)
+            {
+
+            }
+        }
+
+        private void ScrollAmountPO_Scroll(object sender, Bunifu.UI.WinForms.BunifuVScrollBar.ScrollEventArgs e)
+        {
+            try
+            {
+
+                dgvTotalPO.FirstDisplayedScrollingRowIndex = dgvTotalPO.Rows[e.Value].Index;
+            }
+            catch (Exception)
+            {
+
+            }
+        }
 
 
 

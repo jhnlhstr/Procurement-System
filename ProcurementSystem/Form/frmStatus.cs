@@ -18,19 +18,16 @@ namespace ProcurementSystem
             InitializeComponent();
 
             DataTable DtStats = new DataTable();
-            DtStats = DBMethods.PurchaseStatusBind();
-            dgvStatus.Rows.Clear();
+            DtStats = DBMethods.PurchaseStatusBind("request");
+            dgvStatsRequest.Rows.Clear();
 
             if (DtStats.Rows.Count > 0)
             {
                 for (int i = 0; i <= DtStats.Rows.Count - 1; i++)
                 {
-                    dgvStatus.Rows.Add(new object[] { imageList1.Images[0], DtStats.Rows[i]["RPRID"].ToString(), DtStats.Rows[i]["StatsID"].ToString(), DtStats.Rows[i]["Request"].ToString(),
-                                                      DtStats.Rows[i]["Request Status"].ToString(), DtStats.Rows[i]["PO"].ToString(),
-                                                      Convert.ToDateTime(DtStats.Rows[i]["Purchase Date"]).ToString("MMM dd, yyyy"),
-                                                      DtStats.Rows[i]["PO Status"].ToString().ToLower() == "delivered" ? imageList1.Images[4] :
-                                                      DtStats.Rows[i]["PO Status"].ToString().ToLower() == "cancelled" ? imageList1.Images[3] : imageList1.Images[2],
-                                                      DtStats.Rows[i]["PO Status"].ToString().ToLower() == "delivered" ? Convert.ToDateTime(DtStats.Rows[i]["Stats Date"]).ToString("MMM dd, yyyy") : "" });
+                    dgvStatsRequest.Rows.Add(new object[] { imageList1.Images[0], DtStats.Rows[i]["PRFID"].ToString(), DtStats.Rows[i]["RPRNum"].ToString(), 
+                                                            DtStats.Rows[i]["RName"].ToString(), DtStats.Rows[i]["RAccount"].ToString(), 
+                                                            DtStats.Rows[i]["RDesc"].ToString(), Convert.ToDateTime(DtStats.Rows[i]["RDate"]).ToString("MMM dd, yyyy") });
 
                     Application.DoEvents();
                 }
@@ -41,24 +38,24 @@ namespace ProcurementSystem
         {
             if (MessageBox.Show("You want to update this item?", "", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
             {
-                if (DBMethods.UpdatePurchaseStatus(dgvStatus.Rows[dgvStatus.CurrentCell.RowIndex].Cells[2].Value.ToString(), "Cancelled"))
+                if (DBMethods.UpdatePurchaseStatus(dgvStatsPurchase.Rows[dgvStatsPurchase.CurrentCell.RowIndex].Cells[1].Value.ToString(), "Cancelled"))
                 {
                     MessageBox.Show("Cancelled item Success!", "", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
-                    DataTable DtStats = new DataTable();
-                    DtStats = DBMethods.PurchaseStatusBind();
-                    dgvStatus.Rows.Clear();
+                    DataTable DtPurchase = new DataTable();
+                    DtPurchase = DBMethods.PurchaseStatusBind("purchase");
+                    dgvStatsPurchase.Rows.Clear();
 
-                    if (DtStats.Rows.Count > 0)
+                    if (DtPurchase.Rows.Count > 0)
                     {
-                        for (int i = 0; i <= DtStats.Rows.Count - 1; i++)
+                        for (int i = 0; i <= DtPurchase.Rows.Count - 1; i++)
                         {
-                            dgvStatus.Rows.Add(new object[] { imageList1.Images[0], DtStats.Rows[i]["RPRID"].ToString(), DtStats.Rows[i]["StatsID"].ToString(), DtStats.Rows[i]["Request"].ToString(),
-                                                      DtStats.Rows[i]["Request Status"].ToString(), DtStats.Rows[i]["PO"].ToString(),
-                                                      Convert.ToDateTime(DtStats.Rows[i]["Purchase Date"]).ToString("MMM dd, yyyy"),
-                                                      DtStats.Rows[i]["PO Status"].ToString().ToLower() == "delivered" ? imageList1.Images[4] :
-                                                      DtStats.Rows[i]["PO Status"].ToString().ToLower() == "cancelled" ? imageList1.Images[3] : imageList1.Images[2],
-                                                      DtStats.Rows[i]["PO Status"].ToString().ToLower() == "delivered" ? Convert.ToDateTime(DtStats.Rows[i]["Stats Date"]).ToString("MMM dd, yyyy") : "" });
+                            dgvStatsPurchase.Rows.Add(new object[] { imageList1.Images[0], DtPurchase.Rows[i]["StatsID"].ToString(), DtPurchase.Rows[i]["PRFID"].ToString(),
+                                                            DtPurchase.Rows[i]["PONumber"].ToString(), Convert.ToDateTime(DtPurchase.Rows[i]["Purchase Date"]).ToString("MMM dd, yyyy"),
+                                                            DtPurchase.Rows[i]["PO Status"].ToString().ToLower() == "ongoing" ? imageList1.Images[2] :
+                                                                DtPurchase.Rows[i]["PO Status"].ToString().ToLower() == "delivered" ? imageList1.Images[4] : imageList1.Images[3],
+                                                            DtPurchase.Rows[i]["PO Status"].ToString().ToLower() == "delivered" ?
+                                                                Convert.ToDateTime(DtPurchase.Rows[i]["Stats Date"]).ToString("MMM dd, yyyy") : "" });
 
                             Application.DoEvents();
                         }
@@ -75,24 +72,24 @@ namespace ProcurementSystem
         {
             if (MessageBox.Show("You want to update this item?", "", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
             {
-                if (DBMethods.UpdatePurchaseStatus(dgvStatus.Rows[dgvStatus.CurrentCell.RowIndex].Cells[2].Value.ToString(), "Delivered"))
+                if (DBMethods.UpdatePurchaseStatus(dgvStatsPurchase.Rows[dgvStatsPurchase.CurrentCell.RowIndex].Cells[1].Value.ToString(), "Delivered"))
                 {
                     MessageBox.Show("Delivered item Success!", "", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
-                    DataTable DtStats = new DataTable();
-                    DtStats = DBMethods.PurchaseStatusBind();
-                    dgvStatus.Rows.Clear();
+                    DataTable DtPurchase = new DataTable();
+                    DtPurchase = DBMethods.PurchaseStatusBind("purchase");
+                    dgvStatsPurchase.Rows.Clear();
 
-                    if (DtStats.Rows.Count > 0)
+                    if (DtPurchase.Rows.Count > 0)
                     {
-                        for (int i = 0; i <= DtStats.Rows.Count - 1; i++)
+                        for (int i = 0; i <= DtPurchase.Rows.Count - 1; i++)
                         {
-                            dgvStatus.Rows.Add(new object[] { imageList1.Images[0], DtStats.Rows[i]["RPRID"].ToString(), DtStats.Rows[i]["StatsID"].ToString(), DtStats.Rows[i]["Request"].ToString(),
-                                                      DtStats.Rows[i]["Request Status"].ToString(), DtStats.Rows[i]["PO"].ToString(),
-                                                      Convert.ToDateTime(DtStats.Rows[i]["Purchase Date"]).ToString("MMM dd, yyyy"),
-                                                      DtStats.Rows[i]["PO Status"].ToString().ToLower() == "delivered" ? imageList1.Images[4] :
-                                                      DtStats.Rows[i]["PO Status"].ToString().ToLower() == "cancelled" ? imageList1.Images[3] : imageList1.Images[2],
-                                                      DtStats.Rows[i]["PO Status"].ToString().ToLower() == "delivered" ? Convert.ToDateTime(DtStats.Rows[i]["Stats Date"]).ToString("MMM dd, yyyy") : "" });
+                            dgvStatsPurchase.Rows.Add(new object[] { imageList1.Images[0], DtPurchase.Rows[i]["StatsID"].ToString(), DtPurchase.Rows[i]["PRFID"].ToString(),
+                                                            DtPurchase.Rows[i]["PONumber"].ToString(), Convert.ToDateTime(DtPurchase.Rows[i]["Purchase Date"]).ToString("MMM dd, yyyy"),
+                                                            DtPurchase.Rows[i]["PO Status"].ToString().ToLower() == "ongoing" ? imageList1.Images[2] :
+                                                                DtPurchase.Rows[i]["PO Status"].ToString().ToLower() == "delivered" ? imageList1.Images[4] : imageList1.Images[3],
+                                                            DtPurchase.Rows[i]["PO Status"].ToString().ToLower() == "delivered" ?
+                                                                Convert.ToDateTime(DtPurchase.Rows[i]["Stats Date"]).ToString("MMM dd, yyyy") : "" });
 
                             Application.DoEvents();
                         }
@@ -105,29 +102,77 @@ namespace ProcurementSystem
             }
         }
 
-        private void dgvStatus_CellMouseDown(object sender, DataGridViewCellMouseEventArgs e)
+        private void dgvStatsPurchase_CellMouseDown(object sender, DataGridViewCellMouseEventArgs e)
         {
             if (e.RowIndex != -1)
             {
                 if (e.Button == MouseButtons.Right)
                 {
-                    dgvStatus.CurrentCell = dgvStatus.Rows[e.RowIndex].Cells[e.ColumnIndex];
-                    dgvStatus.Rows[e.RowIndex].Selected = true;
+                    dgvStatsPurchase.CurrentCell = dgvStatsPurchase.Rows[e.RowIndex].Cells[e.ColumnIndex];
+                    dgvStatsPurchase.Rows[e.RowIndex].Selected = true;
                     cmList.Show(Cursor.Position.X, Cursor.Position.Y);
                 }
             }
         }
 
-     
+        private void rbRequest_CheckedChanged(object sender, EventArgs e)
+        {
+            dgvStatsRequest.Visible = true;
+            bScrollStats.Visible = true;
+            dgvStatsPurchase.Visible = false;
+            bScrollPurchase.Visible = false;
 
+            DataTable DtStats = new DataTable();
+            DtStats = DBMethods.PurchaseStatusBind("request");
+            dgvStatsRequest.Rows.Clear();
 
+            if (DtStats.Rows.Count > 0)
+            {
+                for (int i = 0; i <= DtStats.Rows.Count - 1; i++)
+                {
+                    dgvStatsRequest.Rows.Add(new object[] { imageList1.Images[0], DtStats.Rows[i]["PRFID"].ToString(), DtStats.Rows[i]["RPRNum"].ToString(),
+                                                            DtStats.Rows[i]["RName"].ToString(), DtStats.Rows[i]["RAccount"].ToString(),
+                                                            DtStats.Rows[i]["RDesc"].ToString(), Convert.ToDateTime(DtStats.Rows[i]["RDate"]).ToString("MMM dd, yyyy") });
 
-        private void dgvStatus_RowsAdded(object sender, DataGridViewRowsAddedEventArgs e)
+                    Application.DoEvents();
+                }
+            }
+
+        }
+
+        private void rbPurchase_CheckedChanged(object sender, EventArgs e)
+        {
+            dgvStatsRequest.Visible = false;
+            bScrollStats.Visible = false;
+            dgvStatsPurchase.Visible = true;
+            bScrollPurchase.Visible = true;
+
+            DataTable DtPurchase = new DataTable();
+            DtPurchase = DBMethods.PurchaseStatusBind("purchase");
+            dgvStatsPurchase.Rows.Clear();
+
+            if (DtPurchase.Rows.Count > 0)
+            {
+                for (int i = 0; i <= DtPurchase.Rows.Count - 1; i++)
+                {
+                    dgvStatsPurchase.Rows.Add(new object[] { imageList1.Images[0], DtPurchase.Rows[i]["StatsID"].ToString(), DtPurchase.Rows[i]["PRFID"].ToString(),
+                                                            DtPurchase.Rows[i]["PONumber"].ToString(), Convert.ToDateTime(DtPurchase.Rows[i]["Purchase Date"]).ToString("MMM dd, yyyy"),
+                                                            DtPurchase.Rows[i]["PO Status"].ToString().ToLower() == "ongoing" ? imageList1.Images[2] :
+                                                                DtPurchase.Rows[i]["PO Status"].ToString().ToLower() == "delivered" ? imageList1.Images[4] : imageList1.Images[3],
+                                                            DtPurchase.Rows[i]["PO Status"].ToString().ToLower() == "delivered" ?
+                                                                Convert.ToDateTime(DtPurchase.Rows[i]["Stats Date"]).ToString("MMM dd, yyyy") : "" });
+
+                    Application.DoEvents();
+                }
+            }
+
+        }
+
+        private void dgvStatsRequest_RowsAdded(object sender, DataGridViewRowsAddedEventArgs e)
         {
             try
             {
-                
-                bScrollStats.Maximum = dgvStatus.RowCount - 1;
+                bScrollStats.Maximum = dgvStatsRequest.RowCount - 1;
             }
             catch (Exception)
             {
@@ -135,11 +180,11 @@ namespace ProcurementSystem
             }
         }
 
-        private void dgvStatus_RowsRemoved(object sender, DataGridViewRowsRemovedEventArgs e)
+        private void dgvStatsRequest_RowsRemoved(object sender, DataGridViewRowsRemovedEventArgs e)
         {
             try
             {
-                bScrollStats.Maximum = dgvStatus.RowCount - 1;
+                bScrollStats.Maximum = dgvStatsRequest.RowCount - 1;
             }
             catch (Exception)
             {
@@ -151,7 +196,7 @@ namespace ProcurementSystem
         {
             try
             {
-                dgvStatus.FirstDisplayedScrollingRowIndex = dgvStatus.Rows[e.Value].Index;
+                dgvStatsRequest.FirstDisplayedScrollingRowIndex = dgvStatsRequest.Rows[e.Value].Index;
             }
             catch (Exception)
             {
@@ -159,9 +204,47 @@ namespace ProcurementSystem
             }
         }
 
-       
 
-       
+
+        private void dgvStatsPurchase_RowsAdded(object sender, DataGridViewRowsAddedEventArgs e)
+        {
+            try
+            {
+                bScrollPurchase.Maximum = dgvStatsPurchase.RowCount - 1;
+            }
+            catch (Exception)
+            {
+
+            }
+        }
+
+        private void dgvStatsPurchase_RowsRemoved(object sender, DataGridViewRowsRemovedEventArgs e)
+        {
+            try
+            {
+                bScrollPurchase.Maximum = dgvStatsPurchase.RowCount - 1;
+            }
+            catch (Exception)
+            {
+
+            }
+        }
+
+        private void bScrollPurchase_Scroll(object sender, Bunifu.UI.WinForms.BunifuVScrollBar.ScrollEventArgs e)
+        {
+            try
+            {
+                dgvStatsPurchase.FirstDisplayedScrollingRowIndex = dgvStatsPurchase.Rows[e.Value].Index;
+            }
+            catch (Exception)
+            {
+
+            }
+        }
+
+
+
+
 
     }
 }

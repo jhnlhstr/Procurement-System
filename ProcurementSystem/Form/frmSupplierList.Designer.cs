@@ -68,18 +68,11 @@
             Bunifu.UI.WinForms.BunifuButton.BunifuButton.BorderEdges borderEdges2 = new Bunifu.UI.WinForms.BunifuButton.BunifuButton.BorderEdges();
             Bunifu.UI.WinForms.BunifuButton.BunifuButton.StateProperties stateProperties31 = new Bunifu.UI.WinForms.BunifuButton.BunifuButton.StateProperties();
             Bunifu.UI.WinForms.BunifuButton.BunifuButton.StateProperties stateProperties32 = new Bunifu.UI.WinForms.BunifuButton.BunifuButton.StateProperties();
+            Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox.StateProperties stateProperties33 = new Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox.StateProperties();
+            Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox.StateProperties stateProperties34 = new Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox.StateProperties();
+            Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox.StateProperties stateProperties35 = new Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox.StateProperties();
+            Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox.StateProperties stateProperties36 = new Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox.StateProperties();
             this.dgvSupplier = new System.Windows.Forms.DataGridView();
-            this.Column8 = new System.Windows.Forms.DataGridViewImageColumn();
-            this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column9 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column10 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column6 = new System.Windows.Forms.DataGridViewImageColumn();
-            this.Column11 = new System.Windows.Forms.DataGridViewImageColumn();
             this.imageList1 = new System.Windows.Forms.ImageList(this.components);
             this.txtItem = new Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox();
             this.bScroll = new Bunifu.UI.WinForms.BunifuVScrollBar();
@@ -92,6 +85,21 @@
             this.btnSave = new Bunifu.UI.WinForms.BunifuButton.BunifuButton();
             this.btnExcel = new Bunifu.UI.WinForms.BunifuButton.BunifuButton();
             this.openFile = new System.Windows.Forms.OpenFileDialog();
+            this.txtTIN = new Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox();
+            this.bHScroll = new Bunifu.UI.WinForms.BunifuHScrollBar();
+            this.Column8 = new System.Windows.Forms.DataGridViewImageColumn();
+            this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column9 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column10 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column12 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column6 = new System.Windows.Forms.DataGridViewImageColumn();
+            this.Column11 = new System.Windows.Forms.DataGridViewImageColumn();
+            this.Column13 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dgvSupplier)).BeginInit();
             this.SuspendLayout();
             // 
@@ -107,7 +115,6 @@
             dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(74)))), ((int)(((byte)(79)))), ((int)(((byte)(99)))));
             dataGridViewCellStyle1.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(244)))), ((int)(((byte)(244)))), ((int)(((byte)(244)))));
             this.dgvSupplier.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
-            this.dgvSupplier.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgvSupplier.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(51)))), ((int)(((byte)(73)))));
             this.dgvSupplier.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.dgvSupplier.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None;
@@ -132,8 +139,10 @@
             this.Column7,
             this.Column9,
             this.Column10,
+            this.Column12,
             this.Column6,
-            this.Column11});
+            this.Column11,
+            this.Column13});
             dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
             dataGridViewCellStyle3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(51)))), ((int)(((byte)(73)))));
             dataGridViewCellStyle3.Font = new System.Drawing.Font("Montserrat", 8.249999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -144,7 +153,7 @@
             this.dgvSupplier.DefaultCellStyle = dataGridViewCellStyle3;
             this.dgvSupplier.EnableHeadersVisualStyles = false;
             this.dgvSupplier.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(51)))), ((int)(((byte)(73)))));
-            this.dgvSupplier.Location = new System.Drawing.Point(28, 206);
+            this.dgvSupplier.Location = new System.Drawing.Point(28, 191);
             this.dgvSupplier.Name = "dgvSupplier";
             dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.ActiveCaption;
@@ -163,74 +172,10 @@
             this.dgvSupplier.Size = new System.Drawing.Size(1125, 488);
             this.dgvSupplier.TabIndex = 48;
             this.dgvSupplier.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvSupplier_CellClick);
+            this.dgvSupplier.ColumnAdded += new System.Windows.Forms.DataGridViewColumnEventHandler(this.dgvSupplier_ColumnAdded);
+            this.dgvSupplier.ColumnRemoved += new System.Windows.Forms.DataGridViewColumnEventHandler(this.dgvSupplier_ColumnRemoved);
             this.dgvSupplier.RowsAdded += new System.Windows.Forms.DataGridViewRowsAddedEventHandler(this.dgvTest_RowsAdded);
             this.dgvSupplier.RowsRemoved += new System.Windows.Forms.DataGridViewRowsRemovedEventHandler(this.dgvTest_RowsRemoved);
-            // 
-            // Column8
-            // 
-            this.Column8.FillWeight = 25F;
-            this.Column8.HeaderText = "";
-            this.Column8.Name = "Column8";
-            this.Column8.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.Column8.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
-            // 
-            // Column1
-            // 
-            this.Column1.FillWeight = 20F;
-            this.Column1.HeaderText = "ID";
-            this.Column1.Name = "Column1";
-            this.Column1.Visible = false;
-            // 
-            // Column2
-            // 
-            this.Column2.HeaderText = "Item";
-            this.Column2.Name = "Column2";
-            // 
-            // Column3
-            // 
-            this.Column3.HeaderText = "Vendor";
-            this.Column3.Name = "Column3";
-            // 
-            // Column4
-            // 
-            this.Column4.HeaderText = "Address";
-            this.Column4.Name = "Column4";
-            // 
-            // Column5
-            // 
-            this.Column5.HeaderText = "Contact Person";
-            this.Column5.Name = "Column5";
-            // 
-            // Column7
-            // 
-            this.Column7.HeaderText = "Contact Number";
-            this.Column7.Name = "Column7";
-            // 
-            // Column9
-            // 
-            this.Column9.HeaderText = "Email";
-            this.Column9.Name = "Column9";
-            // 
-            // Column10
-            // 
-            this.Column10.FillWeight = 40F;
-            this.Column10.HeaderText = "Terms";
-            this.Column10.Name = "Column10";
-            // 
-            // Column6
-            // 
-            this.Column6.FillWeight = 30F;
-            this.Column6.HeaderText = "";
-            this.Column6.Name = "Column6";
-            this.Column6.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.Column6.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
-            // 
-            // Column11
-            // 
-            this.Column11.FillWeight = 30F;
-            this.Column11.HeaderText = "";
-            this.Column11.Name = "Column11";
-            this.Column11.Resizable = System.Windows.Forms.DataGridViewTriState.True;
             // 
             // imageList1
             // 
@@ -239,6 +184,8 @@
             this.imageList1.Images.SetKeyName(0, "user1.png");
             this.imageList1.Images.SetKeyName(1, "edit.png");
             this.imageList1.Images.SetKeyName(2, "remove1.png");
+            this.imageList1.Images.SetKeyName(3, "delivered.png");
+            this.imageList1.Images.SetKeyName(4, "cancelled.png");
             // 
             // txtItem
             // 
@@ -268,7 +215,7 @@
             this.txtItem.IconRight = null;
             this.txtItem.IconRightCursor = System.Windows.Forms.Cursors.IBeam;
             this.txtItem.Lines = new string[0];
-            this.txtItem.Location = new System.Drawing.Point(28, 30);
+            this.txtItem.Location = new System.Drawing.Point(28, 22);
             this.txtItem.MaxLength = 32767;
             this.txtItem.MinimumSize = new System.Drawing.Size(100, 35);
             this.txtItem.Modified = false;
@@ -333,7 +280,7 @@
             this.bScroll.BorderThickness = 1;
             this.bScroll.DurationBeforeShrink = 2000;
             this.bScroll.LargeChange = 10;
-            this.bScroll.Location = new System.Drawing.Point(1159, 243);
+            this.bScroll.Location = new System.Drawing.Point(1159, 228);
             this.bScroll.Maximum = 100;
             this.bScroll.Minimum = 0;
             this.bScroll.MinimumThumbLength = 18;
@@ -382,7 +329,7 @@
             this.txtAddress.IconRight = null;
             this.txtAddress.IconRightCursor = System.Windows.Forms.Cursors.IBeam;
             this.txtAddress.Lines = new string[0];
-            this.txtAddress.Location = new System.Drawing.Point(28, 91);
+            this.txtAddress.Location = new System.Drawing.Point(28, 83);
             this.txtAddress.MaxLength = 32767;
             this.txtAddress.MinimumSize = new System.Drawing.Size(100, 35);
             this.txtAddress.Modified = false;
@@ -456,7 +403,7 @@
             this.txtVendor.IconRight = null;
             this.txtVendor.IconRightCursor = System.Windows.Forms.Cursors.IBeam;
             this.txtVendor.Lines = new string[0];
-            this.txtVendor.Location = new System.Drawing.Point(343, 30);
+            this.txtVendor.Location = new System.Drawing.Point(343, 22);
             this.txtVendor.MaxLength = 32767;
             this.txtVendor.MinimumSize = new System.Drawing.Size(100, 35);
             this.txtVendor.Modified = false;
@@ -530,7 +477,7 @@
             this.txtContactPerson.IconRight = null;
             this.txtContactPerson.IconRightCursor = System.Windows.Forms.Cursors.IBeam;
             this.txtContactPerson.Lines = new string[0];
-            this.txtContactPerson.Location = new System.Drawing.Point(509, 88);
+            this.txtContactPerson.Location = new System.Drawing.Point(509, 80);
             this.txtContactPerson.MaxLength = 32767;
             this.txtContactPerson.MinimumSize = new System.Drawing.Size(100, 35);
             this.txtContactPerson.Modified = false;
@@ -565,7 +512,7 @@
             this.txtContactPerson.SelectionLength = 0;
             this.txtContactPerson.SelectionStart = 0;
             this.txtContactPerson.ShortcutsEnabled = true;
-            this.txtContactPerson.Size = new System.Drawing.Size(319, 48);
+            this.txtContactPerson.Size = new System.Drawing.Size(263, 48);
             this.txtContactPerson.Style = Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox._Style.Bunifu;
             this.txtContactPerson.TabIndex = 69;
             this.txtContactPerson.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
@@ -604,7 +551,7 @@
             this.txtContactNumber.IconRight = null;
             this.txtContactNumber.IconRightCursor = System.Windows.Forms.Cursors.IBeam;
             this.txtContactNumber.Lines = new string[0];
-            this.txtContactNumber.Location = new System.Drawing.Point(846, 88);
+            this.txtContactNumber.Location = new System.Drawing.Point(789, 80);
             this.txtContactNumber.MaxLength = 32767;
             this.txtContactNumber.MinimumSize = new System.Drawing.Size(100, 35);
             this.txtContactNumber.Modified = false;
@@ -639,7 +586,7 @@
             this.txtContactNumber.SelectionLength = 0;
             this.txtContactNumber.SelectionStart = 0;
             this.txtContactNumber.ShortcutsEnabled = true;
-            this.txtContactNumber.Size = new System.Drawing.Size(307, 48);
+            this.txtContactNumber.Size = new System.Drawing.Size(216, 48);
             this.txtContactNumber.Style = Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox._Style.Bunifu;
             this.txtContactNumber.TabIndex = 70;
             this.txtContactNumber.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
@@ -678,7 +625,7 @@
             this.txtEmail.IconRight = null;
             this.txtEmail.IconRightCursor = System.Windows.Forms.Cursors.IBeam;
             this.txtEmail.Lines = new string[0];
-            this.txtEmail.Location = new System.Drawing.Point(682, 30);
+            this.txtEmail.Location = new System.Drawing.Point(682, 22);
             this.txtEmail.MaxLength = 32767;
             this.txtEmail.MinimumSize = new System.Drawing.Size(100, 35);
             this.txtEmail.Modified = false;
@@ -752,7 +699,7 @@
             this.txtTerms.IconRight = null;
             this.txtTerms.IconRightCursor = System.Windows.Forms.Cursors.IBeam;
             this.txtTerms.Lines = new string[0];
-            this.txtTerms.Location = new System.Drawing.Point(1019, 30);
+            this.txtTerms.Location = new System.Drawing.Point(1019, 22);
             this.txtTerms.MaxLength = 32767;
             this.txtTerms.MinimumSize = new System.Drawing.Size(100, 35);
             this.txtTerms.Modified = false;
@@ -835,7 +782,7 @@
             this.btnSave.IdleIconLeftImage = ((System.Drawing.Image)(resources.GetObject("btnSave.IdleIconLeftImage")));
             this.btnSave.IdleIconRightImage = null;
             this.btnSave.IndicateFocus = false;
-            this.btnSave.Location = new System.Drawing.Point(1073, 152);
+            this.btnSave.Location = new System.Drawing.Point(1073, 144);
             this.btnSave.Name = "btnSave";
             stateProperties29.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(83)))), ((int)(((byte)(180)))), ((int)(((byte)(151)))));
             stateProperties29.BorderRadius = 15;
@@ -899,7 +846,7 @@
             this.btnExcel.IdleIconLeftImage = ((System.Drawing.Image)(resources.GetObject("btnExcel.IdleIconLeftImage")));
             this.btnExcel.IdleIconRightImage = null;
             this.btnExcel.IndicateFocus = false;
-            this.btnExcel.Location = new System.Drawing.Point(28, 152);
+            this.btnExcel.Location = new System.Drawing.Point(28, 144);
             this.btnExcel.Name = "btnExcel";
             stateProperties31.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(83)))), ((int)(((byte)(180)))), ((int)(((byte)(151)))));
             stateProperties31.BorderRadius = 15;
@@ -930,12 +877,213 @@
             // 
             this.openFile.FileName = "openFileDialog1";
             // 
+            // txtTIN
+            // 
+            this.txtTIN.AcceptsReturn = false;
+            this.txtTIN.AcceptsTab = false;
+            this.txtTIN.AnimationSpeed = 350;
+            this.txtTIN.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.None;
+            this.txtTIN.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.None;
+            this.txtTIN.BackColor = System.Drawing.Color.Transparent;
+            this.txtTIN.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("txtTIN.BackgroundImage")));
+            this.txtTIN.BorderColorActive = System.Drawing.Color.FromArgb(((int)(((byte)(83)))), ((int)(((byte)(180)))), ((int)(((byte)(151)))));
+            this.txtTIN.BorderColorDisabled = System.Drawing.Color.FromArgb(((int)(((byte)(74)))), ((int)(((byte)(79)))), ((int)(((byte)(99)))));
+            this.txtTIN.BorderColorHover = System.Drawing.Color.FromArgb(((int)(((byte)(83)))), ((int)(((byte)(180)))), ((int)(((byte)(151)))));
+            this.txtTIN.BorderColorIdle = System.Drawing.Color.FromArgb(((int)(((byte)(74)))), ((int)(((byte)(79)))), ((int)(((byte)(99)))));
+            this.txtTIN.BorderRadius = 15;
+            this.txtTIN.BorderThickness = 2;
+            this.txtTIN.CharacterCasing = System.Windows.Forms.CharacterCasing.Normal;
+            this.txtTIN.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.txtTIN.DefaultFont = new System.Drawing.Font("Montserrat", 8.999999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtTIN.DefaultText = "";
+            this.txtTIN.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(74)))), ((int)(((byte)(79)))), ((int)(((byte)(99)))));
+            this.txtTIN.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(244)))), ((int)(((byte)(244)))), ((int)(((byte)(244)))));
+            this.txtTIN.HideSelection = true;
+            this.txtTIN.IconLeft = null;
+            this.txtTIN.IconLeftCursor = System.Windows.Forms.Cursors.IBeam;
+            this.txtTIN.IconPadding = 5;
+            this.txtTIN.IconRight = null;
+            this.txtTIN.IconRightCursor = System.Windows.Forms.Cursors.IBeam;
+            this.txtTIN.Lines = new string[0];
+            this.txtTIN.Location = new System.Drawing.Point(1019, 80);
+            this.txtTIN.MaxLength = 32767;
+            this.txtTIN.MinimumSize = new System.Drawing.Size(100, 35);
+            this.txtTIN.Modified = false;
+            this.txtTIN.Multiline = false;
+            this.txtTIN.Name = "txtTIN";
+            stateProperties33.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(83)))), ((int)(((byte)(180)))), ((int)(((byte)(151)))));
+            stateProperties33.FillColor = System.Drawing.Color.Empty;
+            stateProperties33.ForeColor = System.Drawing.Color.Empty;
+            stateProperties33.PlaceholderForeColor = System.Drawing.Color.Empty;
+            this.txtTIN.OnActiveState = stateProperties33;
+            stateProperties34.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(74)))), ((int)(((byte)(79)))), ((int)(((byte)(99)))));
+            stateProperties34.FillColor = System.Drawing.Color.White;
+            stateProperties34.ForeColor = System.Drawing.Color.Empty;
+            stateProperties34.PlaceholderForeColor = System.Drawing.Color.Silver;
+            this.txtTIN.OnDisabledState = stateProperties34;
+            stateProperties35.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(83)))), ((int)(((byte)(180)))), ((int)(((byte)(151)))));
+            stateProperties35.FillColor = System.Drawing.Color.Empty;
+            stateProperties35.ForeColor = System.Drawing.Color.Empty;
+            stateProperties35.PlaceholderForeColor = System.Drawing.Color.Empty;
+            this.txtTIN.OnHoverState = stateProperties35;
+            stateProperties36.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(74)))), ((int)(((byte)(79)))), ((int)(((byte)(99)))));
+            stateProperties36.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(74)))), ((int)(((byte)(79)))), ((int)(((byte)(99)))));
+            stateProperties36.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(244)))), ((int)(((byte)(244)))), ((int)(((byte)(244)))));
+            stateProperties36.PlaceholderForeColor = System.Drawing.Color.Empty;
+            this.txtTIN.OnIdleState = stateProperties36;
+            this.txtTIN.PasswordChar = '\0';
+            this.txtTIN.PlaceholderForeColor = System.Drawing.Color.Gray;
+            this.txtTIN.PlaceholderText = "TIN";
+            this.txtTIN.ReadOnly = false;
+            this.txtTIN.ScrollBars = System.Windows.Forms.ScrollBars.None;
+            this.txtTIN.SelectedText = "";
+            this.txtTIN.SelectionLength = 0;
+            this.txtTIN.SelectionStart = 0;
+            this.txtTIN.ShortcutsEnabled = true;
+            this.txtTIN.Size = new System.Drawing.Size(134, 48);
+            this.txtTIN.Style = Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox._Style.Bunifu;
+            this.txtTIN.TabIndex = 75;
+            this.txtTIN.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            this.txtTIN.TextMarginBottom = 0;
+            this.txtTIN.TextMarginLeft = 5;
+            this.txtTIN.TextMarginTop = 0;
+            this.txtTIN.TextPlaceholder = "TIN";
+            this.txtTIN.UseSystemPasswordChar = false;
+            this.txtTIN.WordWrap = true;
+            // 
+            // bHScroll
+            // 
+            this.bHScroll.AllowCursorChanges = true;
+            this.bHScroll.AllowHomeEndKeysDetection = false;
+            this.bHScroll.AllowIncrementalClickMoves = true;
+            this.bHScroll.AllowMouseDownEffects = true;
+            this.bHScroll.AllowMouseHoverEffects = true;
+            this.bHScroll.AllowScrollingAnimations = true;
+            this.bHScroll.AllowScrollKeysDetection = true;
+            this.bHScroll.AllowScrollOptionsMenu = true;
+            this.bHScroll.AllowShrinkingOnFocusLost = false;
+            this.bHScroll.BackgoundColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(51)))), ((int)(((byte)(73)))));
+            this.bHScroll.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("bHScroll.BackgroundImage")));
+            this.bHScroll.BindingContainer = null;
+            this.bHScroll.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(51)))), ((int)(((byte)(73)))));
+            this.bHScroll.BorderRadius = 14;
+            this.bHScroll.BorderThickness = 1;
+            this.bHScroll.DurationBeforeShrink = 2000;
+            this.bHScroll.LargeChange = 10;
+            this.bHScroll.Location = new System.Drawing.Point(28, 685);
+            this.bHScroll.Maximum = 100;
+            this.bHScroll.Minimum = 0;
+            this.bHScroll.MinimumThumbLength = 18;
+            this.bHScroll.Name = "bHScroll";
+            this.bHScroll.OnDisable.ScrollBarBorderColor = System.Drawing.Color.Silver;
+            this.bHScroll.OnDisable.ScrollBarColor = System.Drawing.Color.Transparent;
+            this.bHScroll.OnDisable.ThumbColor = System.Drawing.Color.Silver;
+            this.bHScroll.ScrollBarBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(51)))), ((int)(((byte)(73)))));
+            this.bHScroll.ScrollBarColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(51)))), ((int)(((byte)(73)))));
+            this.bHScroll.ShrinkSizeLimit = 3;
+            this.bHScroll.Size = new System.Drawing.Size(636, 17);
+            this.bHScroll.SmallChange = 1;
+            this.bHScroll.TabIndex = 76;
+            this.bHScroll.ThumbColor = System.Drawing.Color.Gray;
+            this.bHScroll.ThumbLength = 62;
+            this.bHScroll.ThumbMargin = 1;
+            this.bHScroll.ThumbStyle = Bunifu.UI.WinForms.BunifuHScrollBar.ThumbStyles.Inset;
+            this.bHScroll.Value = 0;
+            this.bHScroll.Scroll += new System.EventHandler<Bunifu.UI.WinForms.BunifuHScrollBar.ScrollEventArgs>(this.bHScroll_Scroll);
+            // 
+            // Column8
+            // 
+            this.Column8.FillWeight = 25F;
+            this.Column8.HeaderText = "";
+            this.Column8.Name = "Column8";
+            this.Column8.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.Column8.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            this.Column8.Width = 36;
+            // 
+            // Column1
+            // 
+            this.Column1.FillWeight = 20F;
+            this.Column1.HeaderText = "ID";
+            this.Column1.Name = "Column1";
+            this.Column1.Visible = false;
+            // 
+            // Column2
+            // 
+            this.Column2.HeaderText = "Item";
+            this.Column2.Name = "Column2";
+            this.Column2.Width = 250;
+            // 
+            // Column3
+            // 
+            this.Column3.HeaderText = "Vendor";
+            this.Column3.Name = "Column3";
+            this.Column3.Width = 250;
+            // 
+            // Column4
+            // 
+            this.Column4.HeaderText = "Address";
+            this.Column4.Name = "Column4";
+            this.Column4.Width = 250;
+            // 
+            // Column5
+            // 
+            this.Column5.HeaderText = "Contact Person";
+            this.Column5.Name = "Column5";
+            this.Column5.Width = 200;
+            // 
+            // Column7
+            // 
+            this.Column7.HeaderText = "Contact Number";
+            this.Column7.Name = "Column7";
+            this.Column7.Width = 200;
+            // 
+            // Column9
+            // 
+            this.Column9.HeaderText = "Email";
+            this.Column9.Name = "Column9";
+            this.Column9.Width = 200;
+            // 
+            // Column10
+            // 
+            this.Column10.FillWeight = 40F;
+            this.Column10.HeaderText = "Terms";
+            this.Column10.Name = "Column10";
+            // 
+            // Column12
+            // 
+            this.Column12.HeaderText = "TIN";
+            this.Column12.Name = "Column12";
+            this.Column12.Width = 120;
+            // 
+            // Column6
+            // 
+            this.Column6.HeaderText = "Status";
+            this.Column6.Name = "Column6";
+            this.Column6.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.Column6.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            this.Column6.Width = 80;
+            // 
+            // Column11
+            // 
+            this.Column11.HeaderText = "";
+            this.Column11.Name = "Column11";
+            this.Column11.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.Column11.Width = 80;
+            // 
+            // Column13
+            // 
+            this.Column13.HeaderText = "Stats";
+            this.Column13.Name = "Column13";
+            this.Column13.Visible = false;
+            // 
             // frmSupplierList
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(51)))), ((int)(((byte)(73)))));
             this.ClientSize = new System.Drawing.Size(1192, 723);
+            this.Controls.Add(this.bHScroll);
+            this.Controls.Add(this.txtTIN);
             this.Controls.Add(this.btnExcel);
             this.Controls.Add(this.btnSave);
             this.Controls.Add(this.txtTerms);
@@ -969,6 +1117,8 @@
         private Bunifu.UI.WinForms.BunifuButton.BunifuButton btnSave;
         private Bunifu.UI.WinForms.BunifuButton.BunifuButton btnExcel;
         private System.Windows.Forms.OpenFileDialog openFile;
+        private Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox txtTIN;
+        private Bunifu.UI.WinForms.BunifuHScrollBar bHScroll;
         private System.Windows.Forms.DataGridViewImageColumn Column8;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
@@ -978,7 +1128,9 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Column7;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column9;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column10;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column12;
         private System.Windows.Forms.DataGridViewImageColumn Column6;
         private System.Windows.Forms.DataGridViewImageColumn Column11;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column13;
     }
 }
