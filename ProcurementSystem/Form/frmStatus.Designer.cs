@@ -49,6 +49,8 @@
             this.cmList = new Guna.UI.WinForms.GunaContextMenuStrip();
             this.tsCancelled = new System.Windows.Forms.ToolStripMenuItem();
             this.tsDelivered = new System.Windows.Forms.ToolStripMenuItem();
+            this.tsPaid = new System.Windows.Forms.ToolStripMenuItem();
+            this.tsBill = new System.Windows.Forms.ToolStripMenuItem();
             this.rbPurchase = new Bunifu.UI.WinForms.BunifuRadioButton();
             this.rbRequest = new Bunifu.UI.WinForms.BunifuRadioButton();
             this.label9 = new System.Windows.Forms.Label();
@@ -62,14 +64,23 @@
             this.Column4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dgvStatsPurchase = new System.Windows.Forms.DataGridView();
+            this.bScrollPurchase = new Bunifu.UI.WinForms.BunifuVScrollBar();
+            this.bHScrollPurchase = new Bunifu.UI.WinForms.BunifuHScrollBar();
             this.dataGridViewImageColumn1 = new System.Windows.Forms.DataGridViewImageColumn();
             this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column8 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn6 = new System.Windows.Forms.DataGridViewImageColumn();
             this.dataGridViewTextBoxColumn7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.bScrollPurchase = new Bunifu.UI.WinForms.BunifuVScrollBar();
+            this.Column9 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column10 = new System.Windows.Forms.DataGridViewImageColumn();
+            this.Column11 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column12 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column13 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.cmList.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvStatsRequest)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvStatsPurchase)).BeginInit();
@@ -190,7 +201,9 @@
             this.cmList.Font = new System.Drawing.Font("Century Gothic", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cmList.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.tsCancelled,
-            this.tsDelivered});
+            this.tsDelivered,
+            this.tsPaid,
+            this.tsBill});
             this.cmList.Name = "cmModify";
             this.cmList.RenderStyle.ArrowColor = System.Drawing.Color.FromArgb(((int)(((byte)(83)))), ((int)(((byte)(180)))), ((int)(((byte)(151)))));
             this.cmList.RenderStyle.BorderColor = System.Drawing.Color.Gainsboro;
@@ -201,7 +214,7 @@
             this.cmList.RenderStyle.SelectionForeColor = System.Drawing.Color.White;
             this.cmList.RenderStyle.SeparatorColor = System.Drawing.Color.Gainsboro;
             this.cmList.RenderStyle.TextRenderingHint = Guna.UI.WinForms.DrawingTextRenderingHint.SystemDefault;
-            this.cmList.Size = new System.Drawing.Size(130, 48);
+            this.cmList.Size = new System.Drawing.Size(130, 92);
             // 
             // tsCancelled
             // 
@@ -222,6 +235,26 @@
             this.tsDelivered.Size = new System.Drawing.Size(129, 22);
             this.tsDelivered.Text = "Delivered";
             this.tsDelivered.Click += new System.EventHandler(this.tsDelivered_Click);
+            // 
+            // tsPaid
+            // 
+            this.tsPaid.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(74)))), ((int)(((byte)(79)))), ((int)(((byte)(99)))));
+            this.tsPaid.Font = new System.Drawing.Font("Montserrat", 8.249999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tsPaid.ForeColor = System.Drawing.Color.White;
+            this.tsPaid.Name = "tsPaid";
+            this.tsPaid.Size = new System.Drawing.Size(129, 22);
+            this.tsPaid.Text = "Paid";
+            this.tsPaid.Click += new System.EventHandler(this.tsPaid_Click);
+            // 
+            // tsBill
+            // 
+            this.tsBill.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(74)))), ((int)(((byte)(79)))), ((int)(((byte)(99)))));
+            this.tsBill.Font = new System.Drawing.Font("Montserrat", 8.249999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tsBill.ForeColor = System.Drawing.Color.White;
+            this.tsBill.Name = "tsBill";
+            this.tsBill.Size = new System.Drawing.Size(129, 22);
+            this.tsBill.Text = "Bill";
+            this.tsBill.Click += new System.EventHandler(this.tsBill_Click);
             // 
             // rbPurchase
             // 
@@ -388,13 +421,12 @@
             this.dgvStatsPurchase.AllowUserToDeleteRows = false;
             this.dgvStatsPurchase.AllowUserToResizeRows = false;
             dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(74)))), ((int)(((byte)(79)))), ((int)(((byte)(99)))));
+            dataGridViewCellStyle5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(51)))), ((int)(((byte)(73)))));
             dataGridViewCellStyle5.Font = new System.Drawing.Font("Montserrat", 8.249999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             dataGridViewCellStyle5.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(244)))), ((int)(((byte)(244)))), ((int)(((byte)(244)))));
-            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(74)))), ((int)(((byte)(79)))), ((int)(((byte)(99)))));
+            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(51)))), ((int)(((byte)(73)))));
             dataGridViewCellStyle5.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(244)))), ((int)(((byte)(244)))), ((int)(((byte)(244)))));
             this.dgvStatsPurchase.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle5;
-            this.dgvStatsPurchase.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgvStatsPurchase.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(51)))), ((int)(((byte)(73)))));
             this.dgvStatsPurchase.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.dgvStatsPurchase.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None;
@@ -415,8 +447,16 @@
             this.dataGridViewTextBoxColumn3,
             this.dataGridViewTextBoxColumn4,
             this.dataGridViewTextBoxColumn5,
+            this.Column6,
+            this.Column7,
+            this.Column8,
             this.dataGridViewTextBoxColumn6,
-            this.dataGridViewTextBoxColumn7});
+            this.dataGridViewTextBoxColumn7,
+            this.Column9,
+            this.Column10,
+            this.Column11,
+            this.Column12,
+            this.Column13});
             dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
             dataGridViewCellStyle7.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(51)))), ((int)(((byte)(73)))));
             dataGridViewCellStyle7.Font = new System.Drawing.Font("Montserrat", 8.249999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -447,58 +487,12 @@
             this.dgvStatsPurchase.Size = new System.Drawing.Size(1091, 589);
             this.dgvStatsPurchase.TabIndex = 300;
             this.dgvStatsPurchase.Visible = false;
+            this.dgvStatsPurchase.CellFormatting += new System.Windows.Forms.DataGridViewCellFormattingEventHandler(this.dgvStatsPurchase_CellFormatting);
             this.dgvStatsPurchase.CellMouseDown += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dgvStatsPurchase_CellMouseDown);
+            this.dgvStatsPurchase.ColumnAdded += new System.Windows.Forms.DataGridViewColumnEventHandler(this.dgvStatsPurchase_ColumnAdded);
+            this.dgvStatsPurchase.ColumnRemoved += new System.Windows.Forms.DataGridViewColumnEventHandler(this.dgvStatsPurchase_ColumnRemoved);
             this.dgvStatsPurchase.RowsAdded += new System.Windows.Forms.DataGridViewRowsAddedEventHandler(this.dgvStatsPurchase_RowsAdded);
             this.dgvStatsPurchase.RowsRemoved += new System.Windows.Forms.DataGridViewRowsRemovedEventHandler(this.dgvStatsPurchase_RowsRemoved);
-            // 
-            // dataGridViewImageColumn1
-            // 
-            this.dataGridViewImageColumn1.FillWeight = 20F;
-            this.dataGridViewImageColumn1.HeaderText = "";
-            this.dataGridViewImageColumn1.Name = "dataGridViewImageColumn1";
-            this.dataGridViewImageColumn1.ReadOnly = true;
-            this.dataGridViewImageColumn1.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridViewImageColumn1.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
-            // 
-            // dataGridViewTextBoxColumn2
-            // 
-            this.dataGridViewTextBoxColumn2.HeaderText = "ID";
-            this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
-            this.dataGridViewTextBoxColumn2.ReadOnly = true;
-            this.dataGridViewTextBoxColumn2.Visible = false;
-            // 
-            // dataGridViewTextBoxColumn3
-            // 
-            this.dataGridViewTextBoxColumn3.HeaderText = "PRFID";
-            this.dataGridViewTextBoxColumn3.Name = "dataGridViewTextBoxColumn3";
-            this.dataGridViewTextBoxColumn3.ReadOnly = true;
-            this.dataGridViewTextBoxColumn3.Visible = false;
-            // 
-            // dataGridViewTextBoxColumn4
-            // 
-            this.dataGridViewTextBoxColumn4.HeaderText = "Purchase Order";
-            this.dataGridViewTextBoxColumn4.Name = "dataGridViewTextBoxColumn4";
-            this.dataGridViewTextBoxColumn4.ReadOnly = true;
-            // 
-            // dataGridViewTextBoxColumn5
-            // 
-            this.dataGridViewTextBoxColumn5.HeaderText = "Purchase Date";
-            this.dataGridViewTextBoxColumn5.Name = "dataGridViewTextBoxColumn5";
-            this.dataGridViewTextBoxColumn5.ReadOnly = true;
-            // 
-            // dataGridViewTextBoxColumn6
-            // 
-            this.dataGridViewTextBoxColumn6.HeaderText = "Purchase Status";
-            this.dataGridViewTextBoxColumn6.Name = "dataGridViewTextBoxColumn6";
-            this.dataGridViewTextBoxColumn6.ReadOnly = true;
-            this.dataGridViewTextBoxColumn6.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridViewTextBoxColumn6.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
-            // 
-            // dataGridViewTextBoxColumn7
-            // 
-            this.dataGridViewTextBoxColumn7.HeaderText = "Delivery Date";
-            this.dataGridViewTextBoxColumn7.Name = "dataGridViewTextBoxColumn7";
-            this.dataGridViewTextBoxColumn7.ReadOnly = true;
             // 
             // bScrollPurchase
             // 
@@ -541,12 +535,168 @@
             this.bScrollPurchase.Visible = false;
             this.bScrollPurchase.Scroll += new System.EventHandler<Bunifu.UI.WinForms.BunifuVScrollBar.ScrollEventArgs>(this.bScrollPurchase_Scroll);
             // 
+            // bHScrollPurchase
+            // 
+            this.bHScrollPurchase.AllowCursorChanges = true;
+            this.bHScrollPurchase.AllowHomeEndKeysDetection = false;
+            this.bHScrollPurchase.AllowIncrementalClickMoves = true;
+            this.bHScrollPurchase.AllowMouseDownEffects = true;
+            this.bHScrollPurchase.AllowMouseHoverEffects = true;
+            this.bHScrollPurchase.AllowScrollingAnimations = true;
+            this.bHScrollPurchase.AllowScrollKeysDetection = true;
+            this.bHScrollPurchase.AllowScrollOptionsMenu = true;
+            this.bHScrollPurchase.AllowShrinkingOnFocusLost = false;
+            this.bHScrollPurchase.BackgoundColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(51)))), ((int)(((byte)(73)))));
+            this.bHScrollPurchase.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("bHScrollPurchase.BackgroundImage")));
+            this.bHScrollPurchase.BindingContainer = null;
+            this.bHScrollPurchase.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(51)))), ((int)(((byte)(73)))));
+            this.bHScrollPurchase.BorderRadius = 14;
+            this.bHScrollPurchase.BorderThickness = 1;
+            this.bHScrollPurchase.DurationBeforeShrink = 2000;
+            this.bHScrollPurchase.LargeChange = 30;
+            this.bHScrollPurchase.Location = new System.Drawing.Point(38, 681);
+            this.bHScrollPurchase.Maximum = 100;
+            this.bHScrollPurchase.Minimum = 0;
+            this.bHScrollPurchase.MinimumThumbLength = 18;
+            this.bHScrollPurchase.Name = "bHScrollPurchase";
+            this.bHScrollPurchase.OnDisable.ScrollBarBorderColor = System.Drawing.Color.Silver;
+            this.bHScrollPurchase.OnDisable.ScrollBarColor = System.Drawing.Color.Transparent;
+            this.bHScrollPurchase.OnDisable.ThumbColor = System.Drawing.Color.Silver;
+            this.bHScrollPurchase.ScrollBarBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(51)))), ((int)(((byte)(73)))));
+            this.bHScrollPurchase.ScrollBarColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(51)))), ((int)(((byte)(73)))));
+            this.bHScrollPurchase.ShrinkSizeLimit = 3;
+            this.bHScrollPurchase.Size = new System.Drawing.Size(363, 17);
+            this.bHScrollPurchase.SmallChange = 1;
+            this.bHScrollPurchase.TabIndex = 302;
+            this.bHScrollPurchase.ThumbColor = System.Drawing.Color.Gray;
+            this.bHScrollPurchase.ThumbLength = 107;
+            this.bHScrollPurchase.ThumbMargin = 1;
+            this.bHScrollPurchase.ThumbStyle = Bunifu.UI.WinForms.BunifuHScrollBar.ThumbStyles.Inset;
+            this.bHScrollPurchase.Value = 0;
+            this.bHScrollPurchase.Visible = false;
+            this.bHScrollPurchase.Scroll += new System.EventHandler<Bunifu.UI.WinForms.BunifuHScrollBar.ScrollEventArgs>(this.bHScrollPurchase_Scroll);
+            // 
+            // dataGridViewImageColumn1
+            // 
+            this.dataGridViewImageColumn1.FillWeight = 20F;
+            this.dataGridViewImageColumn1.HeaderText = "";
+            this.dataGridViewImageColumn1.Name = "dataGridViewImageColumn1";
+            this.dataGridViewImageColumn1.ReadOnly = true;
+            this.dataGridViewImageColumn1.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridViewImageColumn1.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            this.dataGridViewImageColumn1.Width = 70;
+            // 
+            // dataGridViewTextBoxColumn2
+            // 
+            this.dataGridViewTextBoxColumn2.HeaderText = "ID";
+            this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
+            this.dataGridViewTextBoxColumn2.ReadOnly = true;
+            this.dataGridViewTextBoxColumn2.Visible = false;
+            // 
+            // dataGridViewTextBoxColumn3
+            // 
+            this.dataGridViewTextBoxColumn3.HeaderText = "PRFID";
+            this.dataGridViewTextBoxColumn3.Name = "dataGridViewTextBoxColumn3";
+            this.dataGridViewTextBoxColumn3.ReadOnly = true;
+            this.dataGridViewTextBoxColumn3.Visible = false;
+            // 
+            // dataGridViewTextBoxColumn4
+            // 
+            this.dataGridViewTextBoxColumn4.HeaderText = "Purchase Order";
+            this.dataGridViewTextBoxColumn4.Name = "dataGridViewTextBoxColumn4";
+            this.dataGridViewTextBoxColumn4.ReadOnly = true;
+            this.dataGridViewTextBoxColumn4.Width = 150;
+            // 
+            // dataGridViewTextBoxColumn5
+            // 
+            this.dataGridViewTextBoxColumn5.HeaderText = "Purchase Date";
+            this.dataGridViewTextBoxColumn5.Name = "dataGridViewTextBoxColumn5";
+            this.dataGridViewTextBoxColumn5.ReadOnly = true;
+            this.dataGridViewTextBoxColumn5.Width = 150;
+            // 
+            // Column6
+            // 
+            this.Column6.HeaderText = "Client";
+            this.Column6.Name = "Column6";
+            this.Column6.ReadOnly = true;
+            this.Column6.Width = 150;
+            // 
+            // Column7
+            // 
+            this.Column7.FillWeight = 150F;
+            this.Column7.HeaderText = "Request Description";
+            this.Column7.Name = "Column7";
+            this.Column7.ReadOnly = true;
+            this.Column7.Width = 200;
+            // 
+            // Column8
+            // 
+            this.Column8.FillWeight = 50F;
+            this.Column8.HeaderText = "Terms";
+            this.Column8.Name = "Column8";
+            this.Column8.ReadOnly = true;
+            this.Column8.Width = 80;
+            // 
+            // dataGridViewTextBoxColumn6
+            // 
+            this.dataGridViewTextBoxColumn6.HeaderText = "Purchase Status";
+            this.dataGridViewTextBoxColumn6.Name = "dataGridViewTextBoxColumn6";
+            this.dataGridViewTextBoxColumn6.ReadOnly = true;
+            this.dataGridViewTextBoxColumn6.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridViewTextBoxColumn6.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            this.dataGridViewTextBoxColumn6.Width = 150;
+            // 
+            // dataGridViewTextBoxColumn7
+            // 
+            this.dataGridViewTextBoxColumn7.HeaderText = "Delivery Date";
+            this.dataGridViewTextBoxColumn7.Name = "dataGridViewTextBoxColumn7";
+            this.dataGridViewTextBoxColumn7.ReadOnly = true;
+            this.dataGridViewTextBoxColumn7.Width = 150;
+            // 
+            // Column9
+            // 
+            this.Column9.HeaderText = "Paid Date";
+            this.Column9.Name = "Column9";
+            this.Column9.ReadOnly = true;
+            this.Column9.Width = 150;
+            // 
+            // Column10
+            // 
+            this.Column10.HeaderText = "Bill";
+            this.Column10.Name = "Column10";
+            this.Column10.ReadOnly = true;
+            this.Column10.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.Column10.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            this.Column10.Width = 150;
+            // 
+            // Column11
+            // 
+            this.Column11.HeaderText = "Countdown";
+            this.Column11.Name = "Column11";
+            this.Column11.ReadOnly = true;
+            this.Column11.Width = 150;
+            // 
+            // Column12
+            // 
+            this.Column12.HeaderText = "Pbit";
+            this.Column12.Name = "Column12";
+            this.Column12.ReadOnly = true;
+            this.Column12.Visible = false;
+            // 
+            // Column13
+            // 
+            this.Column13.HeaderText = "Bill";
+            this.Column13.Name = "Column13";
+            this.Column13.ReadOnly = true;
+            this.Column13.Visible = false;
+            // 
             // frmStatus
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(51)))), ((int)(((byte)(73)))));
             this.ClientSize = new System.Drawing.Size(1192, 723);
+            this.Controls.Add(this.bHScrollPurchase);
             this.Controls.Add(this.bScrollPurchase);
             this.Controls.Add(this.dgvStatsPurchase);
             this.Controls.Add(this.dgvStatsRequest);
@@ -598,12 +748,23 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Column5;
         private System.Windows.Forms.DataGridView dgvStatsPurchase;
         private Bunifu.UI.WinForms.BunifuVScrollBar bScrollPurchase;
+        private Bunifu.UI.WinForms.BunifuHScrollBar bHScrollPurchase;
+        private System.Windows.Forms.ToolStripMenuItem tsPaid;
+        private System.Windows.Forms.ToolStripMenuItem tsBill;
         private System.Windows.Forms.DataGridViewImageColumn dataGridViewImageColumn1;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn3;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn4;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn5;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column6;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column7;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column8;
         private System.Windows.Forms.DataGridViewImageColumn dataGridViewTextBoxColumn6;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn7;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column9;
+        private System.Windows.Forms.DataGridViewImageColumn Column10;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column11;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column12;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column13;
     }
 }

@@ -113,7 +113,7 @@ namespace ProcurementSystem
                                            "<table style = 'width: 100%'>" +
                                               "<tr>" +
                                                  "<th style='border: 1px solid black; border-collapse: collapse; background: rgb(24, 30, 54); font-color: white'>Item #</th>" +
-                                                 "<th style='border: 1px solid black; border-collapse: collapse; background: rgb(24, 30, 54); font-color: white'>Qty</th>" +
+                                                 "<th style='border: 1px solid black; border-collapse: collapse; background: rgb(24, 30, 54); font-color: white'>Quantity</th>" +
                                                  "<th style='border: 1px solid black; border-collapse: collapse; background: rgb(24, 30, 54); font-color: white'>Description</th>" +
                                               "</tr>" +
                                               rwD +
@@ -309,7 +309,7 @@ namespace ProcurementSystem
                                                  "<th style='border: 1px solid black; border-collapse: collapse; background: rgb(24, 30, 54); font-color: white'>Request Item</th>" +
                                                  "<th style='border: 1px solid black; border-collapse: collapse; background: rgb(24, 30, 54); font-color: white'>Vendor Name</th>" +
                                                  "<th style='border: 1px solid black; border-collapse: collapse; background: rgb(24, 30, 54); font-color: white'>Item</th>" +
-                                                 "<th style='border: 1px solid black; border-collapse: collapse; background: rgb(24, 30, 54); font-color: white'>Quantiy</th>" +
+                                                 "<th style='border: 1px solid black; border-collapse: collapse; background: rgb(24, 30, 54); font-color: white'>Quantity</th>" +
                                                  "<th style='border: 1px solid black; border-collapse: collapse; background: rgb(24, 30, 54); font-color: white'>Cost</th>" +
                                               "</tr>" +
                                               rwP +
@@ -347,6 +347,7 @@ namespace ProcurementSystem
         {
             cmbPRFNum.Text = string.Empty;
             dgvRequestInfo.Rows.Clear();
+            cmbItemProposal.Text = string.Empty;
 
             txtVendorName.Text = string.Empty;
             txtItemProp.Text = string.Empty;

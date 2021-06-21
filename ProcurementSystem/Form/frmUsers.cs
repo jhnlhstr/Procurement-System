@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using ProcurementSystem.Class.DBMethods;
+using Email = Microsoft.Office.Interop.Outlook;
 
 namespace ProcurementSystem
 {
@@ -171,6 +172,26 @@ namespace ProcurementSystem
             if (DBMethods.InsertUserCredentials(txtUsername.Text, txtPassword.Text, txtEmail.Text, cmbRights.Text))
             {
                 MessageBox.Show("Insert User Success!", "", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+
+                //create draft email for account creation
+                Email.Application Outlook;
+                Email.MailItem Mail;
+
+                Outlook = new Email.Application();
+                Mail = Outlook.CreateItem(Microsoft.Office.Interop.Outlook.OlItemType.olMailItem);
+
+                Mail.To = txtEmail.Text;
+
+                Mail.Subject = "Procurement System Credentials";
+
+                Mail.HTMLBody = "Hi, <br><br>" +
+                                "Kindly see details below for your login credentials on the application <br><br>" +
+                                "<b>LOGIN CREDENTIALS DETAILS</b><br>" +
+                                "<b>Username :</b>" + " " + txtUsername.Text + "<br>" +
+                                "<b>Password :</b>" + " " + txtPassword.Text;
+                Mail.Display();
+
                 txtUsername.Text = string.Empty;
                 txtEmail.Text = string.Empty;
                 txtPassword.Text = string.Empty;

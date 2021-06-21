@@ -359,11 +359,11 @@ namespace ProcurementSystem.Class.DBMethods
             }
         }
 
-        public static Boolean InsertPOList(string prfID, int MID, string ponum, string desc, string qty, string uom, string price, string total)
+        public static Boolean InsertPOList(string prfID, int MID, string ponum, string desc, string qty, string uom, string price, string total, string terms, string bit)
         {
             try
             {
-                return DatabaseAccessLayer.UpdateInfomation("INSERT INTO PS.POList VALUES (@prfId, @mid, @ponumber, @desc, @qty, @uom, @price, @total)",
+                return DatabaseAccessLayer.UpdateInfomation("INSERT INTO PS.POList VALUES (@prfId, @mid, @ponumber, @desc, @qty, @uom, @price, @total, @terms, @bit)",
                                                             new SqlParameter("@prfId", prfID),
                                                             new SqlParameter("@mid", MID),
                                                             new SqlParameter("@ponumber", ponum),
@@ -371,7 +371,9 @@ namespace ProcurementSystem.Class.DBMethods
                                                             new SqlParameter("@qty", qty),
                                                             new SqlParameter("@uom", uom),
                                                             new SqlParameter("@price", price),
-                                                            new SqlParameter("@total", total));
+                                                            new SqlParameter("@total", total),
+                                                            new SqlParameter("@terms", terms),
+                                                            new SqlParameter("@bit", bit));
             }
             catch (Exception ex)
             {
@@ -383,7 +385,7 @@ namespace ProcurementSystem.Class.DBMethods
         {
             try
             {
-                return DatabaseAccessLayer.UpdateInfomation("INSERT INTO PS.POStatus VALUES (@mid, @stats, @sdate)",
+                return DatabaseAccessLayer.UpdateInfomation("INSERT INTO PS.POStatus(MID, Stats, SDate) VALUES (@mid, @stats, @sdate)",
                                                             new SqlParameter("@mid", MID),
                                                             new SqlParameter("@stats", "Ongoing"),
                                                             new SqlParameter("@sdate", sDate));
@@ -625,23 +627,25 @@ namespace ProcurementSystem.Class.DBMethods
                 }
                 else
                 {
-                    Dt = DatabaseAccessLayer.RetrieveDataTableInfo("SELECT DISTINCT (SELECT ID FROM PS.POStatus WHERE MID = PL.MID) [StatsID], PL.PRFID, PL.PONumber," +
-                                                                   " (SELECT PODate FROM PS.AutoPO WHERE ID = PL.MID) [Purchase Date]," +
-                                                                   " (SELECT Stats FROM PS.POStatus WHERE MID = PL.MID) [PO Status]," +
-                                                                   " (SELECT SDate FROM PS.POStatus WHERE MID = PL.MID) [Stats Date]" +
-                                                                   " FROM PS.PurchaseRequest PR INNER JOIN PS.POList PL ON PR.RPRID = PL.PRFID" + 
-                                                                   " ORDER BY PL.PRFID DESC");
+                    Dt = DatabaseAccessLayer.RetrieveDataTableInfo("SELECT *," +
+                                                                   " CASE WHEN Pbit = 'True' THEN" +
+                                                                   "     CASE WHEN PO_Status = 'Delivered' THEN" +
+                                                                   "         CASE WHEN Paid_Date IS NOT NULL THEN DATEDIFF(DAY, Status_Date, Paid_Date)" +
+                                                                   "         ELSE DATEDIFF(DAY, Status_Date, GETDATE()) END" +
+                                                                   "     ELSE '0' END" +
+                                                                   " ELSE '0' END [CountTerms] FROM (" +
+                                                                   " SELECT DISTINCT(SELECT ID FROM PS.POStatus WHERE MID = PL.MID) [StatsID], PL.PRFID, PL.PONumber," +
+                                                                   " (SELECT PODate FROM PS.AutoPO WHERE ID = PL.MID) [Purchase_Date], PR.RDesc, PR.RAccount, PL.PTerms, PL.Pbit," +
+                                                                   " (SELECT Stats FROM PS.POStatus WHERE MID = PL.MID) [PO_Status]," +
+                                                                   " (SELECT SDate FROM PS.POStatus WHERE MID = PL.MID) [Status_Date]," +
+                                                                   " (SELECT PaidDate FROM PS.POStatus WHERE MID = PL.MID) [Paid_Date]," +
+                                                                   " (SELECT Bill FROM PS.POStatus WHERE MID = PL.MID) [Bill]" +
+                                                                   " FROM PS.PurchaseRequest PR INNER JOIN PS.POList PL ON PR.RPRID = PL.PRFID) TB1" +
+                                                                   " ORDER BY PRFID DESC");
                 }
 
                 return Dt;
-
-                //return DatabaseAccessLayer.RetrieveDataTableInfo("SELECT DISTINCT PR.RPRID, PR.RPRNum [Request], PR.RStatus [Request Status], PL.PONumber [PO]," +
-                //                                                 " (SELECT PODate FROM PS.AutoPO WHERE ID = PL.MID) [Purchase Date]," +
-                //                                                 " (SELECT Stats FROM PS.POStatus WHERE MID = PL.MID) [PO Status]," +
-                //                                                 " (SELECT SDate FROM PS.POStatus WHERE MID = PL.MID) [Stats Date]," +
-                //                                                 " (SELECT ID FROM PS.POStatus WHERE MID = PL.MID) [StatsID]" +
-                //                                                 " FROM PS.PurchaseRequest PR INNER JOIN PS.POList PL ON PR.RPRID = PL.PRFID" +
-                //                                                 " ORDER BY RPRID DESC");
+            
             }
             catch(Exception ex)
             {
@@ -667,6 +671,35 @@ namespace ProcurementSystem.Class.DBMethods
                 throw new Exception("Error in updating purchase status" + Environment.NewLine + ex.Message.ToString(), ex);
             }
         }
+
+        public static Boolean UpdatePurchaseStatusPaid(string Id)
+        {
+            try
+            {
+                return DatabaseAccessLayer.UpdateInfomation("UPDATE PS.POStatus SET PaidDate = @paid WHERE ID = @Id",
+                                                            new SqlParameter("@paid", DateTime.Now.ToString("MM/dd/yyyy")),
+                                                            new SqlParameter("@Id", Id));
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("Error in updating purchase paid date" + Environment.NewLine + ex.Message.ToString(), ex);
+            }
+        }
+
+        public static Boolean UpdatePurchaseStatusBilled(string Id, string bill)
+        {
+            try
+            {
+                return DatabaseAccessLayer.UpdateInfomation("UPDATE PS.POStatus SET Bill = @bill WHERE ID = @Id",
+                                                            new SqlParameter("@bill", bill),
+                                                            new SqlParameter("@Id", Id));
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("Error in updating purchase billed" + Environment.NewLine + ex.Message.ToString(), ex);
+            }
+        }
+
 
 
 
