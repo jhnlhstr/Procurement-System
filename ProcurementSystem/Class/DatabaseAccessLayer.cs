@@ -204,11 +204,9 @@ namespace ProcurementSystem.Class.AccessLayer
             }
         }
 
-
-        public static int UpdateInfomationProcPRID(string query, params SqlParameter[] _Params)
+        public static Boolean UpdateInfomationStoredProc(string query, params SqlParameter[] _Params)
         {
             SqlCommand myCommand = null;
-            int sId = 0;
 
             try
             {
@@ -225,15 +223,11 @@ namespace ProcurementSystem.Class.AccessLayer
                     {
                         myCommand.Parameters.Add(param);
                     }
-
-                    myCommand.Parameters["@pId"].Direction = ParameterDirection.Output;
                 }
 
                 myCommand.ExecuteNonQuery();
 
-                sId = Convert.ToInt32(myCommand.Parameters["@pId"].Value);
-
-                return sId;
+                return true;
             }
             catch (Exception ex)
             {
@@ -248,6 +242,9 @@ namespace ProcurementSystem.Class.AccessLayer
                 }
             }
         }
+
+
+
 
 
         //-------------------------------------------- BATCH UPLOAD EXCEL -------------------------------------------------------

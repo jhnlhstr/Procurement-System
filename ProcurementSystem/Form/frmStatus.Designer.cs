@@ -624,7 +624,7 @@
             // Column7
             // 
             this.Column7.FillWeight = 150F;
-            this.Column7.HeaderText = "Request Description";
+            this.Column7.HeaderText = "Purchase Description";
             this.Column7.Name = "Column7";
             this.Column7.ReadOnly = true;
             this.Column7.Width = 200;

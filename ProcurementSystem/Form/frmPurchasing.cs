@@ -1024,13 +1024,22 @@ namespace ProcurementSystem
 
                     if (dgvPurchaseOrder.Rows.Count > 0)
                     {
-                        DBMethods.InsertPOStatus(pId, DateTime.Now.ToString("MM/dd/yyyy"));
-
+                        //DBMethods.InsertPOStatus(pId, DateTime.Now.ToString("MM/dd/yyyy"));
                         for (int p = 0; p <= dgvPurchaseOrder.Rows.Count - 1; p++)
                         {
-                            DBMethods.InsertPOList(prfNumber, pId, _poNum, dgvPurchaseOrder.Rows[p].Cells[1].Value.ToString(), dgvPurchaseOrder.Rows[p].Cells[2].Value.ToString(),
+                            if (dgvPurchaseOrder.Rows[p].Cells[2].Value.ToString() != string.Empty)
+                            {
+                                DBMethods.InsertPOList(prfNumber, pId, _poNum, dgvPurchaseOrder.Rows[p].Cells[1].Value.ToString(), dgvPurchaseOrder.Rows[p].Cells[2].Value.ToString(),
                                                    dgvPurchaseOrder.Rows[p].Cells[3].Value.ToString(), dgvPurchaseOrder.Rows[p].Cells[4].Value.ToString(),
                                                    dgvPurchaseOrder.Rows[p].Cells[5].Value.ToString(), txtTermsPO.Text, chkTermsPO.Checked == true ? "True" : "False");
+                            }
+                            else
+                            {
+                                //for charges and details
+                                DBMethods.InsertPOListOtherDetails(prfNumber, pId, _poNum, dgvPurchaseOrder.Rows[p].Cells[1].Value.ToString(), dgvPurchaseOrder.Rows[p].Cells[2].Value.ToString(),
+                                                   dgvPurchaseOrder.Rows[p].Cells[3].Value.ToString(), dgvPurchaseOrder.Rows[p].Cells[4].Value.ToString(),
+                                                   dgvPurchaseOrder.Rows[p].Cells[5].Value.ToString(), txtTermsPO.Text, chkTermsPO.Checked == true ? "True" : "False");
+                            }
                         }
                     }
 

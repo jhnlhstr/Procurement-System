@@ -83,7 +83,7 @@ namespace ProcurementSystem
                 {
                     dgvStatsPurchase.Rows.Add(new object[] { imageList1.Images[0], DtPurchase.Rows[i]["StatsID"].ToString(), DtPurchase.Rows[i]["PRFID"].ToString(),
                                                             DtPurchase.Rows[i]["PONumber"].ToString(), Convert.ToDateTime(DtPurchase.Rows[i]["Purchase_Date"]).ToString("MMM dd, yyyy"),
-                                                            DtPurchase.Rows[i]["RAccount"].ToString(), DtPurchase.Rows[i]["RDesc"].ToString(),
+                                                            DtPurchase.Rows[i]["RAccount"].ToString(), DtPurchase.Rows[i]["PDescription"].ToString(),
                                                             DtPurchase.Rows[i]["PTerms"].ToString(),
                                                             DtPurchase.Rows[i]["PO_Status"].ToString().ToLower() == "ongoing" ? imageList1.Images[2] :
                                                                 DtPurchase.Rows[i]["PO_Status"].ToString().ToLower() == "delivered" ? imageList1.Images[4] : imageList1.Images[3],

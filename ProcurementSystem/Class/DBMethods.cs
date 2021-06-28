@@ -359,7 +359,31 @@ namespace ProcurementSystem.Class.DBMethods
             }
         }
 
-        public static Boolean InsertPOList(string prfID, int MID, string ponum, string desc, string qty, string uom, string price, string total, string terms, string bit)
+        public static Boolean InsertPOList(string prfid, int mid, string ponum, string pdesc, string pqty, string puom, string unit, string total, string terms, string bit)
+        {
+            try
+            {
+                return DatabaseAccessLayer.UpdateInfomationStoredProc("PS.uspPOList",
+                                                                    new SqlParameter("@prfID", prfid),
+                                                                    new SqlParameter("@MID", mid),
+                                                                    new SqlParameter("@ponumber", ponum),
+                                                                    new SqlParameter("@pdesc", pdesc),
+                                                                    new SqlParameter("@pQty", pqty),
+                                                                    new SqlParameter("@puom", puom),
+                                                                    new SqlParameter("@punit", unit),
+                                                                    new SqlParameter("@ptotal", total),
+                                                                    new SqlParameter("@pterms", terms),
+                                                                    new SqlParameter("@pbit", bit),
+                                                                    new SqlParameter("@stats", "Ongoing"),
+                                                                    new SqlParameter("@sdate", DateTime.Now.ToString("MM/dd/yyyy")));
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("Error in inserting po details" + Environment.NewLine + ex.Message.ToString(), ex);
+            }
+        }
+
+        public static Boolean InsertPOListOtherDetails(string prfID, int MID, string ponum, string desc, string qty, string uom, string price, string total, string terms, string bit)
         {
             try
             {
@@ -627,20 +651,22 @@ namespace ProcurementSystem.Class.DBMethods
                 }
                 else
                 {
-                    Dt = DatabaseAccessLayer.RetrieveDataTableInfo("SELECT *," +
+                    Dt = DatabaseAccessLayer.RetrieveDataTableInfo("SELECT * FROM (" + 
+                                                                   " SELECT *," +
                                                                    " CASE WHEN Pbit = 'True' THEN" +
                                                                    "     CASE WHEN PO_Status = 'Delivered' THEN" +
                                                                    "         CASE WHEN Paid_Date IS NOT NULL THEN DATEDIFF(DAY, Status_Date, Paid_Date)" +
                                                                    "         ELSE DATEDIFF(DAY, Status_Date, GETDATE()) END" +
                                                                    "     ELSE '0' END" +
                                                                    " ELSE '0' END [CountTerms] FROM (" +
-                                                                   " SELECT DISTINCT(SELECT ID FROM PS.POStatus WHERE MID = PL.MID) [StatsID], PL.PRFID, PL.PONumber," +
-                                                                   " (SELECT PODate FROM PS.AutoPO WHERE ID = PL.MID) [Purchase_Date], PR.RDesc, PR.RAccount, PL.PTerms, PL.Pbit," +
-                                                                   " (SELECT Stats FROM PS.POStatus WHERE MID = PL.MID) [PO_Status]," +
-                                                                   " (SELECT SDate FROM PS.POStatus WHERE MID = PL.MID) [Status_Date]," +
-                                                                   " (SELECT PaidDate FROM PS.POStatus WHERE MID = PL.MID) [Paid_Date]," +
-                                                                   " (SELECT Bill FROM PS.POStatus WHERE MID = PL.MID) [Bill]" +
-                                                                   " FROM PS.PurchaseRequest PR INNER JOIN PS.POList PL ON PR.RPRID = PL.PRFID) TB1" +
+                                                                   " SELECT DISTINCT(SELECT ID FROM PS.POStatus WHERE MID = PL.ID) [StatsID], PL.PRFID, PL.PONumber," +
+                                                                   " (SELECT PODate FROM PS.AutoPO WHERE ID = PL.MID) [Purchase_Date], PL.PDescription, PR.RAccount, PL.PTerms, PL.Pbit," +
+                                                                   " (SELECT Stats FROM PS.POStatus WHERE MID = PL.ID) [PO_Status]," +
+                                                                   " (SELECT SDate FROM PS.POStatus WHERE MID = PL.ID) [Status_Date]," +
+                                                                   " (SELECT PaidDate FROM PS.POStatus WHERE MID = PL.ID) [Paid_Date]," +
+                                                                   " (SELECT Bill FROM PS.POStatus WHERE MID = PL.ID) [Bill]" +
+                                                                   " FROM PS.PurchaseRequest PR INNER JOIN PS.POList PL ON PR.RPRID = PL.PRFID) TB1) TB2" +
+                                                                   " WHERE StatsID IS NOT NULL" +
                                                                    " ORDER BY PRFID DESC");
                 }
 
